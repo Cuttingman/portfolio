@@ -8,13 +8,15 @@ interface ThumbnailSliderProps {
   interval?: number; // duration between slides in ms
   className?: string;
   imgClassName?: string;
+  randomize?: boolean; // whether to pick the next image randomly
 }
 
-export function ThumbnailSlider({ 
-  images, 
-  interval = 3500, 
-  className = "", 
-  imgClassName = "w-full h-full object-cover" 
+export function ThumbnailSlider({
+  images,
+  interval = 3500,
+  className = "",
+  imgClassName = "w-full h-full object-cover",
+  randomize = false
 }: ThumbnailSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -23,7 +25,16 @@ export function ThumbnailSlider({
     if (images.length <= 1) return;
 
     const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setCurrentIndex((prevIndex) => {
+        if (randomize) {
+          let nextIndex = prevIndex;
+          while (nextIndex === prevIndex) {
+            nextIndex = Math.floor(Math.random() * images.length);
+          }
+          return nextIndex;
+        }
+        return (prevIndex + 1) % images.length;
+      });
     }, interval);
 
     return () => clearInterval(timer);

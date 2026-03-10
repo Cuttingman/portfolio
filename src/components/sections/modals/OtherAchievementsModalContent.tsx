@@ -31,7 +31,7 @@ export function OtherAchievementsModalContent() {
         <div className="prose prose-lg dark:prose-invert max-w-7xl mx-auto w-full pb-24">
             {/* Title */}
             <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-16 pb-4 font-sans border-b border-gray-700 text-white">
-                그외 성과 (Other Achievements)
+                그외 성과
             </h2>
 
             <div className="space-y-24">

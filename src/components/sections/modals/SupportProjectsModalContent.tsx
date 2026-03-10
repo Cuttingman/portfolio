@@ -28,11 +28,11 @@ export function SupportProjectsModalContent() {
     <div className="prose prose-lg dark:prose-invert max-w-7xl mx-auto w-full">
       {/* Title */}
       <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-16 pb-4 font-sans border-b border-gray-700 text-white">
-        지원 사업 (Support Projects)
+        지원 사업
       </h2>
 
       <div className="space-y-24">
-        
+
         {/* Item 1: Tokyo Game Show */}
         <div className="space-y-8">
           <div>
@@ -45,29 +45,29 @@ export function SupportProjectsModalContent() {
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <GalleryImageTrigger 
-              src={supportGalleryImages[0].src} 
-              alt={supportGalleryImages[0].alt} 
-              index={0} 
-              onClick={setGalleryIndex} 
-              className="aspect-square md:aspect-auto md:h-64 block w-full" 
-              imgClassName="w-full h-full object-cover rounded-3xl" 
+            <GalleryImageTrigger
+              src={supportGalleryImages[0].src}
+              alt={supportGalleryImages[0].alt}
+              index={0}
+              onClick={setGalleryIndex}
+              className="aspect-square md:aspect-auto md:h-64 block w-full"
+              imgClassName="w-full h-full object-cover rounded-3xl"
             />
-            <GalleryImageTrigger 
-              src={supportGalleryImages[1].src} 
-              alt={supportGalleryImages[1].alt} 
-              index={1} 
-              onClick={setGalleryIndex} 
-              className="aspect-square md:aspect-auto md:h-64 block w-full" 
-              imgClassName="w-full h-full object-cover rounded-3xl" 
+            <GalleryImageTrigger
+              src={supportGalleryImages[1].src}
+              alt={supportGalleryImages[1].alt}
+              index={1}
+              onClick={setGalleryIndex}
+              className="aspect-square md:aspect-auto md:h-64 block w-full"
+              imgClassName="w-full h-full object-cover rounded-3xl"
             />
-            <GalleryImageTrigger 
-              src={supportGalleryImages[2].src} 
-              alt={supportGalleryImages[2].alt} 
-              index={2} 
-              onClick={setGalleryIndex} 
-              className="aspect-square md:aspect-auto md:h-64 block w-full" 
-              imgClassName="w-full h-full object-cover rounded-3xl" 
+            <GalleryImageTrigger
+              src={supportGalleryImages[2].src}
+              alt={supportGalleryImages[2].alt}
+              index={2}
+              onClick={setGalleryIndex}
+              className="aspect-square md:aspect-auto md:h-64 block w-full"
+              imgClassName="w-full h-full object-cover rounded-3xl"
             />
           </div>
         </div>
@@ -84,46 +84,46 @@ export function SupportProjectsModalContent() {
             </div>
           </div>
           <div className="grid grid-cols-1 gap-6">
-            <GalleryImageTrigger 
-              src={supportGalleryImages[3].src} 
-              alt={supportGalleryImages[3].alt} 
-              index={3} 
-              onClick={setGalleryIndex} 
-              className="aspect-video md:aspect-[21/9] block w-full" 
-              imgClassName="w-full h-full object-cover rounded-3xl" 
+            <GalleryImageTrigger
+              src={supportGalleryImages[3].src}
+              alt={supportGalleryImages[3].alt}
+              index={3}
+              onClick={setGalleryIndex}
+              className="aspect-video md:aspect-[21/9] block w-full"
+              imgClassName="w-full h-full object-cover rounded-3xl"
             />
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <GalleryImageTrigger 
-                src={supportGalleryImages[4].src} 
-                alt={supportGalleryImages[4].alt} 
-                index={4} 
-                onClick={setGalleryIndex} 
-                className="aspect-square block w-full" 
-                imgClassName="w-full h-full object-cover rounded-3xl" 
+              <GalleryImageTrigger
+                src={supportGalleryImages[4].src}
+                alt={supportGalleryImages[4].alt}
+                index={4}
+                onClick={setGalleryIndex}
+                className="aspect-square block w-full"
+                imgClassName="w-full h-full object-cover rounded-3xl"
               />
-              <GalleryImageTrigger 
-                src={supportGalleryImages[5].src} 
-                alt={supportGalleryImages[5].alt} 
-                index={5} 
-                onClick={setGalleryIndex} 
-                className="aspect-square block w-full" 
-                imgClassName="w-full h-full object-cover rounded-3xl" 
+              <GalleryImageTrigger
+                src={supportGalleryImages[5].src}
+                alt={supportGalleryImages[5].alt}
+                index={5}
+                onClick={setGalleryIndex}
+                className="aspect-square block w-full"
+                imgClassName="w-full h-full object-cover rounded-3xl"
               />
-              <GalleryImageTrigger 
-                src={supportGalleryImages[6].src} 
-                alt={supportGalleryImages[6].alt} 
-                index={6} 
-                onClick={setGalleryIndex} 
-                className="aspect-square block w-full" 
-                imgClassName="w-full h-full object-cover rounded-3xl" 
+              <GalleryImageTrigger
+                src={supportGalleryImages[6].src}
+                alt={supportGalleryImages[6].alt}
+                index={6}
+                onClick={setGalleryIndex}
+                className="aspect-square block w-full"
+                imgClassName="w-full h-full object-cover rounded-3xl"
               />
-              <GalleryImageTrigger 
-                src={supportGalleryImages[7].src} 
-                alt={supportGalleryImages[7].alt} 
-                index={7} 
-                onClick={setGalleryIndex} 
-                className="aspect-square block w-full" 
-                imgClassName="w-full h-full object-cover rounded-3xl" 
+              <GalleryImageTrigger
+                src={supportGalleryImages[7].src}
+                alt={supportGalleryImages[7].alt}
+                index={7}
+                onClick={setGalleryIndex}
+                className="aspect-square block w-full"
+                imgClassName="w-full h-full object-cover rounded-3xl"
               />
             </div>
           </div>
@@ -139,37 +139,37 @@ export function SupportProjectsModalContent() {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-6">
-             <GalleryImageTrigger 
-              src={supportGalleryImages[8].src} 
-              alt={supportGalleryImages[8].alt} 
-              index={8} 
-              onClick={setGalleryIndex} 
-              className="aspect-video block w-full" 
-              imgClassName="w-full h-full object-cover rounded-3xl" 
+            <GalleryImageTrigger
+              src={supportGalleryImages[8].src}
+              alt={supportGalleryImages[8].alt}
+              index={8}
+              onClick={setGalleryIndex}
+              className="aspect-video block w-full"
+              imgClassName="w-full h-full object-cover rounded-3xl"
             />
-            <GalleryImageTrigger 
-              src={supportGalleryImages[9].src} 
-              alt={supportGalleryImages[9].alt} 
-              index={9} 
-              onClick={setGalleryIndex} 
-              className="aspect-video block w-full" 
-              imgClassName="w-full h-full object-cover rounded-3xl" 
+            <GalleryImageTrigger
+              src={supportGalleryImages[9].src}
+              alt={supportGalleryImages[9].alt}
+              index={9}
+              onClick={setGalleryIndex}
+              className="aspect-video block w-full"
+              imgClassName="w-full h-full object-cover rounded-3xl"
             />
-            <GalleryImageTrigger 
-              src={supportGalleryImages[10].src} 
-              alt={supportGalleryImages[10].alt} 
-              index={10} 
-              onClick={setGalleryIndex} 
-              className="aspect-video block w-full" 
-              imgClassName="w-full h-full object-cover rounded-3xl" 
+            <GalleryImageTrigger
+              src={supportGalleryImages[10].src}
+              alt={supportGalleryImages[10].alt}
+              index={10}
+              onClick={setGalleryIndex}
+              className="aspect-video block w-full"
+              imgClassName="w-full h-full object-cover rounded-3xl"
             />
-            <GalleryImageTrigger 
-              src={supportGalleryImages[11].src} 
-              alt={supportGalleryImages[11].alt} 
-              index={11} 
-              onClick={setGalleryIndex} 
-              className="aspect-video block w-full" 
-              imgClassName="w-full h-full object-cover rounded-3xl" 
+            <GalleryImageTrigger
+              src={supportGalleryImages[11].src}
+              alt={supportGalleryImages[11].alt}
+              index={11}
+              onClick={setGalleryIndex}
+              className="aspect-video block w-full"
+              imgClassName="w-full h-full object-cover rounded-3xl"
             />
           </div>
         </div>
@@ -178,7 +178,7 @@ export function SupportProjectsModalContent() {
         <div className="pt-16 border-t border-gray-800">
           <h3 className="text-2xl font-bold mb-8 font-sans text-white">주요 지원사업 리스트</h3>
           <div className="grid grid-cols-1 gap-6">
-            
+
             {/* Item 4 */}
             <div className="p-6 bg-[#111] rounded-2xl border border-white/5 flex flex-col md:flex-row md:items-center justify-between gap-4">
               <span className="text-lg font-semibold text-gray-100">플랫폼 변환 지원사업 선정</span>
@@ -237,7 +237,7 @@ export function SupportProjectsModalContent() {
         </div>
       </div>
 
-      <GalleryLightbox 
+      <GalleryLightbox
         images={supportGalleryImages}
         isOpen={galleryIndex !== null}
         currentIndex={galleryIndex ?? 0}

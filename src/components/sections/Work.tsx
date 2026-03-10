@@ -46,8 +46,9 @@ const projects: ProjectData[] = [
     role: "자체 IP 제작, 모바일 게임 제작, AR 그림책 제작 및 경영",
     summary: "피그플랜트 AR 그림책, 피그로맨스 모바일 게임 제작",
     images: [
-      "/image/pigplant_photo_3.jpg",
-      "/image/pigplant_photo_4.jpg",
+      "/image/2018_startup_award.png",
+      "/image/pigplant_demo_1.jpg",
+      "/image/pigplant_demo_2.jpg",
     ],
     description:
       "개인 사업자 시절 피그로맨스의 초기 형태 및 피그플랜트 AR 그림책 유통",
@@ -61,9 +62,9 @@ const projects: ProjectData[] = [
     summary:
       "동대문 DDP 개관전시, 칸타타 티저 영상 제작, 김밥왕 프렌차이즈 디자인",
     images: [
-      "/image/01-04.png",
-      "/image/05-08.png",
-      "/image/poster-3-2.jpg",
+      "/image/1.png",
+      "/image/2.png",
+      "/image/gimbapking_poster_1.jpg",
     ],
     description: "다양한 시각 콘텐츠 디자인, 영상 제작 및 솔루션 제공",
     modalContent: <ToyLabModalContent />,
@@ -101,7 +102,7 @@ export function WorkSection() {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mb-32"
         >
-          <h1 className="text-7xl md:text-9xl font-black tracking-tighter md:tracking-[-0.08em] leading-[0.9] mb-12 font-sans overflow-hidden py-2">
+          <h1 className="text-7xl md:text-9xl font-black tracking-tighter md:tracking-[-0.08em] leading-[0.9] mb-12 font-sans overflow-hidden py-2 text-white">
             WORK
           </h1>
           <p className="text-xl md:text-2xl text-white/90 max-w-4xl font-medium leading-[1.8] break-keep">
@@ -125,18 +126,20 @@ export function WorkSection() {
               >
                 {/* Slider Component */}
                 <div className="absolute inset-0 w-full h-full transition-transform duration-[1.5s] ease-out group-hover:scale-[1.03]">
-                  <ThumbnailSlider images={project.images} />
+                  <ThumbnailSlider images={project.images} randomize={true} />
                 </div>
 
-                {/* Dark Gradient Overlay for text readability */}
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-500 z-10" />
+                {/* Bright / White Overlay */}
+                <div className="absolute inset-0 transition-colors duration-500 z-10 bg-white/20 mix-blend-overlay group-hover:bg-white/40 pointer-events-none" />
+                {/* Subtle dark gradient for text readability without being muddy */}
+                <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/50 via-black/20 to-transparent z-10 pointer-events-none" />
 
                 {/* Centered Text Container */}
                 <div className="absolute inset-0 z-20 flex flex-col items-center justify-center p-6 text-center">
-                  <h2 className="text-3xl font-bold tracking-tight mb-2 text-white drop-shadow-md font-sans transition-transform duration-500 group-hover:scale-105">
+                  <h2 className="text-3xl font-bold tracking-tight mb-2 text-white font-sans transition-transform duration-500 group-hover:scale-105" style={{ textShadow: "0px 2px 8px rgba(0, 0, 0, 0.6), 0px 1px 2px rgba(0, 0, 0, 0.4)" }}>
                     {project.title}
                   </h2>
-                  <h3 className="text-sm font-medium text-white/80 tracking-widest uppercase mb-4 block drop-shadow-sm truncate w-full transition-transform duration-500 group-hover:scale-105">
+                  <h3 className="text-sm font-medium text-white/80 tracking-widest uppercase mb-4 block truncate w-full transition-transform duration-500 group-hover:scale-105" style={{ textShadow: "0px 1px 4px rgba(0, 0, 0, 0.8)" }}>
                     {project.summary}
                   </h3>
                 </div>

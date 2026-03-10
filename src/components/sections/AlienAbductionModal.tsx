@@ -2,9 +2,9 @@ import { useState } from "react";
 import { GalleryLightbox, GalleryImageTrigger, GalleryImageDef } from "@/components/ui/GalleryLightbox";
 
 export const alienAbductionGalleryImages: GalleryImageDef[] = [
-  { src: "/image/asset_ce39f237.jpg", alt: "2018 창업발전소 우수상" },
-  { src: "/image/pigplant_photo_3.jpg", alt: "피그플랜트 게임 시연 1" },
-  { src: "/image/pigplant_photo_4.jpg", alt: "피그플랜트 게임 시연 2" },
+  { src: "/image/2018_startup_award.png", alt: "2018 창업발전소 우수상" },
+  { src: "/image/pigplant_demo_1.jpg", alt: "피그플랜트 게임 시연 1" },
+  { src: "/image/pigplant_demo_2.jpg", alt: "피그플랜트 게임 시연 2" },
 ];
 
 export function AlienAbductionModalContent() {
@@ -24,7 +24,7 @@ export function AlienAbductionModalContent() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-24 items-start">
-          <div className="lg:col-span-4 flex flex-col gap-6 sticky top-24">
+          <div className="lg:col-span-4 flex flex-col gap-6">
             <h3 className="text-3xl font-black font-sans text-white tracking-tighter">
               외계인납치작전 (개인)
             </h3>
@@ -80,7 +80,7 @@ export function AlienAbductionModalContent() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
                 <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-white/90 border border-white/10 hover:shadow-xl transition-shadow">
                   <GalleryImageTrigger
-                    src="/image/asset_ce39f237.jpg"
+                    src="/image/2018_startup_award.png"
                     alt="2018 창업발전소 우수상"
                     index={0}
                     imgClassName="w-full h-full object-cover m-0"
@@ -90,7 +90,7 @@ export function AlienAbductionModalContent() {
                 </div>
                 <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-black/50 border border-white/10 hover:shadow-xl transition-shadow">
                   <GalleryImageTrigger
-                    src="/image/pigplant_photo_3.jpg"
+                    src="/image/pigplant_demo_1.jpg"
                     alt="피그플랜트 게임 시연 1"
                     index={1}
                     imgClassName="w-full h-full object-cover m-0"
@@ -100,7 +100,7 @@ export function AlienAbductionModalContent() {
                 </div>
                 <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-black/50 border border-white/10 hover:shadow-xl transition-shadow">
                   <GalleryImageTrigger
-                    src="/image/pigplant_photo_4.jpg"
+                    src="/image/pigplant_demo_2.jpg"
                     alt="피그플랜트 게임 시연 2"
                     index={2}
                     imgClassName="w-full h-full object-cover m-0"

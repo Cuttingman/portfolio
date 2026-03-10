@@ -50,10 +50,12 @@ const categories: ArchiveCategory[] = [
     id: "activities",
     title: "▪️ 대외 활동",
     images: [
-      "/image/asset_0b96d28c.png",
+      "/image/asset_76921158.jpg",
       "/image/asset_59ac4aaa.jpg",
-      "/image/타이포강의2.jpg",
-      "/image/타이포강의3.jpg"
+      "/image/asset_0b96d28c.png",
+      "/image/asset_3c06cae3.png",
+      "/image/asset_dc89b0f2.png",
+      "/image/IMG_8230.png"
     ],
   },
   {
@@ -88,7 +90,7 @@ export function ArchiveSection() {
   };
 
   return (
-    <section id="archive" className="bg-[#F5F5F7] text-black transition-colors duration-1000 w-full">
+    <section id="archive" className="bg-[#F23E19] text-white transition-colors duration-1000 w-full">
       <div className="container mx-auto px-12 md:px-24 pt-32 pb-48 min-h-screen scroll-mt-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -99,7 +101,7 @@ export function ArchiveSection() {
           <h1 className="text-7xl md:text-9xl font-black tracking-tighter md:tracking-[-0.08em] leading-[0.9] mb-12 font-sans overflow-hidden py-2">
             ARCHIVE
           </h1>
-          <p className="text-xl md:text-2xl text-black/90 font-medium leading-[1.8] break-keep max-w-4xl">
+          <p className="text-xl md:text-2xl text-white/90 font-medium leading-[1.8] break-keep max-w-4xl">
             주요 성과 및 활동 기록 수집
           </p>
         </motion.div>
@@ -115,22 +117,25 @@ export function ArchiveSection() {
               className="group cursor-pointer flex flex-col"
               onClick={() => setActiveModal(category.id)}
             >
-              <div className="relative w-full aspect-video overflow-hidden mb-6 border border-black/20 shadow-sm transition-all duration-500 rounded-3xl group-hover:-translate-y-2 group-hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.3)] bg-[#111]">
+              <div className="relative w-full aspect-video overflow-hidden mb-6 shadow-sm transition-all duration-500 rounded-3xl group-hover:-translate-y-2 group-hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.3)] bg-[#111]">
                 {/* Images Container */}
                 <div className="absolute inset-0 w-full h-full transition-transform duration-[1.5s] ease-out group-hover:scale-[1.03]">
                   <BannerCrossfade
                     images={category.images}
                     interval={6000}
                     className="w-full h-full absolute inset-0"
+                    randomize={true}
                   />
                 </div>
 
-                {/* Dark Gradient Overlay for text readability */}
-                <div className="absolute inset-0 transition-colors duration-500 z-10 bg-black/40 group-hover:bg-black/60 pointer-events-none" />
+                {/* Bright / White Overlay */}
+                <div className="absolute inset-0 transition-colors duration-500 z-10 bg-white/20 mix-blend-overlay group-hover:bg-white/40 pointer-events-none" />
+                {/* Subtle dark gradient for text readability without being muddy */}
+                <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/50 via-black/20 to-transparent z-10 pointer-events-none" />
 
                 {/* Centered Text Container */}
                 <div className="absolute inset-0 z-20 flex flex-col items-center justify-center p-6 text-center">
-                  <h2 className="text-2xl font-bold tracking-tight mb-2 text-white drop-shadow-md transition-transform duration-500 group-hover:scale-105 font-sans">
+                  <h2 className="text-2xl font-bold tracking-tight mb-2 text-white transition-transform duration-500 group-hover:scale-105 font-sans" style={{ textShadow: "0px 2px 8px rgba(0, 0, 0, 0.6), 0px 1px 2px rgba(0, 0, 0, 0.4)" }}>
                     {category.title.replace("▪️ ", "")}
                   </h2>
                 </div>

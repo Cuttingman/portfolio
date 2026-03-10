@@ -7,12 +7,14 @@ interface BannerCrossfadeProps {
     images: string[];
     interval?: number; // duration between slides in ms
     className?: string; // extra classes
+    randomize?: boolean; // whether to pick the next image randomly
 }
 
 export function BannerCrossfade({
     images,
     interval = 4500, // 4-5 seconds random or fixed, 4.5s chosen
-    className = ""
+    className = "",
+    randomize = false
 }: BannerCrossfadeProps) {
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -27,11 +29,20 @@ export function BannerCrossfade({
         if (images.length <= 1) return;
 
         const timer = setInterval(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+            setCurrentIndex((prevIndex) => {
+                if (randomize) {
+                    let nextIndex = prevIndex;
+                    while (nextIndex === prevIndex) {
+                        nextIndex = Math.floor(Math.random() * images.length);
+                    }
+                    return nextIndex;
+                }
+                return (prevIndex + 1) % images.length;
+            });
         }, interval);
 
         return () => clearInterval(timer);
-    }, [images.length, interval]);
+    }, [images.length, interval, randomize]);
 
     if (!images || images.length === 0) return null;
 

@@ -4,7 +4,7 @@ export function PressModalContent() {
 
   return (
     <div className="prose prose-lg dark:prose-invert max-w-none">
-      <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-8 pb-4 font-sans border-b border-gray-700 text-white">언론 소개 (Press)</h2>
+      <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-8 pb-4 font-sans border-b border-gray-700 text-white">언론 소개</h2>
       <div className="space-y-12">
 
         <div>

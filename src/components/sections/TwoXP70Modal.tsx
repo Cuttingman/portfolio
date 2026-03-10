@@ -11,7 +11,7 @@ export const twoXP70GalleryImages: GalleryImageDef[] = [
   { src: "/image/1.jpg", alt: "그래피티 아카이브 3" },
   { src: "/image/_MG_2851.jpg", alt: "그래피티 아카이브 4" },
   { src: "/image/IMG_7845.jpg", alt: "그래피티 아카이브 5" },
-  { src: "/image/윤스.jpg", alt: "그래피티 아카이브 6" },
+  { src: "/image/graffiti_yoons.jpg", alt: "그래피티 아카이브 6" },
 ];
 
 export function TwoXP70ModalContent() {
@@ -31,7 +31,7 @@ export function TwoXP70ModalContent() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-24 items-start">
-          <div className="lg:col-span-4 flex flex-col gap-6 sticky top-24">
+          <div className="lg:col-span-4 flex flex-col gap-6">
             <h3 className="text-3xl font-black font-sans text-white tracking-tighter">
               2XP70
             </h3>
@@ -39,9 +39,9 @@ export function TwoXP70ModalContent() {
               <li className="m-0">
                 <strong className="text-white font-semibold flex items-center gap-2">주요 실적 :</strong>
                 <span className="block mt-1 leading-relaxed">
-                  m.net 슈퍼바이브파티<br/>
-                  SBS 드라마 루루공주 세트 그래피티<br/>
-                  m.net 크레이지트럭 세트 그래피티<br/>
+                  m.net 슈퍼바이브파티<br />
+                  SBS 드라마 루루공주 세트 그래피티<br />
+                  m.net 크레이지트럭 세트 그래피티<br />
                   MBC 라디오 인터뷰 등
                 </span>
               </li>
@@ -49,7 +49,7 @@ export function TwoXP70ModalContent() {
           </div>
 
           <div className="lg:col-span-8 flex flex-col gap-16">
-            
+
             {/* Section B: 슈퍼바이브파티 */}
             <div className="flex flex-col gap-6">
               <h4 className="text-3xl font-black m-0 font-sans text-white underline decoration-white/20 underline-offset-8">
@@ -87,14 +87,14 @@ export function TwoXP70ModalContent() {
               <div className="grid grid-cols-2 gap-6">
                 {[0, 1].map((idx) => (
                   <div key={idx} className="aspect-video rounded-2xl overflow-hidden bg-black/50 border border-white/10 hover:shadow-xl hover:-translate-y-1 transition-all">
-                     <GalleryImageTrigger
-                       src={twoXP70GalleryImages[idx].src}
-                       alt={twoXP70GalleryImages[idx].alt}
-                       index={idx}
-                       imgClassName="w-full h-full object-cover m-0 grayscale hover:grayscale-0 transition-all duration-500"
-                       className="block w-full h-full"
-                       onClick={setGalleryIndex}
-                     />
+                    <GalleryImageTrigger
+                      src={twoXP70GalleryImages[idx].src}
+                      alt={twoXP70GalleryImages[idx].alt}
+                      index={idx}
+                      imgClassName="w-full h-full object-cover m-0 transition-all duration-500"
+                      className="block w-full h-full"
+                      onClick={setGalleryIndex}
+                    />
                   </div>
                 ))}
               </div>
@@ -107,15 +107,15 @@ export function TwoXP70ModalContent() {
               </h4>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[2, 3, 4, 5, 6, 7].map((idx) => (
-                  <div key={idx} className={`rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:shadow-xl hover:-translate-y-1 transition-all ${idx === 2 || idx === 3 ? 'aspect-[4/3] md:col-span-2 lg:col-span-1' : 'aspect-square'}`}>
-                     <GalleryImageTrigger
-                       src={twoXP70GalleryImages[idx].src}
-                       alt={twoXP70GalleryImages[idx].alt}
-                       index={idx}
-                       imgClassName="w-full h-full object-cover m-0 grayscale-[0.5] hover:grayscale-0 transition-all duration-500"
-                       className="block w-full h-full"
-                       onClick={setGalleryIndex}
-                     />
+                  <div key={idx} className="aspect-square rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <GalleryImageTrigger
+                      src={twoXP70GalleryImages[idx].src}
+                      alt={twoXP70GalleryImages[idx].alt}
+                      index={idx}
+                      imgClassName="w-full h-full object-cover m-0 transition-all duration-500"
+                      className="block w-full h-full"
+                      onClick={setGalleryIndex}
+                    />
                   </div>
                 ))}
               </div>
@@ -124,8 +124,8 @@ export function TwoXP70ModalContent() {
           </div>
         </div>
       </div>
-      
-      <GalleryLightbox 
+
+      <GalleryLightbox
         images={twoXP70GalleryImages}
         isOpen={galleryIndex !== null}
         currentIndex={galleryIndex ?? 0}
