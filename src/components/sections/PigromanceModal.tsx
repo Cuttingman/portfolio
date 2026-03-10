@@ -28,6 +28,28 @@ export const pigromanceGalleryImages: GalleryImageDef[] = [
   { src: "/image/키링psd_복사.png", alt: "키링" },
   { src: "/image/YF4A0224_복사.png", alt: "스티커" },
   { src: "/image/YF4A0230_복사.png", alt: "에코백" },
+  // Logos (16-17)
+  { src: "/image/logo_kor.png", alt: "로고 (국문)" },
+  { src: "/image/logo_eng.png", alt: "로고 (영문)" },
+  // Screenshots (18-25)
+  { src: "/image/Screenshot_1.png", alt: "스크린샷 1" },
+  { src: "/image/Screenshot_2.png", alt: "스크린샷 2" },
+  { src: "/image/Screenshot_3.png", alt: "스크린샷 3" },
+  { src: "/image/Screenshot_4.png", alt: "스크린샷 4" },
+  { src: "/image/Screenshot_5.png", alt: "스크린샷 5" },
+  { src: "/image/Screenshot_6.png", alt: "스크린샷 6" },
+  // Storyboards (26-27)
+  { src: "/image/콘티1.png", alt: "콘티 1" },
+  { src: "/image/콘티2.png", alt: "콘티 2" },
+  // Illustrations (28)
+  { src: "/image/PIGROMANCE_Keyvisual.png", alt: "피그로맨스 키비주얼" },
+  // Characters (29-32)
+  { src: "/image/PIGROMANCE_Character_1.png", alt: "캐릭터 1" },
+  { src: "/image/PIGROMANCE_Character_2.png", alt: "캐릭터 2" },
+  { src: "/image/PIGROMANCE_Character_3.png", alt: "캐릭터 3" },
+  { src: "/image/PIGROMANCE_Character_4.png", alt: "캐릭터 4" },
+  // Concept (33)
+  { src: "/image/Stomuch.png", alt: "스토머치 콘셉트" },
 ];
 
 export function PigromanceModalContent() {
@@ -144,6 +166,80 @@ export function PigromanceModalContent() {
                   />
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ACHIEVEMENTS & SOUNDTRACK (Moved up to match markdown order and ensure ILLUSTRATION is right after CHARACTER GALLERY) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
+          {/* Achievements */}
+          <div className="flex flex-col gap-6 p-10 bg-white/5 rounded-3xl border border-white/10">
+            <h4 className="text-2xl font-black font-sans text-white m-0 uppercase tracking-tighter border-b border-white/10 pb-4">
+              주요 성과
+            </h4>
+            <ul className="list-disc pl-6 space-y-3 m-0 font-medium text-gray-300">
+              <li>
+                <strong>Steam 출시 완료 :</strong> 2024년 7월 25일
+              </li>
+              <li>
+                <strong>Nintendo Switch 출시 예정 :</strong> 2025년 4분기
+              </li>
+              <li>
+                <strong>퍼블리싱 계약 :</strong> PC 글로벌 유통 (주)그라비티 /
+                Switch 동아시아 유통 neos
+              </li>
+              <li>다수 수상 이력 보유</li>
+              <li className="pt-2">
+                <strong>자체 기술 개발 :</strong>
+                <br />- 유니티 기반 2D/3D 하이브리드 그래픽 기술 개발
+                <br />- Cinema4D 자동 웨이트 플러그인 개발
+              </li>
+            </ul>
+          </div>
+
+          {/* Soundtrack */}
+          <div className="flex flex-col gap-6 p-10 bg-[#FF5500]/10 rounded-3xl border border-[#FF5500]/20">
+            <div className="flex items-center justify-between border-b border-[#FF5500]/20 pb-4">
+              <h4 className="text-2xl font-black font-sans text-white m-0 uppercase tracking-tighter">
+                오리지널 사운드트랙
+              </h4>
+              <a
+                href="https://soundcloud.com/user-673859753-51053972/sets/pigromance"
+                target="_blank"
+                rel="noreferrer"
+                className="text-xs font-bold bg-[#FF5500] text-white px-3 py-1.5 rounded-full hover:bg-[#FF5500]/80 transition-colors"
+              >
+                SoundCloud ↗
+              </a>
+            </div>
+            <ul className="list-none p-0 space-y-3 m-0 font-medium text-gray-300 text-sm">
+              <li>
+                <strong className="text-white">제작방향 :</strong> 돼지들의 삶과
+                죽음 그리고 사랑이야기를 담아 오케스트라 음악으로 작곡
+              </li>
+              <li>
+                <strong className="text-white">음악배치 :</strong> 할로윈 느낌,
+                그로테스크한 느낌으로 상황에 맞는 음악 배치
+              </li>
+              <li>
+                <strong className="text-white">오케스트라 특징 :</strong> 다양한
+                소재의 아날로그 악기가 만들어 내는 하모니가 특징
+              </li>
+              <li>
+                <strong className="text-white">다섯 가지 키워드 :</strong> 긴장,
+                위협, 도망, 해결, 평화
+              </li>
+            </ul>
+            {/* Soundcloud Embed */}
+            <div className="w-full h-32 mt-auto rounded-xl overflow-hidden">
+              <iframe
+                width="100%"
+                height="150"
+                scrolling="no"
+                frameBorder="no"
+                allow="autoplay"
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1550478796&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"
+              ></iframe>
             </div>
           </div>
         </div>
@@ -347,76 +443,85 @@ export function PigromanceModalContent() {
           </div>
         </div>
 
-        {/* ACHIEVEMENTS & SOUNDTRACK */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
-          {/* Achievements */}
-          <div className="flex flex-col gap-6 p-10 bg-white/5 rounded-3xl border border-white/10">
-            <h4 className="text-2xl font-black font-sans text-white m-0 uppercase tracking-tighter border-b border-white/10 pb-4">
-              주요 성과
-            </h4>
-            <ul className="list-disc pl-6 space-y-3 m-0 font-medium text-gray-300">
-              <li>
-                <strong>Steam 출시 완료 :</strong> 2024년 7월 25일
-              </li>
-              <li>
-                <strong>Nintendo Switch 출시 예정 :</strong> 2025년 4분기
-              </li>
-              <li>
-                <strong>퍼블리싱 계약 :</strong> PC 글로벌 유통 (주)그라비티 /
-                Switch 동아시아 유통 neos
-              </li>
-              <li>다수 수상 이력 보유</li>
-              <li className="pt-2">
-                <strong>자체 기술 개발 :</strong>
-                <br />- 유니티 기반 2D/3D 하이브리드 그래픽 기술 개발
-                <br />- Cinema4D 자동 웨이트 플러그인 개발
-              </li>
-            </ul>
+        {/* COMPREHENSIVE NEW SECTION: ILLUSTRATION */}
+        <div className="mb-24 space-y-24">
+          <h4 className="text-3xl font-black mb-12 font-sans text-white text-center tracking-tighter uppercase relative">
+            <span className="relative z-10 bg-black px-6">일러스트</span>
+            <div className="absolute top-1/2 left-0 w-full h-px bg-white/10 -z-10"></div>
+          </h4>
+
+          {/* Sub-Header 1: 로고 */}
+          <div className="flex flex-col gap-6">
+            <h5 className="text-2xl font-bold text-white border-l-4 border-white/40 pl-4 uppercase tracking-wider">로고</h5>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="aspect-video w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                <GalleryImageTrigger src="/image/logo_kor.png" alt="로고 한국어" index={16} imgClassName="w-full h-full object-contain p-4" className="block w-full h-full" onClick={setGalleryIndex} />
+              </div>
+              <div className="aspect-video w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                <GalleryImageTrigger src="/image/logo_eng.png" alt="로고 영어" index={17} imgClassName="w-full h-full object-contain p-4" className="block w-full h-full" onClick={setGalleryIndex} />
+              </div>
+            </div>
           </div>
 
-          {/* Soundtrack */}
-          <div className="flex flex-col gap-6 p-10 bg-[#FF5500]/10 rounded-3xl border border-[#FF5500]/20">
-            <div className="flex items-center justify-between border-b border-[#FF5500]/20 pb-4">
-              <h4 className="text-2xl font-black font-sans text-white m-0 uppercase tracking-tighter">
-                오리지널 사운드트랙
-              </h4>
-              <a
-                href="https://soundcloud.com/user-673859753-51053972/sets/pigromance"
-                target="_blank"
-                rel="noreferrer"
-                className="text-xs font-bold bg-[#FF5500] text-white px-3 py-1.5 rounded-full hover:bg-[#FF5500]/80 transition-colors"
-              >
-                SoundCloud ↗
-              </a>
+          {/* Sub-Header 2: 스크린샷 */}
+          <div className="flex flex-col gap-6">
+            <h5 className="text-2xl font-bold text-white border-l-4 border-white/40 pl-4 uppercase tracking-wider">스크린샷</h5>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+              {[18, 19, 20, 21, 22, 23].map((idx, i) => (
+                <div key={idx} className="aspect-video w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                  <GalleryImageTrigger src={`/image/Screenshot_${i + 1}.png`} alt={`스크린샷 ${i + 1}`} index={idx} imgClassName="w-full h-full object-cover" className="block w-full h-full" onClick={setGalleryIndex} />
+                </div>
+              ))}
             </div>
-            <ul className="list-none p-0 space-y-3 m-0 font-medium text-gray-300 text-sm">
-              <li>
-                <strong className="text-white">제작방향 :</strong> 돼지들의 삶과
-                죽음 그리고 사랑이야기를 담아 오케스트라 음악으로 작곡
-              </li>
-              <li>
-                <strong className="text-white">음악배치 :</strong> 할로윈 느낌,
-                그로테스크한 느낌으로 상황에 맞는 음악 배치
-              </li>
-              <li>
-                <strong className="text-white">오케스트라 특징 :</strong> 다양한
-                소재의 아날로그 악기가 만들어 내는 하모니가 특징
-              </li>
-              <li>
-                <strong className="text-white">다섯 가지 키워드 :</strong> 긴장,
-                위협, 도망, 해결, 평화
-              </li>
-            </ul>
-            {/* Soundcloud Embed */}
-            <div className="w-full h-32 mt-auto rounded-xl overflow-hidden">
-              <iframe
-                width="100%"
-                height="150"
-                scrolling="no"
-                frameBorder="no"
-                allow="autoplay"
-                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1550478796&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"
-              ></iframe>
+          </div>
+
+          {/* Sub-Header 3: 콘티 */}
+          <div className="flex flex-col gap-6">
+            <h5 className="text-2xl font-bold text-white border-l-4 border-white/40 pl-4 uppercase tracking-wider">콘티</h5>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                <GalleryImageTrigger src="/image/콘티1.png" alt="콘티 1" index={24} imgClassName="w-full h-full object-cover" className="block w-full h-full" onClick={setGalleryIndex} />
+              </div>
+              <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                <GalleryImageTrigger src="/image/콘티2.png" alt="콘티 2" index={25} imgClassName="w-full h-full object-cover" className="block w-full h-full" onClick={setGalleryIndex} />
+              </div>
+            </div>
+          </div>
+
+          {/* Sub-Header 4: 일러스트 */}
+          <div className="flex flex-col gap-6">
+            <h5 className="text-2xl font-bold text-white border-l-4 border-white/40 pl-4 uppercase tracking-wider">일러스트</h5>
+
+            <div className="w-full rounded-3xl overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 mb-8">
+              <GalleryImageTrigger src="/image/PIGROMANCE_Keyvisual.png" alt="키비주얼" index={26} imgClassName="w-full h-auto object-cover" className="block w-full h-full" onClick={setGalleryIndex} />
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+              {[27, 28, 29, 30].map((idx, i) => (
+                <div key={idx} className="aspect-[3/4] w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                  <GalleryImageTrigger src={`/image/PIGROMANCE_Character_${i + 1}.png`} alt={`캐릭터 ${i + 1}`} index={idx} imgClassName="w-full h-full object-cover" className="block w-full h-full" onClick={setGalleryIndex} />
+                </div>
+              ))}
+            </div>
+
+            <div className="w-full md:w-1/2 mx-auto rounded-3xl overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 hover:shadow-xl transition-all duration-500">
+              <GalleryImageTrigger src="/image/Stomuch.png" alt="스토머치" index={31} imgClassName="w-full h-full object-contain bg-[#111] p-6" className="block w-full h-full" onClick={setGalleryIndex} />
+            </div>
+          </div>
+
+          {/* Sub-Header 5: 캐릭터 턴어라운드 */}
+          <div className="flex flex-col gap-6">
+            <h5 className="text-2xl font-bold text-white border-l-4 border-white/40 pl-4 uppercase tracking-wider">캐릭터 턴어라운드</h5>
+            <div className="aspect-video w-full max-w-4xl mx-auto rounded-3xl overflow-hidden bg-black/50 border border-white/10 shadow-2xl">
+              <video
+                src="/video/미틀렛 캐릭터턴어라운드.mp4"
+                className="w-full h-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls
+              />
             </div>
           </div>
         </div>
