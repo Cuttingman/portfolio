@@ -14,17 +14,17 @@ export function AboutSection() {
   const [activeTab, setActiveTab] = useState<"profile" | "bio" | "interview">("profile");
   return (
     <section id="about" className="bg-[#2B2B2B] text-white transition-colors duration-1000 w-full overflow-hidden">
-      <div className="container mx-auto px-12 md:px-24 pt-20 pb-24 min-h-screen scroll-mt-20 flex flex-col justify-center">
+      <div className="container mx-auto px-6 lg:px-12 xl:px-24 pt-20 md:pt-32 pb-24 md:pb-48 min-h-screen scroll-mt-20 flex flex-col justify-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="max-w-4xl mb-12"
         >
-          <h1 className="text-7xl md:text-9xl font-black tracking-tighter md:tracking-[-0.08em] leading-[0.9] mb-12 font-sans overflow-hidden py-2">
+          <h1 className="text-5xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[1] md:leading-[0.9] mb-8 md:mb-12 font-sans overflow-hidden py-2">
             ABOUT
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 font-medium leading-[1.8] break-keep max-w-4xl">
+          <p className="text-lg md:text-2xl text-white/90 font-medium leading-[1.6] md:leading-[1.8] break-keep max-w-4xl">
             20년 실무 경험을 바탕으로 게임 IP를 기획하고 스팀 정식 출시까지 총괄한 크리에이터
           </p>
         </motion.div>
@@ -48,10 +48,9 @@ export function AboutSection() {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-8 flex flex-col justify-start pt-2 gap-6"
+            className="lg:col-span-8 flex flex-col justify-start pt-4 lg:pt-2 gap-6"
           >
-            <div className="flex gap-8 mb-6 border-b border-white/10 pb-4">
+            <div className="flex flex-wrap justify-start gap-4 md:gap-8 mb-6 border-b border-white/10 pb-4 overflow-x-auto whitespace-nowrap hide-scrollbar">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}

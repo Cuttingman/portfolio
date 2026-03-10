@@ -91,22 +91,22 @@ export function ArchiveSection() {
 
   return (
     <section id="archive" className="bg-[#F23E19] text-white transition-colors duration-1000 w-full">
-      <div className="container mx-auto px-12 md:px-24 pt-32 pb-48 min-h-screen scroll-mt-24">
+      <div className="container mx-auto px-6 lg:px-12 xl:px-24 pt-24 md:pt-32 pb-32 md:pb-48 min-h-screen scroll-mt-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="max-w-4xl mb-24"
         >
-          <h1 className="text-7xl md:text-9xl font-black tracking-tighter md:tracking-[-0.08em] leading-[0.9] mb-12 font-sans overflow-hidden py-2">
+          <h1 className="text-5xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[1] md:leading-[0.9] mb-8 md:mb-12 font-sans overflow-hidden py-2">
             ARCHIVE
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 font-medium leading-[1.8] break-keep max-w-4xl">
+          <p className="text-lg md:text-2xl text-white/90 font-medium leading-[1.6] md:leading-[1.8] break-keep max-w-4xl">
             주요 성과 및 활동 기록 수집
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           {categories.map((category, index) => (
             <motion.div
               key={category.id}

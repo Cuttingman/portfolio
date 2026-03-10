@@ -28,23 +28,23 @@ function SkillItem({ name, level, percent }: { name: string, level: string, perc
 export function ExpertiseSection() {
   return (
     <section id="expertise" className="bg-[#0284FE] text-white transition-colors duration-1000 w-full">
-      <div className="container mx-auto px-12 md:px-24 pt-32 pb-48 min-h-screen scroll-mt-24">
+      <div className="container mx-auto px-6 lg:px-12 xl:px-24 pt-24 md:pt-32 pb-32 md:pb-48 min-h-screen scroll-mt-24">
         <div className="w-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-4xl mb-24"
+            className="max-w-4xl mb-16 md:mb-24"
           >
-            <h1 className="text-7xl md:text-9xl font-black tracking-tighter md:tracking-[-0.08em] leading-[0.9] mb-12 font-sans overflow-hidden py-2 text-white">
+            <h1 className="text-5xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[1] md:leading-[0.9] mb-8 md:mb-12 font-sans overflow-hidden py-2 text-white break-words">
               EXPERTISE
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 font-medium leading-[1.8] break-keep max-w-4xl">
+            <p className="text-lg md:text-2xl text-white/90 font-medium leading-[1.6] md:leading-[1.8] break-keep max-w-4xl">
               핵심 기술 역량
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-16 w-full items-start justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-x-6 gap-y-12 md:gap-y-16 w-full items-start justify-center">
 
             {/* COLUMN 1: 2D / 3D 그래픽 */}
             <motion.div

@@ -51,9 +51,9 @@ export function Nav() {
     <header className={`fixed top-0 z-[100] w-full transition-colors duration-1000 backdrop-blur-md ${
       navTheme === "light" ? "bg-white/80 text-black" : "bg-black/80 text-white"
     }`}>
-      <div className="container mx-auto px-12 md:px-24 h-24 flex items-center justify-between">
+      <div className="container mx-auto px-6 lg:px-12 xl:px-24 h-20 md:h-24 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="font-bold text-xl tracking-tight z-50 leading-none">
+        <Link href="/" className="font-bold text-lg md:text-xl tracking-tight z-[100] leading-none">
           CREATIVE DIRECTOR<br />
           & IP ARCHITECT.
         </Link>
@@ -87,7 +87,7 @@ export function Nav() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden z-50"
+          className="md:hidden z-[100]"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -100,9 +100,9 @@ export function Nav() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className={`fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 ${
-              navTheme === "light" ? "bg-white text-black" : "bg-black text-white"
-            }`}
+            className={`fixed top-0 left-0 w-full h-screen z-[90] flex flex-col items-center justify-center gap-8 ${
+              navTheme === "light" ? "bg-white/95 text-black" : "bg-black/95 text-white"
+            } backdrop-blur-xl pointer-events-auto`}
           >
             {navLinks.map((link) => (
               <Link

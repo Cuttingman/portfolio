@@ -95,22 +95,22 @@ export function WorkSection() {
       id="work"
       className="bg-black text-white transition-colors duration-1000 w-full"
     >
-      <div className="container mx-auto px-12 md:px-24 pt-32 pb-48 min-h-screen scroll-mt-24">
+      <div className="container mx-auto px-6 lg:px-12 xl:px-24 pt-24 md:pt-32 pb-32 md:pb-48 min-h-screen scroll-mt-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="max-w-4xl mb-32"
         >
-          <h1 className="text-7xl md:text-9xl font-black tracking-tighter md:tracking-[-0.08em] leading-[0.9] mb-12 font-sans overflow-hidden py-2 text-white">
+          <h1 className="text-5xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[1] md:leading-[0.9] mb-8 md:mb-12 font-sans overflow-hidden py-2 text-white">
             WORK
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-4xl font-medium leading-[1.8] break-keep">
+          <p className="text-lg md:text-2xl text-white/90 max-w-4xl font-medium leading-[1.6] md:leading-[1.8] break-keep">
             시각 콘텐츠, 게임, 사업 운영 실무 기록
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 lg:gap-24">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
