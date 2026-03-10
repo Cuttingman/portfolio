@@ -38,7 +38,7 @@ export function AboutSection() {
             transition={{ duration: 0.8 }}
             className="group lg:col-span-4 aspect-[4/5] bg-foreground/5 relative overflow-hidden flex items-center justify-center text-foreground/20 font-medium rounded-2xl shadow-lg hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(255,255,255,0.1)] transition-all duration-500 w-full mt-2"
           >
-            <img src="/image/돼지탈 프로필 사진.jpeg" alt="Profile" className="w-full h-full object-cover object-top transition-opacity duration-700 group-hover:opacity-0" />
+            <img src="/image/profile_picture.jpeg" alt="Profile" className="w-full h-full object-cover object-top transition-opacity duration-700 group-hover:opacity-0" />
             <img src="/image/gls2022_2_03_076_.png" alt="Profile Hover" className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 opacity-0 group-hover:opacity-100" />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-50 mix-blend-multiply pointer-events-none" />
           </motion.div>
