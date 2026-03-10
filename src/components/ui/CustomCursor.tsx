@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export const CustomCursor = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
+  const [isClicking, setIsClicking] = useState(false);
 
   // useMotionValue avoids React re-renders for smooth 60fps tracking
   const cursorX = useMotionValue(-100);
@@ -16,6 +17,15 @@ export const CustomCursor = () => {
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
 
+  // Keep track of held keys
+  const keys = useRef<{ [key: string]: boolean }>({});
+  const requestRef = useRef<number>(0);
+  
+  // Internal cursor state to maintain position when WASD is driving
+  const posObj = useRef({ x: -100, y: -100 });
+  const speed = 8; // Pixels per frame
+  const initialized = useRef(false);
+
   useEffect(() => {
     // Only render the custom cursor for devices using a mouse/touchpad
     if (typeof window !== "undefined" && window.matchMedia("(pointer: fine)").matches) {
@@ -23,8 +33,11 @@ export const CustomCursor = () => {
     }
 
     const moveCursor = (e: MouseEvent) => {
+      posObj.current.x = e.clientX;
+      posObj.current.y = e.clientY;
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
+      initialized.current = true;
     };
 
     const handleMouseOver = (e: MouseEvent) => {
@@ -40,12 +53,89 @@ export const CustomCursor = () => {
       setIsHovering(!!isClickable);
     };
 
+    // Keyboard Event Handlers
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!initialized.current) {
+        // Init at center if no mouse movement prior to keypress
+        posObj.current.x = window.innerWidth / 2;
+        posObj.current.y = window.innerHeight / 2;
+        cursorX.set(posObj.current.x);
+        cursorY.set(posObj.current.y);
+        initialized.current = true;
+      }
+
+      // Handle WASD
+      keys.current[e.key.toLowerCase()] = true;
+
+      // Handle Click (Enter / Space)
+      if (e.key === "Enter" || e.key === " ") {
+        if (e.key === " ") {
+          e.preventDefault(); // Prevent page scroll on Space
+        }
+        
+        // Visual feedback
+        setIsClicking(true);
+        setTimeout(() => setIsClicking(false), 150);
+
+        // Programmatically click the element under the virtual cursor
+        const elem = document.elementFromPoint(posObj.current.x, posObj.current.y);
+        if (elem instanceof HTMLElement) {
+          elem.click();
+        }
+      }
+    };
+
+    const handleKeyUp = (e: KeyboardEvent) => {
+      keys.current[e.key.toLowerCase()] = false;
+    };
+
+    // Game loop for smooth WASD movement
+    const update = () => {
+      if (
+        keys.current['w'] || keys.current['ㅈ'] ||
+        keys.current['a'] || keys.current['ㅁ'] ||
+        keys.current['s'] || keys.current['ㄴ'] ||
+        keys.current['d'] || keys.current['ㅇ']
+      ) {
+        let newX = posObj.current.x;
+        let newY = posObj.current.y;
+
+        if (keys.current['w'] || keys.current['ㅈ']) newY -= speed;
+        if (keys.current['s'] || keys.current['ㄴ']) newY += speed;
+        if (keys.current['a'] || keys.current['ㅁ']) newX -= speed;
+        if (keys.current['d'] || keys.current['ㅇ']) newX += speed;
+
+        // Boundaries
+        newX = Math.max(0, Math.min(newX, window.innerWidth));
+        newY = Math.max(0, Math.min(newY, window.innerHeight));
+
+        posObj.current.x = newX;
+        posObj.current.y = newY;
+        
+        cursorX.set(newX);
+        cursorY.set(newY);
+
+        // Optional: Element under current cursor for simulating hover via getElementFromPoint
+        // In a real app, dispatching custom events here would be complex due to React's synthetic events.
+        // The instructions ask to "Ensure that mouse-click events still work if the user decides to use their physical mouse" 
+        // which implies normal mouse clicks aren't broken, and only the visual visual virtual cursor is controlled by WASD.
+      }
+      requestRef.current = requestAnimationFrame(update);
+    };
+
     window.addEventListener("mousemove", moveCursor);
     window.addEventListener("mouseover", handleMouseOver);
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keyup", handleKeyUp);
+
+    requestRef.current = requestAnimationFrame(update);
 
     return () => {
       window.removeEventListener("mousemove", moveCursor);
       window.removeEventListener("mouseover", handleMouseOver);
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keyup", handleKeyUp);
+      cancelAnimationFrame(requestRef.current);
     };
   }, [cursorX, cursorY]);
 
@@ -61,8 +151,8 @@ export const CustomCursor = () => {
         translateY: "-50%",
       }}
       animate={{
-        scale: isHovering ? 2.5 : 1,
-        backgroundColor: "rgba(255, 255, 255, 1)",
+        scale: isClicking ? 0.8 : (isHovering ? 2.5 : 1),
+        backgroundColor: isClicking ? "rgba(255, 255, 255, 0.5)" : "rgba(255, 255, 255, 1)",
         border: isHovering ? "none" : "1px solid rgba(255, 255, 255, 0.2)"
       }}
       transition={{ duration: 0.15, ease: "easeOut" }}
