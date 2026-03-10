@@ -7,27 +7,27 @@ import {
 
 export const pigromanceGalleryImages: GalleryImageDef[] = [
   {
-    src: "/image/PIGROMANCE_Run_저용량_복사.gif",
+    src: "/image/Screenshot_1.png",
     alt: "게임 내러티브",
   },
-  { src: "/image/PIGROMANCE_InGame_02_616px.gif", alt: "게임 내러티브" },
-  { src: "/image/Meatlet_Idle_복사.gif", alt: "미틀렛" },
-  { src: "/image/Porklet_Parts_복사.gif", alt: "포클렛" },
-  { src: "/image/BlackBird_Fly_복사.gif", alt: "검은새" },
-  { src: "/image/Cuttingman_Walk(Axe)_복사.gif", alt: "커팅맨" },
-  { src: "/image/SE_Speak(Sorry)_(Pipeman)_복사.gif", alt: "파이프맨" },
-  { src: "/image/SeedPig_Smell_복사.gif", alt: "시드피그" },
-  { src: "/image/굿즈모음(1500px).png", alt: "완구 시제품 모음" },
-  { src: "/image/YF4A0264_복사.png", alt: "조립식 피규어 (패키지)" },
+  { src: "/image/pigromance_ingame.gif", alt: "게임 내러티브" },
+  { src: "/image/char_meatlet.gif", alt: "미틀렛" },
+  { src: "/image/char_porklet.gif", alt: "포클렛" },
+  { src: "/image/char_blackbird.gif", alt: "검은새" },
+  { src: "/image/char_cuttingman.gif", alt: "커팅맨" },
+  { src: "/image/char_pipeman.gif", alt: "파이프맨" },
+  { src: "/image/char_seedpig.gif", alt: "시드피그" },
+  { src: "/image/goods_all.png", alt: "완구 시제품 모음" },
+  { src: "/image/goods_package.png", alt: "조립식 피규어 (패키지)" },
   {
-    src: "/image/피규어_스튜디오_사진.png",
+    src: "/image/figure_studio.png",
     alt: "조립식 피규어 (조립완료)",
   },
-  { src: "/image/YF4A0199_(1)_복사.png", alt: "USB 사운드트랙 피규어" },
-  { src: "/image/YF4A0291_복사.png", alt: "페이퍼크래프트 가면" },
-  { src: "/image/키링psd_복사.png", alt: "키링" },
-  { src: "/image/YF4A0224_복사.png", alt: "스티커" },
-  { src: "/image/YF4A0230_복사.png", alt: "에코백" },
+  { src: "/image/goods_usb.png", alt: "USB 사운드트랙 피규어" },
+  { src: "/image/goods_mask.png", alt: "페이퍼크래프트 가면" },
+  { src: "/image/goods_keyring.png", alt: "키링" },
+  { src: "/image/goods_sticker.png", alt: "스티커" },
+  { src: "/image/goods_bag.png", alt: "에코백" },
   // Logos (16-17)
   { src: "/image/logo_kor.png", alt: "로고 (국문)" },
   { src: "/image/logo_eng.png", alt: "로고 (영문)" },
@@ -39,8 +39,8 @@ export const pigromanceGalleryImages: GalleryImageDef[] = [
   { src: "/image/Screenshot_5.png", alt: "스크린샷 5" },
   { src: "/image/Screenshot_6.png", alt: "스크린샷 6" },
   // Storyboards (26-27)
-  { src: "/image/콘티1.png", alt: "콘티 1" },
-  { src: "/image/콘티2.png", alt: "콘티 2" },
+  { src: "/image/storyboard_1.png", alt: "콘티 1" },
+  { src: "/image/storyboard_2.png", alt: "콘티 2" },
   // Illustrations (28)
   { src: "/image/PIGROMANCE_Keyvisual.png", alt: "피그로맨스 키비주얼" },
   // Characters (29-32)
@@ -80,7 +80,7 @@ export function PigromanceModalContent() {
 
         {/* PROJECT OVERVIEW ALIGNMENT */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-24 items-start">
-          <div className="lg:col-span-4 flex flex-col gap-6 sticky top-24">
+          <div className="lg:col-span-4 flex flex-col gap-6">
             <h3 className="text-4xl font-black font-sans text-white tracking-tighter">
               피그로맨스
             </h3>
@@ -247,7 +247,7 @@ export function PigromanceModalContent() {
         {/* NARRATIVE SECTIONS */}
         <div className="mb-24 space-y-24">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 justify-center h-full">
               <h4 className="text-2xl font-bold font-sans text-white">
                 "소시지가 될 운명을 가지고 태어난 수퇘지의 이야기"
               </h4>
@@ -260,25 +260,25 @@ export function PigromanceModalContent() {
               </p>
             </div>
             <GalleryImageTrigger
-              src="/image/PIGROMANCE_Run_저용량_복사.gif"
+              src="/image/pigromance_run.gif"
               alt="피그로맨스 달리기"
               index={0}
-              imgClassName="w-full h-auto rounded-3xl shadow-xl m-0 border border-white/10 object-cover aspect-video"
-              className="block w-full h-full"
+              imgClassName="w-full h-auto rounded-3xl shadow-xl m-0 border border-white/10 bg-black block"
+              className="block w-full h-auto"
               onClick={setGalleryIndex}
             />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <GalleryImageTrigger
-              src="/image/PIGROMANCE_InGame_02_616px.gif"
+              src="/image/pigromance_ingame.gif"
               alt="피그로맨스 인게임"
               index={1}
-              imgClassName="w-full h-auto rounded-3xl shadow-xl m-0 border border-white/10 object-cover aspect-video order-2 md:order-1"
-              className="block w-full h-full"
+              imgClassName="w-full h-auto rounded-3xl shadow-xl m-0 border border-white/10 order-2 md:order-1 bg-black block"
+              className="block w-full h-auto"
               onClick={setGalleryIndex}
             />
-            <div className="flex flex-col gap-4 order-1 md:order-2">
+            <div className="flex flex-col gap-4 order-1 md:order-2 justify-center h-full">
               <h4 className="text-2xl font-bold font-sans text-white">
                 "돼지들은 최고의 소시지 재료!"
               </h4>
@@ -294,8 +294,8 @@ export function PigromanceModalContent() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-            <div className="flex flex-col gap-4 p-8 bg-white/5 rounded-3xl border border-white/10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
+            <div className="flex flex-col gap-4 p-8 bg-white/5 rounded-3xl border border-white/10 h-full">
               <h4 className="text-xl font-bold font-sans text-white m-0">
                 "도전적인 퍼즐과 까다로운 플랫폼"
               </h4>
@@ -306,7 +306,7 @@ export function PigromanceModalContent() {
                 기다리고 있습니다.
               </p>
             </div>
-            <div className="flex flex-col gap-4 p-8 bg-white/5 rounded-3xl border border-white/10">
+            <div className="flex flex-col gap-4 p-8 bg-white/5 rounded-3xl border border-white/10 h-full justify-center">
               <h4 className="text-xl font-bold font-sans text-white m-0">
                 "아름다운 음악에 맞춰진 스토리텔링"
               </h4>
@@ -325,9 +325,9 @@ export function PigromanceModalContent() {
           </h4>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="flex flex-col items-center text-center p-6 bg-white/5 rounded-3xl border border-white/10">
-              <div className="aspect-square w-full rounded-2xl overflow-hidden mb-6 bg-white/90">
+              <div className="aspect-square w-full rounded-2xl overflow-hidden mb-6 bg-zinc-100">
                 <GalleryImageTrigger
-                  src="/image/Meatlet_Idle_복사.gif"
+                  src="/image/char_meatlet.gif"
                   alt="미틀렛"
                   index={2}
                   imgClassName="w-full h-full object-contain m-0"
@@ -345,9 +345,9 @@ export function PigromanceModalContent() {
               </p>
             </div>
             <div className="flex flex-col items-center text-center p-6 bg-white/5 rounded-3xl border border-white/10">
-              <div className="aspect-square w-full rounded-2xl overflow-hidden mb-6 bg-white/90">
+              <div className="aspect-square w-full rounded-2xl overflow-hidden mb-6 bg-zinc-100">
                 <GalleryImageTrigger
-                  src="/image/Porklet_Parts_복사.gif"
+                  src="/image/char_porklet.gif"
                   alt="포클렛"
                   index={3}
                   imgClassName="w-full h-full object-contain m-0"
@@ -364,9 +364,9 @@ export function PigromanceModalContent() {
               </p>
             </div>
             <div className="flex flex-col items-center text-center p-6 bg-white/5 rounded-3xl border border-white/10">
-              <div className="aspect-square w-full rounded-2xl overflow-hidden mb-6 bg-white/90">
+              <div className="aspect-square w-full rounded-2xl overflow-hidden mb-6 bg-zinc-100">
                 <GalleryImageTrigger
-                  src="/image/BlackBird_Fly_복사.gif"
+                  src="/image/char_blackbird.gif"
                   alt="검은새"
                   index={4}
                   imgClassName="w-full h-full object-contain m-0"
@@ -383,9 +383,9 @@ export function PigromanceModalContent() {
               </p>
             </div>
             <div className="flex flex-col items-center text-center p-6 bg-white/5 rounded-3xl border border-white/10">
-              <div className="aspect-square w-full rounded-2xl overflow-hidden mb-6 bg-white/90">
+              <div className="aspect-square w-full rounded-2xl overflow-hidden mb-6 bg-zinc-100">
                 <GalleryImageTrigger
-                  src="/image/Cuttingman_Walk(Axe)_복사.gif"
+                  src="/image/char_cuttingman.gif"
                   alt="커팅맨"
                   index={5}
                   imgClassName="w-full h-full object-contain m-0"
@@ -402,9 +402,9 @@ export function PigromanceModalContent() {
               </p>
             </div>
             <div className="flex flex-col items-center text-center p-6 bg-white/5 rounded-3xl border border-white/10">
-              <div className="aspect-square w-full rounded-2xl overflow-hidden mb-6 bg-white/90">
+              <div className="aspect-square w-full rounded-2xl overflow-hidden mb-6 bg-zinc-100">
                 <GalleryImageTrigger
-                  src="/image/SE_Speak(Sorry)_(Pipeman)_복사.gif"
+                  src="/image/char_pipeman.gif"
                   alt="파이프맨"
                   index={6}
                   imgClassName="w-full h-full object-contain m-0"
@@ -421,9 +421,9 @@ export function PigromanceModalContent() {
               </p>
             </div>
             <div className="flex flex-col items-center text-center p-6 bg-white/5 rounded-3xl border border-white/10">
-              <div className="aspect-square w-full rounded-2xl overflow-hidden mb-6 bg-white/90">
+              <div className="aspect-square w-full rounded-2xl overflow-hidden mb-6 bg-zinc-100">
                 <GalleryImageTrigger
-                  src="/image/SeedPig_Smell_복사.gif"
+                  src="/image/char_seedpig.gif"
                   alt="시드피그"
                   index={7}
                   imgClassName="w-full h-full object-contain m-0"
@@ -454,10 +454,10 @@ export function PigromanceModalContent() {
           <div className="flex flex-col gap-6">
             <h5 className="text-2xl font-bold text-white border-l-4 border-white/40 pl-4 uppercase tracking-wider">로고</h5>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="aspect-video w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+              <div className="aspect-video w-full rounded-3xl overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                 <GalleryImageTrigger src="/image/logo_kor.png" alt="로고 한국어" index={16} imgClassName="w-full h-full object-contain p-4" className="block w-full h-full" onClick={setGalleryIndex} />
               </div>
-              <div className="aspect-video w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+              <div className="aspect-video w-full rounded-3xl overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                 <GalleryImageTrigger src="/image/logo_eng.png" alt="로고 영어" index={17} imgClassName="w-full h-full object-contain p-4" className="block w-full h-full" onClick={setGalleryIndex} />
               </div>
             </div>
@@ -468,7 +468,7 @@ export function PigromanceModalContent() {
             <h5 className="text-2xl font-bold text-white border-l-4 border-white/40 pl-4 uppercase tracking-wider">스크린샷</h5>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
               {[18, 19, 20, 21, 22, 23].map((idx, i) => (
-                <div key={idx} className="aspect-video w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                <div key={idx} className="aspect-video w-full rounded-3xl overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                   <GalleryImageTrigger src={`/image/Screenshot_${i + 1}.png`} alt={`스크린샷 ${i + 1}`} index={idx} imgClassName="w-full h-full object-cover" className="block w-full h-full" onClick={setGalleryIndex} />
                 </div>
               ))}
@@ -479,11 +479,11 @@ export function PigromanceModalContent() {
           <div className="flex flex-col gap-6">
             <h5 className="text-2xl font-bold text-white border-l-4 border-white/40 pl-4 uppercase tracking-wider">콘티</h5>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
-                <GalleryImageTrigger src="/image/콘티1.png" alt="콘티 1" index={24} imgClassName="w-full h-full object-cover" className="block w-full h-full" onClick={setGalleryIndex} />
+              <div className="aspect-[4/3] w-full rounded-3xl overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                <GalleryImageTrigger src="/image/storyboard_1.png" alt="콘티 1" index={24} imgClassName="w-full h-full object-cover" className="block w-full h-full" onClick={setGalleryIndex} />
               </div>
-              <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
-                <GalleryImageTrigger src="/image/콘티2.png" alt="콘티 2" index={25} imgClassName="w-full h-full object-cover" className="block w-full h-full" onClick={setGalleryIndex} />
+              <div className="aspect-[4/3] w-full rounded-3xl overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                <GalleryImageTrigger src="/image/storyboard_2.png" alt="콘티 2" index={25} imgClassName="w-full h-full object-cover" className="block w-full h-full" onClick={setGalleryIndex} />
               </div>
             </div>
           </div>
@@ -492,35 +492,33 @@ export function PigromanceModalContent() {
           <div className="flex flex-col gap-6">
             <h5 className="text-2xl font-bold text-white border-l-4 border-white/40 pl-4 uppercase tracking-wider">일러스트</h5>
 
-            <div className="w-full rounded-3xl overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 mb-8">
-              <GalleryImageTrigger src="/image/PIGROMANCE_Keyvisual.png" alt="키비주얼" index={26} imgClassName="w-full h-auto object-cover" className="block w-full h-full" onClick={setGalleryIndex} />
+            <div className="w-full rounded-3xl overflow-hidden bg-black border border-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 mb-8">
+              <GalleryImageTrigger src="/image/PIGROMANCE_Keyvisual.png" alt="키비주얼" index={26} imgClassName="w-full h-full object-cover" className="block w-full h-full" onClick={setGalleryIndex} />
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
               {[27, 28, 29, 30].map((idx, i) => (
-                <div key={idx} className="aspect-[3/4] w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
-                  <GalleryImageTrigger src={`/image/PIGROMANCE_Character_${i + 1}.png`} alt={`캐릭터 ${i + 1}`} index={idx} imgClassName="w-full h-full object-cover" className="block w-full h-full" onClick={setGalleryIndex} />
+                <div key={idx} className="w-full rounded-3xl overflow-hidden bg-black border border-white/10 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                  <GalleryImageTrigger src={`/image/PIGROMANCE_Character_${i + 1}.png`} alt={`캐릭터 ${i + 1}`} index={idx} imgClassName="w-full h-auto object-cover" className="block w-full h-full" onClick={setGalleryIndex} />
                 </div>
               ))}
             </div>
 
-            <div className="w-full md:w-1/2 mx-auto rounded-3xl overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 hover:shadow-xl transition-all duration-500">
-              <GalleryImageTrigger src="/image/Stomuch.png" alt="스토머치" index={31} imgClassName="w-full h-full object-contain bg-[#111] p-6" className="block w-full h-full" onClick={setGalleryIndex} />
+            <div className="w-full md:w-3/4 mx-auto md:max-w-4xl rounded-3xl overflow-hidden bg-black border border-white/10 hover:-translate-y-2 hover:shadow-xl transition-all duration-500">
+              <GalleryImageTrigger src="/image/Stomuch.png" alt="스토머치" index={31} imgClassName="w-full h-full object-cover" className="block w-full h-full" onClick={setGalleryIndex} />
             </div>
           </div>
 
           {/* Sub-Header 5: 캐릭터 턴어라운드 */}
           <div className="flex flex-col gap-6">
             <h5 className="text-2xl font-bold text-white border-l-4 border-white/40 pl-4 uppercase tracking-wider">캐릭터 턴어라운드</h5>
-            <div className="aspect-video w-full max-w-4xl mx-auto rounded-3xl overflow-hidden bg-black/50 border border-white/10 shadow-2xl">
-              <video
-                src="/video/미틀렛 캐릭터턴어라운드.mp4"
-                className="w-full h-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-                controls
+            <div className="aspect-video w-full rounded-3xl overflow-hidden bg-black border border-white/10 shadow-2xl">
+              <iframe
+                src="https://www.youtube.com/embed/8WJwtm6Sc8o?autoplay=1&mute=1&loop=1&playlist=8WJwtm6Sc8o"
+                title="캐릭터 턴어라운드"
+                className="w-full h-full border-0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
               />
             </div>
           </div>
@@ -537,7 +535,7 @@ export function PigromanceModalContent() {
           <div className="flex flex-col gap-8 mb-16">
             <div className="w-full rounded-3xl overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500">
               <GalleryImageTrigger
-                src="/image/굿즈모음(1500px).png"
+                src="/image/goods_all.png"
                 alt="완구 시제품 모음"
                 index={8}
                 imgClassName="w-full h-auto object-cover m-0"
@@ -579,9 +577,9 @@ export function PigromanceModalContent() {
           {/* Part B: Merchandise Catalog Grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             <div className="flex flex-col items-center text-center p-6 bg-white/5 rounded-3xl border border-white/10 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-white/5">
-              <div className="aspect-square w-full rounded-2xl overflow-hidden mb-4 bg-black/50">
+              <div className="aspect-square w-full rounded-3xl overflow-hidden mb-4 bg-black">
                 <GalleryImageTrigger
-                  src="/image/YF4A0264_복사.png"
+                  src="/image/goods_package.png"
                   alt="조립식 피규어(패키지와 구성품)"
                   index={9}
                   imgClassName="w-full h-full object-cover m-0"
@@ -595,9 +593,9 @@ export function PigromanceModalContent() {
             </div>
 
             <div className="flex flex-col items-center text-center p-6 bg-white/5 rounded-3xl border border-white/10 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-white/5">
-              <div className="aspect-square w-full rounded-2xl overflow-hidden mb-4 bg-black/50">
+              <div className="aspect-square w-full rounded-3xl overflow-hidden mb-4 bg-black">
                 <GalleryImageTrigger
-                  src="/image/피규어_스튜디오_사진.png"
+                  src="/image/figure_studio.png"
                   alt="조립식 피규어(조립한 모습)"
                   index={10}
                   imgClassName="w-full h-full object-cover m-0"
@@ -611,9 +609,9 @@ export function PigromanceModalContent() {
             </div>
 
             <div className="flex flex-col items-center text-center p-6 bg-white/5 rounded-3xl border border-white/10 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-white/5">
-              <div className="aspect-square w-full rounded-2xl overflow-hidden mb-4 bg-black/50">
+              <div className="aspect-square w-full rounded-3xl overflow-hidden mb-4 bg-black">
                 <GalleryImageTrigger
-                  src="/image/YF4A0199_(1)_복사.png"
+                  src="/image/goods_usb.png"
                   alt="USB 사운드트랙 피규어"
                   index={11}
                   imgClassName="w-full h-full object-cover m-0"
@@ -627,9 +625,9 @@ export function PigromanceModalContent() {
             </div>
 
             <div className="flex flex-col items-center text-center p-6 bg-white/5 rounded-3xl border border-white/10 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-white/5">
-              <div className="aspect-square w-full rounded-2xl overflow-hidden mb-4 bg-black/50">
+              <div className="aspect-square w-full rounded-3xl overflow-hidden mb-4 bg-black">
                 <GalleryImageTrigger
-                  src="/image/YF4A0291_복사.png"
+                  src="/image/goods_mask.png"
                   alt="페이퍼크래프트 가면"
                   index={12}
                   imgClassName="w-full h-full object-cover m-0"
@@ -643,12 +641,12 @@ export function PigromanceModalContent() {
             </div>
 
             <div className="flex flex-col items-center text-center p-6 bg-white/5 rounded-3xl border border-white/10 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-white/5">
-              <div className="aspect-square w-full rounded-2xl overflow-hidden mb-4 bg-white/90">
+              <div className="aspect-square w-full rounded-3xl overflow-hidden mb-4 bg-white">
                 <GalleryImageTrigger
-                  src="/image/키링psd_복사.png"
+                  src="/image/goods_keyring.png"
                   alt="키링"
                   index={13}
-                  imgClassName="w-full h-full object-contain m-0 mix-blend-multiply"
+                  imgClassName="w-full h-full object-cover scale-105 m-0 mix-blend-multiply"
                   className="block w-full h-full"
                   onClick={setGalleryIndex}
                 />
@@ -657,9 +655,9 @@ export function PigromanceModalContent() {
             </div>
 
             <div className="flex flex-col items-center text-center p-6 bg-white/5 rounded-3xl border border-white/10 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-white/5">
-              <div className="aspect-square w-full rounded-2xl overflow-hidden mb-4 bg-black/50">
+              <div className="aspect-square w-full rounded-3xl overflow-hidden mb-4 bg-black">
                 <GalleryImageTrigger
-                  src="/image/YF4A0224_복사.png"
+                  src="/image/goods_sticker.png"
                   alt="스티커"
                   index={14}
                   imgClassName="w-full h-full object-cover m-0"
@@ -671,9 +669,9 @@ export function PigromanceModalContent() {
             </div>
 
             <div className="flex flex-col items-center text-center p-6 bg-white/5 rounded-3xl border border-white/10 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-white/5 md:col-span-3 lg:col-span-2">
-              <div className="aspect-[2/1] sm:aspect-square md:aspect-[2/1] w-full rounded-2xl overflow-hidden mb-4 bg-black/50">
+              <div className="aspect-[2/1] sm:aspect-square md:aspect-[2/1] w-full rounded-3xl overflow-hidden mb-4 bg-black">
                 <GalleryImageTrigger
-                  src="/image/YF4A0230_복사.png"
+                  src="/image/goods_bag.png"
                   alt="에코백"
                   index={15}
                   imgClassName="w-full h-full object-cover m-0"

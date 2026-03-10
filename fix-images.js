@@ -38,15 +38,15 @@ images.forEach((src, idx) => {
     const replacement = `<GalleryImageTrigger src="${src}" alt="${alt}" index={${idx}} imgClassName="${className}" className="block w-full h-full" onClick={setGalleryIndex} />`;
     content = content.replace(regex, replacement);
   } else {
-     // fallback if order or whitespace differs
-     const regex2 = new RegExp(`<img\\n\\s*src="${src}"\\n\\s*alt="([^"]+)"\\n\\s*className="([^"]+)"\\n\\s*\\/>`);
-     const match2 = content.match(regex2);
-     if (match2) {
-        const alt = match2[1];
-        const className = match2[2];
-        const replacement = `<GalleryImageTrigger src="${src}" alt="${alt}" index={${idx}} imgClassName="${className}" className="block w-full h-full" onClick={setGalleryIndex} />`;
-        content = content.replace(regex2, replacement);
-     }
+    // fallback if order or whitespace differs
+    const regex2 = new RegExp(`<img\\n\\s*src="${src}"\\n\\s*alt="([^"]+)"\\n\\s*className="([^"]+)"\\n\\s*\\/>`);
+    const match2 = content.match(regex2);
+    if (match2) {
+      const alt = match2[1];
+      const className = match2[2];
+      const replacement = `<GalleryImageTrigger src="${src}" alt="${alt}" index={${idx}} imgClassName="${className}" className="block w-full h-full" onClick={setGalleryIndex} />`;
+      content = content.replace(regex2, replacement);
+    }
   }
 });
 

@@ -11,7 +11,6 @@ import { PressModalContent } from "./modals/PressModalContent";
 import { SupportProjectsModalContent } from "./modals/SupportProjectsModalContent";
 import { ExternalActivitiesModalContent } from "./modals/ExternalActivitiesModalContent";
 import { OtherAchievementsModalContent } from "./modals/OtherAchievementsModalContent";
-import { GameReviewModalContent } from "./modals/GameReviewModalContent";
 
 interface ArchiveCategory {
   id: string; // Added id for modal identification
@@ -33,35 +32,26 @@ const categories: ArchiveCategory[] = [
     id: "awards",
     title: "▪️ 수상 실적",
     images: [
-      "/image/GIGDC_수상_1920x1080.jpg",
-      "/image/대한민국_게임대상_1.png",
-      "/image/초기게임개발사_수상_1920x1080.png"
-    ],
-  },
-  {
-    id: "reviews",
-    title: "▪️ 게임 리뷰",
-    images: [
-      "/image/01-04.png",
-      "/image/05-08.png",
-      "/image/09-12.png"
+      "/image/asset_a9ca9995.jpg",
+      "/image/asset_d42561dd.png",
+      "/image/asset_708466f0.png"
     ],
   },
   {
     id: "support",
     title: "▪️ 지원 사업",
     images: [
-      "/image/도쿄게임쇼_1.png",
-      "/image/게임스컴_5.png",
-      "/image/k콘텐츠엑스포_1.png"
+      "/image/asset_737f95e0.png",
+      "/image/asset_5ab2ed79.png",
+      "/image/asset_04d14be2.png"
     ],
   },
   {
     id: "activities",
     title: "▪️ 대외 활동",
     images: [
-      "/image/대구특강_1.png",
-      "/image/인디크래프트_IR_데모데이_1.jpg",
+      "/image/asset_0b96d28c.png",
+      "/image/asset_59ac4aaa.jpg",
       "/image/타이포강의2.jpg",
       "/image/타이포강의3.jpg"
     ],
@@ -70,8 +60,8 @@ const categories: ArchiveCategory[] = [
     id: "other",
     title: "▪️ 그외 성과",
     images: [
-      "/image/타이페이게임쇼_2.png",
-      "/image/비트서밋_부스.jpg",
+      "/image/asset_98e2f47e.png",
+      "/image/asset_e6ff9b7f.jpg",
       "/image/1 1.png"
     ],
   }
@@ -86,8 +76,6 @@ export function ArchiveSection() {
         return <PressModalContent />;
       case 'awards':
         return <AwardsModalContent />;
-      case 'reviews':
-        return <GameReviewModalContent />;
       case 'support':
         return <SupportProjectsModalContent />;
       case 'activities':

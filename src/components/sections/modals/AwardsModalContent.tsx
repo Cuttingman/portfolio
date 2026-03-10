@@ -5,19 +5,19 @@ import { GalleryLightbox, GalleryImageTrigger, GalleryImageDef } from "@/compone
 import { useState } from "react";
 
 export const awardsGalleryImages: GalleryImageDef[] = [
-  { src: "/image/초기게임개발사_수상_1920x1080.png", alt: "게임레벨업쇼케이스 1위" },
-  { src: "/image/유니티_1.png", alt: "유니티 베스트 인디 1" },
-  { src: "/image/유니티_2.png", alt: "유니티 베스트 인디 2" },
+  { src: "/image/asset_708466f0.png", alt: "게임레벨업쇼케이스 1위" },
+  { src: "/image/asset_9b402bc9.png", alt: "유니티 베스트 인디 1" },
+  { src: "/image/asset_3678b564.png", alt: "유니티 베스트 인디 2" },
   { src: "/image/직관적_인터페이스_적용으로_아이들도_쉽게_플레이_가능.png", alt: "지스타 2위 시연" },
-  { src: "/image/GIGDC_수상_1920x1080.jpg", alt: "GIGDC 은상 시상식" },
+  { src: "/image/asset_a9ca9995.jpg", alt: "GIGDC 은상 시상식" },
   { src: "/image/IMG_0612.png", alt: "GIGDC 트로피" },
-  { src: "/image/인디플어워즈_1.png", alt: "인디플어워즈 트로피" },
-  { src: "/image/대한민국_게임대상_0.png", alt: "대한민국게임대상 와이드샷" },
-  { src: "/image/대한민국_게임대상_1.png", alt: "대한민국게임대상 로고샷" },
-  { src: "/image/대한민국_게임대상_2.png", alt: "피그로맨스 게임플레이" },
-  { src: "/image/인디크래프트_1.png", alt: "인디크래프트 우수상" },
+  { src: "/image/asset_12b2c3de.png", alt: "인디플어워즈 트로피" },
+  { src: "/image/asset_31246ef5.png", alt: "대한민국게임대상 와이드샷" },
+  { src: "/image/asset_d42561dd.png", alt: "대한민국게임대상 로고샷" },
+  { src: "/image/asset_67c7f09e.png", alt: "피그로맨스 게임플레이" },
+  { src: "/image/asset_4fb64fbf.png", alt: "인디크래프트 우수상" },
   { src: "/image/99인_이용자_평가단_(플레이_후__체점_중).png", alt: "99인 이용자 평가 1위" },
-  { src: "/image/2018-창업발전소-콘텐츠-스타트업리그-공모전-우수상.png", alt: "창업발전소 우수상" }
+  { src: "/image/asset_38bfc413.png", alt: "창업발전소 우수상" }
 ];
 
 export function AwardsModalContent() {
@@ -36,7 +36,7 @@ export function AwardsModalContent() {
         <div className="w-32 h-32 md:w-40 md:h-40 relative"><img src="/image/유니티_복사.png" alt="유니티코리아 베스트" className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:scale-110 transition-transform" /></div>
         <div className="w-32 h-32 md:w-40 md:h-40 relative"><img src="/image/지스타_복사.png" alt="지스타 2nd" className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:scale-110 transition-transform" /></div>
         <div className="w-32 h-32 md:w-40 md:h-40 relative"><img src="/image/인디크래프트.png" alt="인디크래프트" className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:scale-110 transition-transform" /></div>
-        <div className="w-32 h-32 md:w-40 md:h-40 relative"><img src="/image/GIGDC_복사.png" alt="GIGDC" className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:scale-110 transition-transform" /></div>
+        <div className="w-32 h-32 md:w-40 md:h-40 relative"><img src="/image/asset_545b0c6b.png" alt="GIGDC" className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:scale-110 transition-transform" /></div>
         <div className="w-32 h-32 md:w-40 md:h-40 relative"><img src="/image/인디플_복사.png" alt="인디플어워즈" className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:scale-110 transition-transform" /></div>
       </div>
 

@@ -21,12 +21,12 @@ export const toyLabGalleryImages: GalleryImageDef[] = [
   { src: "/image/포스터-2-(2수정7).jpg", alt: "김밥왕 포스터 2" },
   { src: "/image/포스터-3-2.jpg", alt: "김밥왕 포스터 3" },
   // Brochures
-  { src: "/image/김밥왕_중철제본_양면인쇄_실제사이즈_내지_페이지_03.png", alt: "김밥왕 브로슈어 1" },
-  { src: "/image/김밥왕_중철제본_양면인쇄_실제사이즈_내지2_페이지_05.png", alt: "김밥왕 브로슈어 2" },
-  { src: "/image/김밥왕_중철제본_양면인쇄_실제사이즈_내지_페이지_06.png", alt: "김밥왕 브로슈어 3" },
-  { src: "/image/김밥왕_중철제본_양면인쇄_실제사이즈_내지2_페이지_08.png", alt: "김밥왕 브로슈어 4" },
-  { src: "/image/김밥왕_중철제본_양면인쇄_실제사이즈_내지_페이지_10.png", alt: "김밥왕 브로슈어 5" },
-  { src: "/image/김밥왕_중철제본_양면인쇄_실제사이즈_내지_페이지_11.png", alt: "김밥왕 브로슈어 6" },
+  { src: "/image/asset_9e85a427.png", alt: "김밥왕 브로슈어 1" },
+  { src: "/image/asset_e02aa1e4.png", alt: "김밥왕 브로슈어 2" },
+  { src: "/image/asset_0ede21c9.png", alt: "김밥왕 브로슈어 3" },
+  { src: "/image/asset_7344d1f8.png", alt: "김밥왕 브로슈어 4" },
+  { src: "/image/asset_81ec92eb.png", alt: "김밥왕 브로슈어 5" },
+  { src: "/image/asset_f68c6c52.png", alt: "김밥왕 브로슈어 6" },
 ];
 
 export function ToyLabModalContent() {

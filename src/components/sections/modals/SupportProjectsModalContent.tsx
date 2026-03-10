@@ -5,20 +5,20 @@ import { useState } from "react";
 
 export const supportGalleryImages: GalleryImageDef[] = [
   // Item 1: Tokyo Game Show (3 images) 0-2
-  { src: "/image/도쿄게임쇼_1.png", alt: "도쿄게임쇼 가족관 시연" },
+  { src: "/image/asset_737f95e0.png", alt: "도쿄게임쇼 가족관 시연" },
   { src: "/image/c4a46317-5887-438b-9162-14fd09c1e1c5.png", alt: "도쿄게임쇼 4Gamer 매체 인터뷰" },
-  { src: "/image/도쿄게임쇼_3.png", alt: "도쿄게임쇼 한일게임사업자교류회 발표" },
+  { src: "/image/asset_a7441f50.png", alt: "도쿄게임쇼 한일게임사업자교류회 발표" },
   // Item 2: Gamescom (5 images) 3-7
-  { src: "/image/게임스컴_10_가로_긴사진.png", alt: "게임스컴 파노라마" },
-  { src: "/image/게임스컴_5.png", alt: "게임스컴 부스" },
-  { src: "/image/게임스컴_9.png", alt: "게임스컴 인터뷰" },
-  { src: "/image/게임스컴_3.png", alt: "게임스컴 미팅" },
-  { src: "/image/게임스컴_4_세로.png", alt: "게임스컴 포스터" },
+  { src: "/image/asset_22185b5d.png", alt: "게임스컴 파노라마" },
+  { src: "/image/asset_5ab2ed79.png", alt: "게임스컴 부스" },
+  { src: "/image/asset_6bc679eb.png", alt: "게임스컴 인터뷰" },
+  { src: "/image/asset_3bc9ba6e.png", alt: "게임스컴 미팅" },
+  { src: "/image/asset_c6e041ef.png", alt: "게임스컴 포스터" },
   // Item 3: K-Content Expo London (4 images) 8-11
-  { src: "/image/k콘텐츠엑스포_1.png", alt: "런던 엑스포 1" },
-  { src: "/image/k콘텐츠엑스포_2.png", alt: "런던 엑스포 2" },
-  { src: "/image/k콘텐츠엑스포_3.png", alt: "런던 엑스포 3" },
-  { src: "/image/k콘텐츠엑스포_5.png", alt: "런던 엑스포 4" },
+  { src: "/image/asset_04d14be2.png", alt: "런던 엑스포 1" },
+  { src: "/image/asset_fa592e44.png", alt: "런던 엑스포 2" },
+  { src: "/image/asset_0e0e5bbc.png", alt: "런던 엑스포 3" },
+  { src: "/image/asset_59412863.png", alt: "런던 엑스포 4" },
 ];
 
 export function SupportProjectsModalContent() {

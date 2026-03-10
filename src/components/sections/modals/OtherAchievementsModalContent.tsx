@@ -7,7 +7,7 @@ import { useState } from "react";
 export const otherAchievementsGalleryImages: GalleryImageDef[] = [
     // Item 2: 타이페이 게임쇼 B2C 참가
     { src: "/image/25b32b42-d09c-47ac-aff1-3a30673fceb0.png", alt: "타이페이 게임쇼 B2C 시연 1" },
-    { src: "/image/타이페이게임쇼_2.png", alt: "타이페이 게임쇼 B2C 시연 2" },
+    { src: "/image/asset_98e2f47e.png", alt: "타이페이 게임쇼 B2C 시연 2" },
 
     // Item 3: K-콘텐츠 해외 지식재산 우수사례
     { src: "/image/1 1.png", alt: "K-콘텐츠 우수사례 1" },
@@ -16,7 +16,7 @@ export const otherAchievementsGalleryImages: GalleryImageDef[] = [
     { src: "/image/4 1.png", alt: "K-콘텐츠 우수사례 4" },
 
     // Item 4: 비트서밋 참가
-    { src: "/image/비트서밋_부스.jpg", alt: "비트서밋 참가 부스" }
+    { src: "/image/asset_e6ff9b7f.jpg", alt: "비트서밋 참가 부스" }
 ];
 
 export function OtherAchievementsModalContent() {

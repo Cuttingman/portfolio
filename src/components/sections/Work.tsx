@@ -31,10 +31,10 @@ const projects: ProjectData[] = [
     role: "PC 및 콘솔 게임 제작 총괄 / 회사 경영",
     summary: "자체 IP 제작, PC 및 콘솔 게임 제작",
     images: [
-      "/image/PIGROMANCE_InGame_02_616px.gif",
-      "/image/Cuttingman_Walk(Axe)_복사.gif",
-      "/image/Meatlet_Idle_복사.gif",
-      "/image/PIGROMANCE_Run_저용량_복사.gif",
+      "/image/pigromance_ingame.gif",
+      "/image/char_cuttingman.gif",
+      "/image/char_meatlet.gif",
+      "/image/pigromance_run.gif",
     ],
     description: "잔혹동화 '피그로맨스' 3부작 시리즈",
     modalContent: <PigromanceModalContent />,
@@ -46,8 +46,8 @@ const projects: ProjectData[] = [
     role: "자체 IP 제작, 모바일 게임 제작, AR 그림책 제작 및 경영",
     summary: "피그플랜트 AR 그림책, 피그로맨스 모바일 게임 제작",
     images: [
-      "/image/피그플랜트_시연_사진3.jpg",
-      "/image/피그플랜트_시연_사진4.jpg",
+      "/image/pigplant_photo_3.jpg",
+      "/image/pigplant_photo_4.jpg",
     ],
     description:
       "개인 사업자 시절 피그로맨스의 초기 형태 및 피그플랜트 AR 그림책 유통",
@@ -63,7 +63,7 @@ const projects: ProjectData[] = [
     images: [
       "/image/01-04.png",
       "/image/05-08.png",
-      "/image/포스터-3-2.jpg",
+      "/image/poster-3-2.jpg",
     ],
     description: "다양한 시각 콘텐츠 디자인, 영상 제작 및 솔루션 제공",
     modalContent: <ToyLabModalContent />,

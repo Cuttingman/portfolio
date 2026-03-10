@@ -5,23 +5,23 @@ import { useState } from "react";
 
 export const activitiesGalleryImages: GalleryImageDef[] = [
   // Item 1: 상생협력 IR 데모데이 (1 image) 0
-  { src: "/image/대중소상생협력.jpg", alt: "대중소 상생협력 IR 데모데이" },
+  { src: "/image/asset_76921158.jpg", alt: "대중소 상생협력 IR 데모데이" },
   
   // Item 2: 인크래프트 IR 데모데이 (3 images) 1-3
-  { src: "/image/인디크래프트_IR_데모데이_1.jpg", alt: "인디크래프트 IR 피칭" },
-  { src: "/image/인디크래프트_IR_데모데이_2.jpg", alt: "인디크래프트 IR 참석" },
-  { src: "/image/인디크래프트_IR_데모데이_3.jpg", alt: "인디크래프트 IR 단체사진" },
+  { src: "/image/asset_59ac4aaa.jpg", alt: "인디크래프트 IR 피칭" },
+  { src: "/image/asset_e6b7c7da.jpg", alt: "인디크래프트 IR 참석" },
+  { src: "/image/asset_247f6444.jpg", alt: "인디크래프트 IR 단체사진" },
   
   // Item 3: 대구콘텐츠코리아랩 세미나 (2 images) 4-5
-  { src: "/image/대구특강_1.png", alt: "콘텐츠 창업 세미나 특강 1" },
-  { src: "/image/대구특강_2.png", alt: "콘텐츠 창업 세미나 특강 2" },
+  { src: "/image/asset_0b96d28c.png", alt: "콘텐츠 창업 세미나 특강 1" },
+  { src: "/image/asset_643a2ec9.png", alt: "콘텐츠 창업 세미나 특강 2" },
   
   // Item 4: 게임기획 지원사업 강연 (1 image) 6
-  { src: "/image/게임기획지원사업네트워킹_1.png", alt: "게임제작기 강연" },
+  { src: "/image/asset_3c06cae3.png", alt: "게임제작기 강연" },
   
   // Item 5: 애니메이션고 멘토 (2 images) 7-8
-  { src: "/image/애니메이션고등학교특강_1.png", alt: "애니메이션고 창업 멘토 1" },
-  { src: "/image/애니메이션고등학교특강_2.png", alt: "애니메이션고 창업 멘토 2" },
+  { src: "/image/asset_dc89b0f2.png", alt: "애니메이션고 창업 멘토 1" },
+  { src: "/image/asset_ee19ad3e.png", alt: "애니메이션고 창업 멘토 2" },
   
   // Item 6: Xsolla IR (1 image) 9
   { src: "/image/f787e1e8-7952-4db0-b4ef-a43f7b94a98e.png", alt: "[엑솔라] 지스타 펀딩 이벤트 IR 프레젠테이션" },
