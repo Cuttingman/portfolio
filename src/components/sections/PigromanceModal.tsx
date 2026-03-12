@@ -142,28 +142,28 @@ export function PigromanceModalContent() {
             <h5 className="text-2xl font-bold text-white border-l-4 border-white/40 pl-4 uppercase tracking-wider">예고편</h5>
           </div>
           <div className="grid grid-cols-1 gap-6 w-full">
-            <div className="aspect-video w-full bg-white/5 rounded-3xl overflow-hidden shadow-xl border border-white/10">
+            <div className="relative pt-[56.25%] w-full bg-white/5 rounded-3xl overflow-hidden shadow-xl border border-white/10 min-w-0 min-h-0">
               <iframe
                 src="https://www.youtube.com/embed/3i1fkY9Q6Ho"
                 title="피그로맨스 정식 출시 론칭 트레일러"
-                className="w-full h-full border-0"
+                className="absolute inset-0 w-full h-full border-0"
                 allowFullScreen
               />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-              <div className="aspect-video w-full bg-white/5 rounded-3xl overflow-hidden border border-white/10">
+              <div className="relative pt-[56.25%] w-full bg-white/5 rounded-3xl overflow-hidden border border-white/10 min-w-0 min-h-0">
                 <iframe
                   src="https://www.youtube.com/embed/xvjyCQMuIho"
                   title="피그로맨스 얼리엑세스 트레일러"
-                  className="w-full h-full border-0"
+                  className="absolute inset-0 w-full h-full border-0"
                   allowFullScreen
                 />
               </div>
-              <div className="aspect-video w-full bg-white/5 rounded-3xl overflow-hidden border border-white/10">
+              <div className="relative pt-[56.25%] w-full bg-white/5 rounded-3xl overflow-hidden border border-white/10 min-w-0 min-h-0">
                 <iframe
                   src="https://www.youtube.com/embed/_SSh_yJSRcE"
                   title="피그로맨스 첫 데모 트레일러"
-                  className="w-full h-full border-0"
+                  className="absolute inset-0 w-full h-full border-0"
                   allowFullScreen
                 />
               </div>
@@ -264,7 +264,7 @@ export function PigromanceModalContent() {
               alt="피그로맨스 달리기"
               index={0}
               imgClassName="w-full h-full object-cover rounded-3xl shadow-xl m-0 border border-white/10 bg-black block"
-              className="block w-full h-full"
+              className="block w-full h-full min-w-0 min-h-0 min-h-[250px] md:min-h-[300px]"
               onClick={setGalleryIndex}
             />
           </div>
@@ -275,7 +275,7 @@ export function PigromanceModalContent() {
               alt="피그로맨스 인게임"
               index={1}
               imgClassName="w-full h-full object-cover rounded-3xl shadow-xl m-0 border border-white/10 bg-black block"
-              className="block w-full h-full order-2 md:order-1"
+              className="block w-full h-full order-2 md:order-1 min-w-0 min-h-0 min-h-[250px] md:min-h-[300px]"
               onClick={setGalleryIndex}
             />
             <div className="flex flex-col gap-4 p-8 bg-white/5 rounded-3xl border border-white/10 order-1 md:order-2 justify-center h-full">
@@ -307,7 +307,7 @@ export function PigromanceModalContent() {
               alt="피그로맨스 퍼즐"
               index={18}
               imgClassName="w-full h-full object-cover rounded-3xl shadow-xl m-0 border border-white/10 bg-black block"
-              className="block w-full h-full"
+              className="block w-full h-full min-w-0 min-h-0 min-h-[250px] md:min-h-[300px]"
               onClick={setGalleryIndex}
             />
           </div>
@@ -318,7 +318,7 @@ export function PigromanceModalContent() {
               alt="피그로맨스 음악"
               index={19}
               imgClassName="w-full h-full object-cover rounded-3xl shadow-xl m-0 border border-white/10 bg-black block"
-              className="block w-full h-full order-2 md:order-1"
+              className="block w-full h-full order-2 md:order-1 min-w-0 min-h-0 min-h-[250px] md:min-h-[300px]"
               onClick={setGalleryIndex}
             />
             <div className="flex flex-col gap-4 p-8 bg-white/5 rounded-3xl border border-white/10 order-1 md:order-2 h-full justify-center">
