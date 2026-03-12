@@ -78,93 +78,75 @@ export function PigromanceModalContent() {
           />
         </div>
 
+        {/* SECTION DIVIDER */}
+        <div className="w-full h-px bg-white/20 mb-28"></div>
+
         {/* PROJECT OVERVIEW ALIGNMENT */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-24 items-start">
-          <div className="lg:col-span-4 flex flex-col gap-6">
-            <h3 className="text-4xl font-black font-sans text-white tracking-tighter">
-              피그로맨스
-            </h3>
-            <div className="flex flex-col sm:flex-row gap-3 w-full">
+        <div className="flex flex-col mb-32 w-full">
+          <div className="flex flex-col mb-20 w-full gap-4">
+            
+            {/* Title & Subcopy */}
+            <div className="text-center mb-10">
+              <h3 className="text-4xl md:text-6xl font-black font-sans text-white tracking-tighter mb-6">
+                피그로맨스
+              </h3>
+              <p className="text-xl md:text-2xl font-bold text-gray-300 tracking-wide">
+                소시지가 될 운명을 가지고 태어난 수퇘지의 모험극!
+              </p>
+            </div>
+            
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md mx-auto justify-center mt-4">
               <a
                 href="https://store.steampowered.com/app/1362120/PIGROMANCE/"
                 target="_blank"
                 rel="noreferrer"
-                className="flex-1 flex flex-col items-center justify-center text-center font-bold text-sm tracking-widest text-black bg-white px-6 py-3 rounded-3xl hover:bg-gray-200 transition-colors leading-snug"
+                className="flex-1 flex items-center justify-center text-center font-bold text-sm tracking-widest text-black bg-white px-6 py-4 rounded-full hover:bg-gray-200 transition-colors"
               >
-                <span>STEAM</span>
-                <span>스토어 방문</span>
+                STEAM 스토어 방문
               </a>
               <a
                 href="https://drive.google.com/drive/folders/17OaEjVESlN7DfhuleC7V2HHfZPtUL55V?usp=sharing"
                 target="_blank"
                 rel="noreferrer"
-                className="flex-1 flex flex-col items-center justify-center text-center font-bold text-sm tracking-widest text-black bg-[#ffdc9d] px-6 py-3 rounded-3xl hover:bg-[#ffdc9d]/80 transition-colors leading-snug"
+                className="flex-1 flex items-center justify-center text-center font-bold text-sm tracking-widest text-black bg-[#ffdc9d] px-6 py-4 rounded-full hover:bg-[#ffdc9d]/80 transition-colors"
               >
-                다운로드 ⤓
+                다운로드
               </a>
             </div>
-            <ul className="list-none p-0 space-y-4 font-medium text-gray-300 text-base mt-4 border-l-2 border-white/20 pl-6">
-              <li className="m-0">
-                <strong className="text-white font-semibold">장르 :</strong>{" "}
-                퍼즐 플랫포머
-              </li>
-              <li className="m-0">
-                <strong className="text-white font-semibold">플랫폼 :</strong>{" "}
-                Steam
-              </li>
-              <li className="m-0">
-                <strong className="text-white font-semibold">출시일 :</strong>{" "}
-                2024년 7월 25일
-              </li>
-              <li className="m-0">
-                <strong className="text-white font-semibold">
-                  개발 기간 :
-                </strong>{" "}
-                2019년 11월 ~ 2024년 7월 (약 5년)
-              </li>
-            </ul>
-            <div className="mt-4 p-6 bg-white/5 rounded-3xl border border-white/10">
-              <strong className="block text-white font-semibold mb-2">
-                담당 역할
-              </strong>
-              <p className="m-0 text-sm text-gray-300 leading-relaxed break-keep">
-                총괄 기획, 시나리오, 그래픽디자인, 아트 디렉션, 사업 운영.{" "}
-                <br />
-                피그로맨스는 소시지 공장을 배경으로 한 퍼즐 플랫포머 게임입니다.
-                텍스트가 없는 무언극의 연출방식과 충격적인 스토리, 그리고
-                직관적인 퍼즐 설계가 특징입니다.
-              </p>
-            </div>
+
           </div>
 
-          <div className="lg:col-span-8 flex flex-col gap-12">
-            {/* TRAILERS GRID */}
-            <div className="grid grid-cols-1 gap-6">
-              <div className="aspect-video w-full bg-white/5 rounded-3xl overflow-hidden shadow-xl border border-white/10">
+          {/* TRAILERS GRID (Below Header) */}
+          <h4 className="text-3xl font-black mb-12 font-sans text-white text-center tracking-tighter uppercase relative w-full">
+            <span className="relative z-10 bg-black px-6">예고편</span>
+            <div className="absolute top-1/2 left-0 w-full h-px bg-white/10 -z-10"></div>
+          </h4>
+          <div className="grid grid-cols-1 gap-6 w-full">
+            <div className="aspect-video w-full bg-white/5 rounded-3xl overflow-hidden shadow-xl border border-white/10">
+              <iframe
+                src="https://www.youtube.com/embed/3i1fkY9Q6Ho"
+                title="피그로맨스 정식 출시 론칭 트레일러"
+                className="w-full h-full border-0"
+                allowFullScreen
+              />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+              <div className="aspect-video w-full bg-white/5 rounded-3xl overflow-hidden border border-white/10">
                 <iframe
-                  src="https://www.youtube.com/embed/3i1fkY9Q6Ho"
-                  title="피그로맨스 정식 출시 론칭 트레일러"
+                  src="https://www.youtube.com/embed/xvjyCQMuIho"
+                  title="피그로맨스 얼리엑세스 트레일러"
                   className="w-full h-full border-0"
                   allowFullScreen
                 />
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="aspect-video w-full bg-white/5 rounded-3xl overflow-hidden border border-white/10">
-                  <iframe
-                    src="https://www.youtube.com/embed/xvjyCQMuIho"
-                    title="피그로맨스 얼리엑세스 트레일러"
-                    className="w-full h-full border-0"
-                    allowFullScreen
-                  />
-                </div>
-                <div className="aspect-video w-full bg-white/5 rounded-3xl overflow-hidden border border-white/10">
-                  <iframe
-                    src="https://www.youtube.com/embed/_SSh_yJSRcE"
-                    title="피그로맨스 첫 데모 트레일러"
-                    className="w-full h-full border-0"
-                    allowFullScreen
-                  />
-                </div>
+              <div className="aspect-video w-full bg-white/5 rounded-3xl overflow-hidden border border-white/10">
+                <iframe
+                  src="https://www.youtube.com/embed/_SSh_yJSRcE"
+                  title="피그로맨스 첫 데모 트레일러"
+                  className="w-full h-full border-0"
+                  allowFullScreen
+                />
               </div>
             </div>
           </div>
@@ -245,17 +227,21 @@ export function PigromanceModalContent() {
         </div>
 
         {/* NARRATIVE SECTIONS */}
-        <div className="mb-24 space-y-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="flex flex-col gap-4 justify-center h-full">
-              <h4 className="text-2xl font-bold font-sans text-white">
-                "소시지가 될 운명을 가지고 태어난 수퇘지의 이야기"
+        <div className="mb-24 flex flex-col gap-6">
+          
+          {/* Section Header (styled like "로고") */}
+          <div>
+            <h5 className="text-2xl font-bold text-white border-l-4 border-white/40 pl-4 uppercase tracking-wider">게임 소개</h5>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
+            <div className="flex flex-col gap-4 p-8 bg-white/5 rounded-3xl border border-white/10 h-full justify-center">
+              <h4 className="text-xl font-bold font-sans text-white m-0">
+                "소시지가 될 운명을 가지고 태어난 수퇘지"
               </h4>
-              <p className="font-medium leading-relaxed text-gray-400 m-0">
+              <p className="font-medium leading-relaxed text-gray-400 m-0 text-sm">
                 어느 평화로운 농장... 게으른 돼지들은 낮은 울타리에 갇혀 살고
-                있었죠.
-                <br />
-                그러던 어느 날 울타리가 부서지는 소동이 일어나고, 놀란 돼지들이
+                있었죠. 그러던 어느 날 울타리가 부서지는 소동이 일어나고, 놀란 돼지들이
                 탈출하며 이야기는 시작됩니다.
               </p>
             </div>
@@ -263,50 +249,65 @@ export function PigromanceModalContent() {
               src="/image/pigromance_run.gif"
               alt="피그로맨스 달리기"
               index={0}
-              imgClassName="w-full h-auto rounded-3xl shadow-xl m-0 border border-white/10 bg-black block"
-              className="block w-full h-auto"
+              imgClassName="w-full h-full object-cover rounded-3xl shadow-xl m-0 border border-white/10 bg-black block"
+              className="block w-full h-full"
               onClick={setGalleryIndex}
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
             <GalleryImageTrigger
               src="/image/pigromance_ingame.gif"
               alt="피그로맨스 인게임"
               index={1}
-              imgClassName="w-full h-auto rounded-3xl shadow-xl m-0 border border-white/10 order-2 md:order-1 bg-black block"
-              className="block w-full h-auto"
+              imgClassName="w-full h-full object-cover rounded-3xl shadow-xl m-0 border border-white/10 bg-black block"
+              className="block w-full h-full order-2 md:order-1"
               onClick={setGalleryIndex}
             />
-            <div className="flex flex-col gap-4 order-1 md:order-2 justify-center h-full">
-              <h4 className="text-2xl font-bold font-sans text-white">
+            <div className="flex flex-col gap-4 p-8 bg-white/5 rounded-3xl border border-white/10 order-1 md:order-2 justify-center h-full">
+              <h4 className="text-xl font-bold font-sans text-white m-0">
                 "돼지들은 최고의 소시지 재료!"
               </h4>
-              <p className="font-medium leading-relaxed text-gray-400 m-0">
-                소시지 공장에는 돼지를 더욱 맛있게 만들기 위한 다양한 장치가
-                기다리고 있습니다.
-                <br />
+              <p className="font-medium leading-relaxed text-gray-400 m-0 text-sm">
                 불을 내뿜는 파이프와 냉동고, 돼지들을 절단하는 톱날과 절단된
                 부위를 운반하는 컨베이어벨트!
                 <br />
-                우리의 수퇘지가 소시지 재료가 되지 않도록 도와주세요.
+                수퇘지가 소시지 재료가 되지 않도록 도와주세요.
               </p>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
-            <div className="flex flex-col gap-4 p-8 bg-white/5 rounded-3xl border border-white/10 h-full">
+            <div className="flex flex-col gap-4 p-8 bg-white/5 rounded-3xl border border-white/10 h-full justify-center">
               <h4 className="text-xl font-bold font-sans text-white m-0">
                 "도전적인 퍼즐과 까다로운 플랫폼"
               </h4>
               <p className="font-medium leading-relaxed text-gray-400 m-0 text-sm">
                 절단선을 인식하는 기계들, 리프트를 타고 펼쳐지는 추격전,
                 수퇘지를 집요하게 찾아다니는 도축업자!
-                <br />이 외에도 소시지 공장 안에는 위협적인 퍼즐들이 여러분을
-                기다리고 있습니다.
+                <br />이 외에도 소시지 공장 안에는 여러가지 위험이 도사리고 있습니다!
               </p>
             </div>
-            <div className="flex flex-col gap-4 p-8 bg-white/5 rounded-3xl border border-white/10 h-full justify-center">
+            <GalleryImageTrigger
+              src="/image/pigromance_puzzle.gif"
+              alt="피그로맨스 퍼즐"
+              index={18}
+              imgClassName="w-full h-full object-cover rounded-3xl shadow-xl m-0 border border-white/10 bg-black block"
+              className="block w-full h-full"
+              onClick={setGalleryIndex}
+            />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
+            <GalleryImageTrigger
+              src="/image/pigromance_music.gif"
+              alt="피그로맨스 음악"
+              index={19}
+              imgClassName="w-full h-full object-cover rounded-3xl shadow-xl m-0 border border-white/10 bg-black block"
+              className="block w-full h-full order-2 md:order-1"
+              onClick={setGalleryIndex}
+            />
+            <div className="flex flex-col gap-4 p-8 bg-white/5 rounded-3xl border border-white/10 order-1 md:order-2 h-full justify-center">
               <h4 className="text-xl font-bold font-sans text-white m-0">
                 "아름다운 음악에 맞춰진 스토리텔링"
               </h4>
@@ -320,8 +321,9 @@ export function PigromanceModalContent() {
 
         {/* CHARACTER GALLERY */}
         <div className="mb-24">
-          <h4 className="text-3xl font-black mb-12 font-sans text-white text-center tracking-tighter uppercase">
-            등장 인물
+          <h4 className="text-3xl font-black mb-12 font-sans text-white text-center tracking-tighter uppercase relative w-full">
+            <span className="relative z-10 bg-black px-6">등장 인물</span>
+            <div className="absolute top-1/2 left-0 w-full h-px bg-white/10 -z-10"></div>
           </h4>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="flex flex-col items-center text-center p-6 bg-white/5 rounded-3xl border border-white/10">
