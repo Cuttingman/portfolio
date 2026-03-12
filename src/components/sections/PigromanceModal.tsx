@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   GalleryLightbox,
@@ -61,6 +61,42 @@ export const pigromanceGalleryImages: GalleryImageDef[] = [
 
 export function PigromanceModalContent() {
   const [galleryIndex, setGalleryIndex] = useState<number | null>(null);
+  const [activeSection, setActiveSection] = useState<string>('pigromance-top');
+
+  useEffect(() => {
+    const sectionIds = [
+      'pigromance-top',
+      'pigromance-main',
+      'pigromance-trailer',
+      'pigromance-intro',
+      'pigromance-art',
+      'pigromance-goods',
+      'pigromance-pitchdeck'
+    ];
+
+    const scrollContainer = document.getElementById('pigromance-top')?.closest('.overflow-y-auto');
+    if (!scrollContainer) return;
+
+    const handleScroll = () => {
+      let currentSection = sectionIds[0];
+      for (const id of sectionIds) {
+        const element = document.getElementById(id);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          // When the header passes the upper 40% of the viewport, it becomes active.
+          if (rect.top <= window.innerHeight * 0.4) {
+            currentSection = id;
+          }
+        }
+      }
+      setActiveSection((prev) => prev !== currentSection ? currentSection : prev);
+    };
+
+    scrollContainer.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial check
+
+    return () => scrollContainer.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
@@ -734,13 +770,27 @@ export function PigromanceModalContent() {
           <motion.nav 
             className="pointer-events-auto flex items-center justify-center gap-4 md:gap-8 px-6 md:px-10 py-3 md:py-4 bg-[#2B2B2B] rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.8)] backdrop-blur-md bg-opacity-95 max-w-[95%] overflow-x-auto no-scrollbar"
           >
-            <button onClick={() => document.getElementById('pigromance-top')?.scrollIntoView({ behavior: 'smooth', block: 'start' })} className="text-white text-xs md:text-sm font-bold hover:text-gray-300 transition-colors tracking-widest whitespace-nowrap">외계인납치작전</button>
-            <button onClick={() => document.getElementById('pigromance-main')?.scrollIntoView({ behavior: 'smooth', block: 'start' })} className="text-white text-xs md:text-sm font-bold hover:text-gray-300 transition-colors tracking-widest whitespace-nowrap">피그로맨스</button>
-            <button onClick={() => document.getElementById('pigromance-trailer')?.scrollIntoView({ behavior: 'smooth', block: 'start' })} className="text-white text-xs md:text-sm font-bold hover:text-gray-300 transition-colors tracking-widest whitespace-nowrap">예고편</button>
-            <button onClick={() => document.getElementById('pigromance-intro')?.scrollIntoView({ behavior: 'smooth', block: 'start' })} className="text-white text-xs md:text-sm font-bold hover:text-gray-300 transition-colors tracking-widest whitespace-nowrap">게임 소개</button>
-            <button onClick={() => document.getElementById('pigromance-art')?.scrollIntoView({ behavior: 'smooth', block: 'start' })} className="text-white text-xs md:text-sm font-bold hover:text-gray-300 transition-colors tracking-widest whitespace-nowrap">아트</button>
-            <button onClick={() => document.getElementById('pigromance-goods')?.scrollIntoView({ behavior: 'smooth', block: 'start' })} className="text-white text-xs md:text-sm font-bold hover:text-gray-300 transition-colors tracking-widest whitespace-nowrap">굿즈</button>
-            <button onClick={() => document.getElementById('pigromance-pitchdeck')?.scrollIntoView({ behavior: 'smooth', block: 'start' })} className="text-white text-xs md:text-sm font-bold hover:text-gray-300 transition-colors tracking-widest whitespace-nowrap">피치덱</button>
+            {[
+              { id: 'pigromance-top', label: '외계인납치작전' },
+              { id: 'pigromance-main', label: '피그로맨스' },
+              { id: 'pigromance-trailer', label: '예고편' },
+              { id: 'pigromance-intro', label: '게임 소개' },
+              { id: 'pigromance-art', label: '아트' },
+              { id: 'pigromance-goods', label: '굿즈' },
+              { id: 'pigromance-pitchdeck', label: '피치덱' },
+            ].map((item) => (
+              <button
+                key={item.id}
+                onClick={() => document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+                className={`text-xs md:text-sm transition-all tracking-widest whitespace-nowrap pb-1 border-b-2 ${
+                  activeSection === item.id
+                    ? 'text-white font-black border-white scale-105'
+                    : 'text-white/40 font-bold border-transparent hover:text-white/80'
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
           </motion.nav>
         </div>
       </div>
