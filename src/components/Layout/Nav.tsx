@@ -55,7 +55,7 @@ export function Nav() {
         {/* Logo */}
         <Link href="/" className="font-bold text-lg md:text-xl tracking-tight z-[100] leading-none">
           CREATIVE DIRECTOR<br />
-          & IP ARCHITECT.
+          & IP ARCHITECT
         </Link>
 
         {/* Desktop Nav */}
