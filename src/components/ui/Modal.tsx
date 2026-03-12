@@ -44,7 +44,6 @@ export function Modal({ isOpen, onClose, children, theme = "dark", className = "
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            onClick={onClose}
             className={`absolute inset-0 backdrop-blur-sm ${
               theme === "dark" ? "bg-black/80" : "bg-white/80"
             }`}
@@ -62,13 +61,15 @@ export function Modal({ isOpen, onClose, children, theme = "dark", className = "
             }`}
           >
             {/* Close Button */}
-            <button
+            <motion.button
               onClick={onClose}
-              className="absolute top-6 right-6 z-10 p-2 backdrop-blur-md rounded-full transition-colors bg-[#ffdc9d] hover:bg-[#ffba61] shadow-lg"
+              animate={{ scale: [1, 1.15, 1] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-6 right-6 z-10 p-2 backdrop-blur-md rounded-full transition-colors bg-[#F23E19] shadow-lg hover:bg-[#d13515]"
               aria-label="Close modal"
             >
-              <X size={24} strokeWidth={3} className="text-black" />
-            </button>
+              <X size={24} strokeWidth={3} className="text-white" />
+            </motion.button>
 
             {/* Scrollable Area */}
             <div className="overflow-y-auto p-6 md:p-12 overscroll-contain">
