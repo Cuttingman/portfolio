@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import {
   GalleryLightbox,
@@ -51,18 +51,34 @@ export const pigromanceGalleryImages: GalleryImageDef[] = [
   { src: "/image/PIGROMANCE_Character_3.png", alt: "캐릭터 3" },
   { src: "/image/PIGROMANCE_Character_4.png", alt: "캐릭터 4" },
   // Concept (31)
-  { src: "/image/Stomuch.png", alt: "스토머치 콘셉트" },
-  // Pitch Deck (32-45)
-  ...['1', '2', '4', '5', '6', '7', '8', '8-1', '9', '10', '11', '13', '14', '15'].map((num, i) => ({
-    src: `/image/pitchdeck_${num}.png`,
-    alt: `피치덱 슬라이드 ${num}`
-  }))
+  { src: "/image/Stomuch.png", alt: "스토머치 콘셉트" }
 ];
 
 export function PigromanceModalContent() {
   const [galleryIndex, setGalleryIndex] = useState<number | null>(null);
   const [activeSection, setActiveSection] = useState<string>('pigromance-top');
+  const slideIndexRef = useRef<number>(1);
+  const totalSlides = 15; // Known from the pitchdeck URL/PDF
 
+  const navigateSlide = (direction: 'next' | 'prev') => {
+    const iframe = document.getElementById('pitchdeck-iframe') as HTMLIFrameElement;
+    const counter = document.getElementById('pitchdeck-counter');
+    if (!iframe) return;
+    
+    if (direction === 'next') {
+      slideIndexRef.current = slideIndexRef.current >= totalSlides ? 1 : slideIndexRef.current + 1;
+    } else {
+      slideIndexRef.current = slideIndexRef.current <= 1 ? totalSlides : slideIndexRef.current - 1;
+    }
+    
+    // Update the DOM counter natively to avoid React re-renders
+    if (counter) {
+      counter.innerText = `${slideIndexRef.current} / ${totalSlides}`;
+    }
+
+    // Update the iframe natively via DOM to avoid React re-renders, causing massive stutter in Google Slides embed
+    iframe.src = `https://docs.google.com/presentation/d/1gNiFuAFr5oQxewGP2Dh3XTF-q67EOCeWcFOu6jFyl2I/embed?rm=minimal&start=false&loop=true&delayms=3000#slide=${slideIndexRef.current}`;
+  };
   useEffect(() => {
     const sectionIds = [
       'pigromance-top',
@@ -749,19 +765,104 @@ export function PigromanceModalContent() {
             <span className="relative z-10 bg-black px-6">피치덱</span>
             <div className="absolute top-1/2 left-0 w-full h-px bg-white/10 -z-10"></div>
           </h4>
-          <div className="flex flex-col gap-6 w-full">
-            {['1', '2', '4', '5', '6', '7', '8', '8-1', '9', '10', '11', '13', '14', '15'].map((num, i) => (
-              <div key={num} className="w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 max-w-5xl mx-auto">
-                <GalleryImageTrigger
-                  src={`/image/pitchdeck_${num}.png`}
-                  alt={`피치덱 슬라이드 ${num}`}
-                  index={32 + i}
-                  imgClassName="w-full h-auto object-contain m-0"
-                  className="block w-full h-full"
-                  onClick={setGalleryIndex}
-                />
-              </div>
-            ))}
+          <div 
+            id="pitchdeck-container" 
+            className="w-full aspect-video rounded-3xl overflow-hidden bg-white/5 border border-white/10 shadow-2xl relative max-w-5xl mx-auto group outline-none focus:outline-none"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              // Block W and S completely in the container
+              if (e.key.toLowerCase() === 'w' || e.key.toLowerCase() === 's') {
+                e.preventDefault();
+                e.stopPropagation();
+              }
+              // Allow keyboard navigation using Arrow keys natively mapped to our DOM method
+              if (e.key === 'ArrowRight') {
+                navigateSlide('next');
+              } else if (e.key === 'ArrowLeft') {
+                navigateSlide('prev');
+              }
+            }}
+          >
+            {/* The Google Slides Embed, completely decoupled from native focus to prevent W/S */}
+            <SmartIframe
+              id="pitchdeck-iframe"
+              src={`https://docs.google.com/presentation/d/1gNiFuAFr5oQxewGP2Dh3XTF-q67EOCeWcFOu6jFyl2I/embed?rm=minimal&start=false&loop=true&delayms=3000#slide=1`}
+              title="피그로맨스 피치덱"
+              className="absolute inset-0 w-full h-full border-0 z-0 pointer-events-none"
+              allowFullScreen
+            />
+            {/* 
+              Because preventing native focus (and thus native W/S shortcuts) while retaining native click-to-advance 
+              destroys the iframe's UI state (e.g. blank screen bug at end), we block ALL pointer events to the iframe.
+              We also put a transparent plate over the entire slide to natively reject clicks. 
+            */}
+            
+            {/* 1. Global Click Blocker: prevents clicking the slide body from doing anything */}
+            <div 
+              className="absolute inset-0 z-10 cursor-default"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                // Ensure focus stays on the container so arrow keys keep working
+                document.getElementById('pitchdeck-container')?.focus();
+              }}
+            />
+
+            {/* 2. Custom Left Navigation Button */}
+            <button
+              className="absolute top-1/2 -translate-y-1/2 left-4 md:left-8 z-20 bg-black/50 text-white rounded-full p-4 backdrop-blur-md transform transition-all duration-300 hover:scale-110 hover:bg-black/70 opacity-0 group-hover:opacity-100 cursor-pointer border border-white/20 shadow-xl"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                navigateSlide('prev');
+                document.getElementById('pitchdeck-container')?.focus();
+              }}
+              title="이전 슬라이드"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+
+            {/* 3. Custom Right Navigation Button */}
+            <button
+              className="absolute top-1/2 -translate-y-1/2 right-4 md:right-8 z-20 bg-black/50 text-white rounded-full p-4 backdrop-blur-md transform transition-all duration-300 hover:scale-110 hover:bg-black/70 opacity-0 group-hover:opacity-100 cursor-pointer border border-white/20 shadow-xl"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                navigateSlide('next');
+                document.getElementById('pitchdeck-container')?.focus();
+              }}
+              title="다음 슬라이드"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+
+            {/* Overlay Fullscreen button */}
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const container = document.getElementById('pitchdeck-container');
+                if (container) {
+                  if (document.fullscreenElement) {
+                    document.exitFullscreen();
+                  } else {
+                    container.requestFullscreen().then(() => container.focus());
+                  }
+                }
+              }}
+              className="absolute bottom-4 right-4 h-[40px] px-4 rounded-full bg-black/50 backdrop-blur-md text-white hover:bg-black/80 transition-all duration-300 flex items-center justify-center gap-2 z-20 cursor-pointer border border-white/20 shadow-lg hover:scale-105"
+              title="전체화면"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+              </svg>
+              <span className="text-[13px] font-bold tracking-tight">전체화면보기</span>
+            </button>
+            
+            {/* Slide Counter Overlay */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 h-[40px] px-5 rounded-full bg-black/50 backdrop-blur-md text-white flex items-center justify-center z-20 pointer-events-none border border-white/20 shadow-lg">
+              <span id="pitchdeck-counter" className="text-[14px] font-bold tracking-widest">1 / 15</span>
+            </div>
           </div>
         </div>
 
