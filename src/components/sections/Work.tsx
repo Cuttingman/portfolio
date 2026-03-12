@@ -109,7 +109,7 @@ export function WorkSection() {
             WORK
           </h1>
           <p className="text-lg md:text-2xl text-white/90 max-w-4xl font-medium leading-[1.6] md:leading-[1.8] break-keep">
-            시각 콘텐츠, 게임, 사업 운영 실무 기록
+            시각 콘텐츠, 게임, 프로젝트 운영, 실무 기록
           </p>
         </motion.div>
 

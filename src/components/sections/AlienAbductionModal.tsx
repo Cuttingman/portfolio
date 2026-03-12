@@ -16,8 +16,12 @@ export function AlienAbductionModalContent() {
       <div className="prose prose-lg dark:prose-invert max-w-none mx-auto w-full">
         {/* Section A: 외계인납치작전 */}
         <div className="flex flex-col items-center justify-center text-center w-full mb-16">
-          <h2 className="text-4xl md:text-5xl font-black mb-4 font-sans text-white uppercase tracking-tighter">
-            외계인납치작전
+          <h2 className="mb-6 mt-4 flex justify-center w-full">
+            <img 
+              src="/image/OAA_Prototype_CI.png" 
+              alt="외계인납치작전 로고" 
+              className="h-24 md:h-32 lg:h-40 w-auto object-contain" 
+            />
           </h2>
           <p className="text-gray-400 font-medium text-lg tracking-widest">
             2017.08 ~ 2019.11 (2년 4개월)

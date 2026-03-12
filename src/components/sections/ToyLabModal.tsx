@@ -36,10 +36,13 @@ export function ToyLabModalContent() {
   return (
     <>
       <div className="prose prose-lg dark:prose-invert max-w-none mx-auto w-full">
-        {/* Section A: 토이랩 회사 소개 */}
         <div className="flex flex-col items-center justify-center text-center w-full mb-16">
-          <h2 className="text-4xl md:text-5xl font-black mb-4 font-sans text-white uppercase tracking-tighter">
-            토이랩
+          <h2 className="mb-6 mt-4 flex justify-center w-full">
+            <img 
+              src="/image/ToyLab_CI.png" 
+              alt="토이랩 로고" 
+              className="h-28 md:h-36 lg:h-48 w-auto object-contain" 
+            />
           </h2>
           <p className="text-gray-400 font-medium text-lg tracking-widest">
             2013.06 ~ 2017.08 (4년 2개월)

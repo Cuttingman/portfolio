@@ -120,8 +120,12 @@ export function PigromanceModalContent() {
       <div className="prose prose-lg dark:prose-invert max-w-7xl mx-auto w-full relative pb-24">
         {/* HEADER SECTION */}
         <div className="flex flex-col items-center justify-center text-center w-full mb-16">
-          <h2 id="pigromance-top" className="text-4xl md:text-5xl font-black mb-4 font-sans text-white uppercase tracking-tighter scroll-mt-24">
-            (주)외계인납치작전
+          <h2 id="pigromance-top" className="mb-6 mt-4 scroll-mt-24 flex justify-center w-full">
+            <img 
+              src="/image/OAA_CI.png" 
+              alt="(주)외계인납치작전 로고" 
+              className="h-14 md:h-20 lg:h-24 w-auto object-contain" 
+            />
           </h2>
           <p className="text-gray-400 font-medium text-lg tracking-widest">
             2019.11 ~ 2025.05 (5년 7개월)
