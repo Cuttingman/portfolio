@@ -31,10 +31,13 @@ const projects: ProjectData[] = [
     role: "PC 및 콘솔 게임 제작 총괄 / 회사 경영",
     summary: "자체 IP 제작, PC 및 콘솔 게임 제작",
     images: [
-      "/image/pigromance_ingame.gif",
-      "/image/char_cuttingman.gif",
-      "/image/char_meatlet.gif",
-      "/image/pigromance_run.gif",
+      "/image/Screenshot_1.png",
+      "/image/Screenshot_2.png",
+      "/image/Screenshot_3.png",
+      "/image/Screenshot_4.png",
+      "/image/Screenshot_5.png",
+      "/image/Screenshot_6.png",
+      "/image/PIGROMANCE_Keyvisual.png",
     ],
     description: "잔혹동화 '피그로맨스' 3부작 시리즈",
     modalContent: <PigromanceModalContent />,
@@ -46,9 +49,9 @@ const projects: ProjectData[] = [
     role: "자체 IP 제작, 모바일 게임 제작, AR 그림책 제작 및 경영",
     summary: "피그플랜트 AR 그림책, 피그로맨스 모바일 게임 제작",
     images: [
-      "/image/2018_startup_award.png",
       "/image/pigplant_demo_1.jpg",
       "/image/pigplant_demo_2.jpg",
+      "/image/pigromance_prototype.png",
     ],
     description:
       "개인 사업자 시절 피그로맨스의 초기 형태 및 피그플랜트 AR 그림책 유통",
