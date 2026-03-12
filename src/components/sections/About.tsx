@@ -129,13 +129,13 @@ export function AboutSection() {
                       </ul>
 
                       {/* Links */}
-                      <div className="relative z-20 flex flex-row flex-wrap gap-4 pt-2">
-                        <a href="https://gemini.google.com/share/62f619990e7f" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-4 bg-foreground/5 hover:bg-foreground/10 text-foreground rounded-sm transition-colors text-base font-bold w-fit cursor-pointer">
+                      <div className="relative z-20 flex flex-col sm:flex-row flex-wrap gap-4 pt-2">
+                        <a href="https://gemini.google.com/share/62f619990e7f" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-foreground/5 hover:bg-foreground/10 text-foreground rounded-sm transition-colors text-base font-bold w-full sm:w-fit cursor-pointer">
                           Gemini 인재 분석 보고서
                           <ExternalLink size={16} className="opacity-50" />
                         </a>
 
-                        <a href="https://drive.google.com/drive/folders/17OaEjVESlN7DfhuleC7V2HHfZPtUL55V?usp=drive_link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-4 bg-white text-black hover:opacity-90 rounded-sm transition-opacity text-base font-bold w-fit cursor-pointer">
+                        <a href="https://drive.google.com/drive/folders/17OaEjVESlN7DfhuleC7V2HHfZPtUL55V?usp=drive_link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-white text-black hover:opacity-90 rounded-sm transition-opacity text-base font-bold w-full sm:w-fit cursor-pointer">
                           피그로맨스 게임 다운로드
                         </a>
                       </div>
@@ -252,7 +252,7 @@ export function AboutSection() {
                 <h3 className="text-sm font-black tracking-widest text-white/40 uppercase mb-4">Capabilities</h3>
                 <div className="flex flex-wrap gap-4">
                   {[
-                    "#PD", "#출시경험", "#제작총괄", "#아트디렉터", "#시나리오", "#팀관리"
+                    "#PD", "#기획", "#출시경험", "#제작총괄", "#아트디렉터", "#시나리오", "#팀관리"
                   ].map((tag) => (
                     <motion.div
                       key={tag}
