@@ -52,16 +52,16 @@ export function SmartIframe({ src, ...props }: IframeHTMLAttributes<HTMLIFrameEl
   }
   return (
     <div 
-      className={`${props.className || ''} relative`}
+      className={props.className}
       style={props.style}
       onMouseEnter={() => window.dispatchEvent(new CustomEvent('toggle-iframe-hover', { detail: true }))}
       onMouseLeave={() => window.dispatchEvent(new CustomEvent('toggle-iframe-hover', { detail: false }))}
     >
       <iframe 
         ref={iframeRef} 
-        src={finalSrc} 
         {...props} 
-        className="w-full h-full absolute inset-0" 
+        src={finalSrc} 
+        className="w-full h-full block border-0" 
         style={{}} // override inherited style so that wrapper handles it
       />
     </div>
