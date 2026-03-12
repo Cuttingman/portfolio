@@ -64,18 +64,25 @@ export function PigromanceModalContent() {
             (주)외계인납치작전
           </h2>
           <p className="text-gray-400 font-medium text-lg tracking-widest">
-            재직 기간 : 2019.11 ~ 2025.05 (5년 7개월)
+            2019.11 ~ 2025.05 (5년 7개월)
           </p>
         </div>
 
         {/* BRANDING VIDEO */}
-        <div className="mb-24 aspect-video w-full bg-white/5 rounded-3xl overflow-hidden shadow-2xl border border-white/10">
-          <iframe
-            src="https://www.youtube.com/embed/1eAZUMlqRJA"
-            title="회사 브랜딩 영상"
-            className="w-full h-full border-0"
-            allowFullScreen
-          />
+        <div className="flex flex-col mb-24 w-full">
+          <div className="mb-6 w-full">
+            <h5 className="text-2xl font-bold text-white border-l-4 border-white/40 pl-4 uppercase tracking-wider">
+              외계인납치작전 소개
+            </h5>
+          </div>
+          <div className="aspect-video w-full bg-white/5 rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+            <iframe
+              src="https://www.youtube.com/embed/1eAZUMlqRJA"
+              title="회사 브랜딩 영상"
+              className="w-full h-full border-0"
+              allowFullScreen
+            />
+          </div>
         </div>
 
         {/* SECTION DIVIDER */}
@@ -138,7 +145,7 @@ export function PigromanceModalContent() {
           </div>
 
           {/* TRAILERS GRID (Below Header) */}
-          <div className="mt-12 mb-6 w-full max-w-4xl mx-auto">
+          <div className="mt-12 mb-6 w-full">
             <h5 className="text-2xl font-bold text-white border-l-4 border-white/40 pl-4 uppercase tracking-wider">예고편</h5>
           </div>
           <div className="grid grid-cols-1 gap-6 w-full">

@@ -151,6 +151,7 @@ export function WorkSection() {
           isOpen={!!activeProject}
           onClose={() => setActiveProject(null)}
           theme="dark"
+          className="max-w-7xl"
         >
           {activeProject?.modalContent}
         </Modal>

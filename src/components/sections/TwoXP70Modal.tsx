@@ -19,14 +19,14 @@ export function TwoXP70ModalContent() {
 
   return (
     <>
-      <div className="prose prose-lg dark:prose-invert max-w-7xl mx-auto w-full">
+      <div className="prose prose-lg dark:prose-invert max-w-none mx-auto w-full">
         {/* Section A: 2XP70 Crew 소개 */}
         <div className="flex flex-col items-center justify-center text-center w-full mb-16">
           <h2 className="text-4xl md:text-5xl font-black mb-4 font-sans text-white uppercase tracking-tighter">
             2XP70 Crew
           </h2>
           <p className="text-gray-400 font-medium text-lg tracking-widest">
-            활동 기간 : 2003.12 ~ 2005.12 (2년 1개월)
+            2003.12 ~ 2005.12 (2년 1개월)
           </p>
         </div>
 
