@@ -152,7 +152,7 @@ export function AboutSection() {
                     transition={{ duration: 0.3 }}
                   >
                     <p className="mb-4 text-white">
-                      그래픽 디자인과 그라피티 아트에서 출발해, 콘텐츠 제작의 전 과정을 직접 설계하고 이끌어온 <span className="font-bold text-white">크리에이티브 디렉터</span>입니다.
+                      그래피티 아트 작가에서 그래픽 디자이너, 게임 PD 등 콘텐츠 제작의 전 과정을 직접 설계하고 이끌어온 <span className="font-bold text-white">크리에이티브 디렉터</span>입니다.
                     </p>
                     <p className="mb-4 text-white">
                       계원예술대학교에서 인지학 기반 디자인을 학습한 뒤, 디자인 스튜디오 토이랩을 창업해 전시 그래픽, 영상, 애니메이션, 브랜드 디자인 등 실무 전반을 수행했습니다. 이후 독자 IP를 만들겠다는 목표로 게임 스튜디오 외계인납치작전을 설립하고, 내러티브 퍼즐 게임 피그로맨스를 약 5년간 총괄 개발했습니다.
