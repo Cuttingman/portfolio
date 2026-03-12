@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   GalleryLightbox,
   GalleryImageTrigger,
@@ -57,28 +57,30 @@ export const pigromanceGalleryImages: GalleryImageDef[] = [
 export function PigromanceModalContent() {
   const [galleryIndex, setGalleryIndex] = useState<number | null>(null);
   const [activeSection, setActiveSection] = useState<string>('pigromance-top');
-  const slideIndexRef = useRef<number>(1);
-  const totalSlides = 15; // Known from the pitchdeck URL/PDF
+  const [slideIndex, setSlideIndex] = useState<number>(0);
+  const pitchdeckImages = ['1', '2', '4', '5', '6', '7', '8', '8-1', '9', '10', '11', '13', '14', '15'];
+  const totalSlides = pitchdeckImages.length;
 
   const navigateSlide = (direction: 'next' | 'prev') => {
-    const iframe = document.getElementById('pitchdeck-iframe') as HTMLIFrameElement;
-    const counter = document.getElementById('pitchdeck-counter');
-    if (!iframe) return;
-    
     if (direction === 'next') {
-      slideIndexRef.current = slideIndexRef.current >= totalSlides ? 1 : slideIndexRef.current + 1;
+      setSlideIndex(prev => prev >= totalSlides - 1 ? 0 : prev + 1);
     } else {
-      slideIndexRef.current = slideIndexRef.current <= 1 ? totalSlides : slideIndexRef.current - 1;
+      setSlideIndex(prev => prev <= 0 ? totalSlides - 1 : prev - 1);
     }
-    
-    // Update the DOM counter natively to avoid React re-renders
-    if (counter) {
-      counter.innerText = `${slideIndexRef.current} / ${totalSlides}`;
-    }
-
-    // Update the iframe natively via DOM to avoid React re-renders, causing massive stutter in Google Slides embed
-    iframe.src = `https://docs.google.com/presentation/d/1gNiFuAFr5oQxewGP2Dh3XTF-q67EOCeWcFOu6jFyl2I/embed?rm=minimal&start=false&loop=true&delayms=3000#slide=${slideIndexRef.current}`;
   };
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // When scrolling past many images that load lazily, the destination Y-coordinate constantly gets pushed further down.
+      // We repeatedly call scrollIntoView to continuously update the target destination as the layout expands.
+      setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
+      setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 600);
+      setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 900);
+    }
+  };
+
   useEffect(() => {
     const sectionIds = [
       'pigromance-top',
@@ -767,15 +769,9 @@ export function PigromanceModalContent() {
           </h4>
           <div 
             id="pitchdeck-container" 
-            className="w-full aspect-video rounded-3xl overflow-hidden bg-white/5 border border-white/10 shadow-2xl relative max-w-5xl mx-auto group outline-none focus:outline-none"
+            className="w-full xl:w-[960px] aspect-video rounded-3xl overflow-hidden bg-black border border-white/10 shadow-2xl relative max-w-[100vw] mx-auto group outline-none focus:outline-none"
             tabIndex={0}
             onKeyDown={(e) => {
-              // Block W and S completely in the container
-              if (e.key.toLowerCase() === 'w' || e.key.toLowerCase() === 's') {
-                e.preventDefault();
-                e.stopPropagation();
-              }
-              // Allow keyboard navigation using Arrow keys natively mapped to our DOM method
               if (e.key === 'ArrowRight') {
                 navigateSlide('next');
               } else if (e.key === 'ArrowLeft') {
@@ -783,53 +779,40 @@ export function PigromanceModalContent() {
               }
             }}
           >
-            {/* The Google Slides Embed, completely decoupled from native focus to prevent W/S */}
-            <SmartIframe
-              id="pitchdeck-iframe"
-              src={`https://docs.google.com/presentation/d/1gNiFuAFr5oQxewGP2Dh3XTF-q67EOCeWcFOu6jFyl2I/embed?rm=minimal&start=false&loop=true&delayms=3000#slide=1`}
-              title="피그로맨스 피치덱"
-              className="absolute inset-0 w-full h-full border-0 z-0 pointer-events-none"
-              allowFullScreen
-            />
-            {/* 
-              Because preventing native focus (and thus native W/S shortcuts) while retaining native click-to-advance 
-              destroys the iframe's UI state (e.g. blank screen bug at end), we block ALL pointer events to the iframe.
-              We also put a transparent plate over the entire slide to natively reject clicks. 
-            */}
-            
-            {/* 1. Global Click Blocker: prevents clicking the slide body from doing anything */}
-            <div 
-              className="absolute inset-0 z-10 cursor-default"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                // Ensure focus stays on the container so arrow keys keep working
-                document.getElementById('pitchdeck-container')?.focus();
-              }}
-            />
+            {/* Native Image Slider for absolute 0-latency navigation */}
+            <AnimatePresence initial={false}>
+              <motion.img
+                key={slideIndex}
+                src={`/image/pitchdeck_${pitchdeckImages[slideIndex]}.png`}
+                alt={`피치덱 슬라이드 ${slideIndex + 1}`}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="absolute inset-0 w-full h-full object-contain pointer-events-none"
+              />
+            </AnimatePresence>
 
-            {/* 2. Custom Left Navigation Button */}
+            {/* Custom Left Navigation Button */}
             <button
               className="absolute top-1/2 -translate-y-1/2 left-4 md:left-8 z-20 bg-black/50 text-white rounded-full p-4 backdrop-blur-md transform transition-all duration-300 hover:scale-110 hover:bg-black/70 opacity-0 group-hover:opacity-100 cursor-pointer border border-white/20 shadow-xl"
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 navigateSlide('prev');
-                document.getElementById('pitchdeck-container')?.focus();
               }}
               title="이전 슬라이드"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
             </button>
 
-            {/* 3. Custom Right Navigation Button */}
+            {/* Custom Right Navigation Button */}
             <button
               className="absolute top-1/2 -translate-y-1/2 right-4 md:right-8 z-20 bg-black/50 text-white rounded-full p-4 backdrop-blur-md transform transition-all duration-300 hover:scale-110 hover:bg-black/70 opacity-0 group-hover:opacity-100 cursor-pointer border border-white/20 shadow-xl"
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 navigateSlide('next');
-                document.getElementById('pitchdeck-container')?.focus();
               }}
               title="다음 슬라이드"
             >
@@ -861,7 +844,7 @@ export function PigromanceModalContent() {
             
             {/* Slide Counter Overlay */}
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 h-[40px] px-5 rounded-full bg-black/50 backdrop-blur-md text-white flex items-center justify-center z-20 pointer-events-none border border-white/20 shadow-lg">
-              <span id="pitchdeck-counter" className="text-[14px] font-bold tracking-widest">1 / 15</span>
+              <span id="pitchdeck-counter" className="text-[14px] font-bold tracking-widest">{slideIndex + 1} / {totalSlides}</span>
             </div>
           </div>
         </div>
@@ -882,7 +865,10 @@ export function PigromanceModalContent() {
             ].map((item) => (
               <button
                 key={item.id}
-                onClick={() => document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(item.id);
+                }}
                 className={`text-xs md:text-sm transition-all tracking-widest whitespace-nowrap pb-1 border-b-2 ${
                   activeSection === item.id
                     ? 'text-white font-black border-white scale-105'
