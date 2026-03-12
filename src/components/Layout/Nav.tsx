@@ -66,6 +66,16 @@ export function Nav() {
               <Link
                 key={link.name}
                 href={link.href}
+                onClick={(e) => {
+                  const targetId = link.href.replace('#', '');
+                  const elem = document.getElementById(targetId);
+                  if (elem) {
+                    e.preventDefault();
+                    elem.scrollIntoView({ behavior: 'smooth' });
+                    // Optionally update URL to keep consistency without reloading
+                    window.history.pushState(null, '', link.href);
+                  }
+                }}
                 className={`relative text-sm font-black tracking-tighter transition-colors duration-500 ${
                   isActive 
                     ? (navTheme === "light" ? "text-black" : "text-white")
@@ -108,7 +118,20 @@ export function Nav() {
               <Link
                 key={link.name}
                 href={link.href}
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => {
+                  setIsOpen(false);
+                  const targetId = link.href.replace('#', '');
+                  const elem = document.getElementById(targetId);
+                  if (elem) {
+                    e.preventDefault();
+                    // Small delay to let the menu close animation start before scrolling, 
+                    // though smooth scrolling usually looks fine concurrently.
+                    setTimeout(() => {
+                      elem.scrollIntoView({ behavior: 'smooth' });
+                      window.history.pushState(null, '', link.href);
+                    }, 50);
+                  }
+                }}
                 className={`text-3xl font-bold tracking-tight transition-colors ${
                   activeSection === link.id 
                     ? (navTheme === "light" ? "text-black" : "text-white")

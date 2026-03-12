@@ -34,7 +34,13 @@ export function SmartIframe({ src, ...props }: IframeHTMLAttributes<HTMLIFrameEl
       observer.observe(iframeRef.current);
     }
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      // Ensure the cursor returns if the component is unmounted while hovered
+      if (typeof window !== "undefined") {
+        window.dispatchEvent(new CustomEvent('toggle-iframe-hover', { detail: false }));
+      }
+    };
   }, [src]);
 
   // For YouTube API to accept postMessage commands, enablejsapi=1 is required in the src URL if not already present.
@@ -44,6 +50,20 @@ export function SmartIframe({ src, ...props }: IframeHTMLAttributes<HTMLIFrameEl
       finalSrc += finalSrc.includes("?") ? "&enablejsapi=1" : "?enablejsapi=1";
     }
   }
-
-  return <iframe ref={iframeRef} src={finalSrc} {...props} />;
+  return (
+    <div 
+      className={`${props.className || ''} relative`}
+      style={props.style}
+      onMouseEnter={() => window.dispatchEvent(new CustomEvent('toggle-iframe-hover', { detail: true }))}
+      onMouseLeave={() => window.dispatchEvent(new CustomEvent('toggle-iframe-hover', { detail: false }))}
+    >
+      <iframe 
+        ref={iframeRef} 
+        src={finalSrc} 
+        {...props} 
+        className="w-full h-full absolute inset-0" 
+        style={{}} // override inherited style so that wrapper handles it
+      />
+    </div>
+  );
 }

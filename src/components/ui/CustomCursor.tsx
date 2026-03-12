@@ -7,6 +7,7 @@ export const CustomCursor = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
+  const [isIframeHover, setIsIframeHover] = useState(false);
 
   // useMotionValue avoids React re-renders for smooth 60fps tracking
   const cursorX = useMotionValue(-100);
@@ -26,11 +27,19 @@ export const CustomCursor = () => {
   const speed = 8; // Pixels per frame
   const initialized = useRef(false);
 
+  // ...
+
   useEffect(() => {
     // Only render the custom cursor for devices using a mouse/touchpad
     if (typeof window !== "undefined" && window.matchMedia("(pointer: fine)").matches) {
       setIsVisible(true);
     }
+
+    const handleIframeHoverEvent = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      setIsIframeHover(!!customEvent.detail);
+    };
+    window.addEventListener("toggle-iframe-hover", handleIframeHoverEvent);
 
     const moveCursor = (e: MouseEvent) => {
       posObj.current.x = e.clientX;
@@ -114,11 +123,6 @@ export const CustomCursor = () => {
         
         cursorX.set(newX);
         cursorY.set(newY);
-
-        // Optional: Element under current cursor for simulating hover via getElementFromPoint
-        // In a real app, dispatching custom events here would be complex due to React's synthetic events.
-        // The instructions ask to "Ensure that mouse-click events still work if the user decides to use their physical mouse" 
-        // which implies normal mouse clicks aren't broken, and only the visual visual virtual cursor is controlled by WASD.
       }
       requestRef.current = requestAnimationFrame(update);
     };
@@ -130,11 +134,22 @@ export const CustomCursor = () => {
 
     requestRef.current = requestAnimationFrame(update);
 
+    // If mouse leaves the window entirely (e.g. going into cross-origin iframe), handle mouseout
+    const handleMouseOut = (e: MouseEvent) => {
+      if (!e.relatedTarget) {
+        // Mouse left the document or entered a cross origin iframe
+        // Usually handled by the wrapper's onMouseEnter instead for better precision
+      }
+    };
+    document.addEventListener("mouseout", handleMouseOut);
+
     return () => {
+      window.removeEventListener("toggle-iframe-hover", handleIframeHoverEvent);
       window.removeEventListener("mousemove", moveCursor);
       window.removeEventListener("mouseover", handleMouseOver);
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("keyup", handleKeyUp);
+      document.removeEventListener("mouseout", handleMouseOut);
       cancelAnimationFrame(requestRef.current);
     };
   }, [cursorX, cursorY]);
@@ -153,7 +168,8 @@ export const CustomCursor = () => {
       animate={{
         scale: isClicking ? 0.8 : (isHovering ? 2.5 : 1),
         backgroundColor: isClicking ? "rgba(255, 255, 255, 0.5)" : "rgba(255, 255, 255, 1)",
-        border: isHovering ? "none" : "1px solid rgba(255, 255, 255, 0.2)"
+        border: isHovering ? "none" : "1px solid rgba(255, 255, 255, 0.2)",
+        opacity: isIframeHover ? 0 : 1
       }}
       transition={{ duration: 0.15, ease: "easeOut" }}
     />
