@@ -64,10 +64,10 @@ export function PigromanceModalContent() {
 
   return (
     <>
-      <div id="pigromance-top" className="prose prose-lg dark:prose-invert max-w-7xl mx-auto w-full relative pb-24">
+      <div className="prose prose-lg dark:prose-invert max-w-7xl mx-auto w-full relative pb-24">
         {/* HEADER SECTION */}
         <div className="flex flex-col items-center justify-center text-center w-full mb-16">
-          <h2 className="text-4xl md:text-5xl font-black mb-4 font-sans text-white uppercase tracking-tighter">
+          <h2 id="pigromance-top" className="text-4xl md:text-5xl font-black mb-4 font-sans text-white uppercase tracking-tighter scroll-mt-24">
             (주)외계인납치작전
           </h2>
           <p className="text-gray-400 font-medium text-lg tracking-widest">
@@ -101,7 +101,7 @@ export function PigromanceModalContent() {
             
             {/* Title & Subcopy */}
             <div className="text-center mb-10">
-              <h3 className="text-4xl md:text-6xl font-black font-sans text-white tracking-tighter mb-6">
+              <h3 id="pigromance-main" className="text-4xl md:text-6xl font-black font-sans text-white tracking-tighter mb-6 scroll-mt-24">
                 피그로맨스
               </h3>
               <p className="text-xl md:text-2xl font-bold text-gray-300 tracking-wide">
@@ -263,8 +263,8 @@ export function PigromanceModalContent() {
             <div className="absolute top-1/2 left-0 w-full h-px bg-white/10 -z-10"></div>
           </h4>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
-            <div className="flex flex-col gap-4 p-8 bg-white/5 rounded-3xl border border-white/10 h-full justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+            <div className="flex flex-col gap-4 p-6 bg-white/5 rounded-3xl border border-white/10 h-full justify-center">
               <h4 className="text-xl font-bold font-sans text-white m-0">
                 "소시지가 될 운명을 가지고 태어난 수퇘지"
               </h4>
@@ -279,42 +279,37 @@ export function PigromanceModalContent() {
               alt="피그로맨스 달리기"
               index={0}
               imgClassName="w-full h-full object-cover rounded-3xl shadow-xl m-0 border border-white/10 bg-black block"
-              className="block w-full h-full min-w-0 min-h-0 min-h-[250px] md:min-h-[300px]"
+              className="block w-full h-full min-w-0 min-h-[200px]"
               onClick={setGalleryIndex}
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
             <GalleryImageTrigger
               src="/image/pigromance_ingame.gif"
               alt="피그로맨스 인게임"
               index={1}
               imgClassName="w-full h-full object-cover rounded-3xl shadow-xl m-0 border border-white/10 bg-black block"
-              className="block w-full h-full order-2 md:order-1 min-w-0 min-h-0 min-h-[250px] md:min-h-[300px]"
+              className="block w-full h-full order-2 md:order-1 min-w-0 min-h-[200px]"
               onClick={setGalleryIndex}
             />
-            <div className="flex flex-col gap-4 p-8 bg-white/5 rounded-3xl border border-white/10 order-1 md:order-2 justify-center h-full">
+            <div className="flex flex-col gap-4 p-6 bg-white/5 rounded-3xl border border-white/10 order-1 md:order-2 justify-center h-full">
               <h4 className="text-xl font-bold font-sans text-white m-0">
                 "돼지들은 최고의 소시지 재료!"
               </h4>
               <p className="font-medium leading-relaxed text-gray-400 m-0 text-sm">
-                불을 내뿜는 파이프와 냉동고, 돼지들을 절단하는 톱날과 절단된
-                부위를 운반하는 컨베이어벨트!
-                <br />
-                수퇘지가 소시지 재료가 되지 않도록 도와주세요.
+                불을 내뿜는 파이프와 냉동고, 돼지들을 절단하는 톱날과 절단된 부위를 운반하는 컨베이어벨트! 수퇘지가 소시지 재료가 되지 않도록 도와주세요.
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
-            <div className="flex flex-col gap-4 p-8 bg-white/5 rounded-3xl border border-white/10 h-full justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+            <div className="flex flex-col gap-4 p-6 bg-white/5 rounded-3xl border border-white/10 h-full justify-center">
               <h4 className="text-xl font-bold font-sans text-white m-0">
                 "도전적인 퍼즐과 까다로운 플랫폼"
               </h4>
               <p className="font-medium leading-relaxed text-gray-400 m-0 text-sm">
-                절단선을 인식하는 기계들, 리프트를 타고 펼쳐지는 추격전,
-                수퇘지를 집요하게 찾아다니는 도축업자!
-                <br />이 외에도 소시지 공장 안에는 여러가지 위험이 도사리고 있습니다!
+                절단선을 인식하는 기계들, 리프트를 타고 펼쳐지는 추격전, 수퇘지를 집요하게 찾아다니는 도축업자! 이 외에도 소시지 공장 안에는 여러가지 위험이 도사리고 있습니다!
               </p>
             </div>
             <GalleryImageTrigger
@@ -322,21 +317,21 @@ export function PigromanceModalContent() {
               alt="피그로맨스 퍼즐"
               index={18}
               imgClassName="w-full h-full object-cover rounded-3xl shadow-xl m-0 border border-white/10 bg-black block"
-              className="block w-full h-full min-w-0 min-h-0 min-h-[250px] md:min-h-[300px]"
+              className="block w-full h-full min-w-0 min-h-[200px]"
               onClick={setGalleryIndex}
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
             <GalleryImageTrigger
               src="/image/pigromance_music.gif"
               alt="피그로맨스 음악"
               index={19}
               imgClassName="w-full h-full object-cover rounded-3xl shadow-xl m-0 border border-white/10 bg-black block"
-              className="block w-full h-full order-2 md:order-1 min-w-0 min-h-0 min-h-[250px] md:min-h-[300px]"
+              className="block w-full h-full order-2 md:order-1 min-w-0 min-h-[200px]"
               onClick={setGalleryIndex}
             />
-            <div className="flex flex-col gap-4 p-8 bg-white/5 rounded-3xl border border-white/10 order-1 md:order-2 h-full justify-center">
+            <div className="flex flex-col gap-4 p-6 bg-white/5 rounded-3xl border border-white/10 order-1 md:order-2 h-full justify-center">
               <h4 className="text-xl font-bold font-sans text-white m-0">
                 "아름다운 음악에 맞춰진 스토리텔링"
               </h4>
@@ -735,18 +730,17 @@ export function PigromanceModalContent() {
         </div>
 
         {/* FLOATING NAVIGATION */}
-        <div className="sticky bottom-0 left-0 right-0 z-[100] flex justify-center pointer-events-none w-full mt-12">
+        <div className="sticky -bottom-6 md:-bottom-12 left-0 right-0 z-[100] flex justify-center pointer-events-none w-full mt-12 pb-6 md:pb-12">
           <motion.nav 
-            drag
-            dragMomentum={false}
-            className="pointer-events-auto flex items-center justify-center gap-4 md:gap-8 px-6 md:px-10 py-3 md:py-4 bg-black rounded-full border border-white/20 shadow-[0_10px_40px_rgba(0,0,0,0.8)] backdrop-blur-md bg-opacity-90 max-w-[95%] cursor-grab active:cursor-grabbing"
+            className="pointer-events-auto flex items-center justify-center gap-4 md:gap-8 px-6 md:px-10 py-3 md:py-4 bg-[#2B2B2B] rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.8)] backdrop-blur-md bg-opacity-95 max-w-[95%] overflow-x-auto no-scrollbar"
           >
-            <button onClick={() => document.getElementById('pigromance-top')?.scrollIntoView({ behavior: 'smooth' })} className="text-white text-xs md:text-sm font-bold hover:text-gray-300 transition-colors tracking-widest whitespace-nowrap">피그로맨스</button>
-            <button onClick={() => document.getElementById('pigromance-trailer')?.scrollIntoView({ behavior: 'smooth' })} className="text-white text-xs md:text-sm font-bold hover:text-gray-300 transition-colors tracking-widest whitespace-nowrap">예고편</button>
-            <button onClick={() => document.getElementById('pigromance-intro')?.scrollIntoView({ behavior: 'smooth' })} className="text-white text-xs md:text-sm font-bold hover:text-gray-300 transition-colors tracking-widest whitespace-nowrap">게임 소개</button>
-            <button onClick={() => document.getElementById('pigromance-art')?.scrollIntoView({ behavior: 'smooth' })} className="text-white text-xs md:text-sm font-bold hover:text-gray-300 transition-colors tracking-widest whitespace-nowrap">아트</button>
-            <button onClick={() => document.getElementById('pigromance-goods')?.scrollIntoView({ behavior: 'smooth' })} className="text-white text-xs md:text-sm font-bold hover:text-gray-300 transition-colors tracking-widest whitespace-nowrap">굿즈</button>
-            <button onClick={() => document.getElementById('pigromance-pitchdeck')?.scrollIntoView({ behavior: 'smooth' })} className="text-white text-xs md:text-sm font-bold hover:text-gray-300 transition-colors tracking-widest whitespace-nowrap">피치덱</button>
+            <button onClick={() => document.getElementById('pigromance-top')?.scrollIntoView({ behavior: 'smooth', block: 'start' })} className="text-white text-xs md:text-sm font-bold hover:text-gray-300 transition-colors tracking-widest whitespace-nowrap">외계인납치작전</button>
+            <button onClick={() => document.getElementById('pigromance-main')?.scrollIntoView({ behavior: 'smooth', block: 'start' })} className="text-white text-xs md:text-sm font-bold hover:text-gray-300 transition-colors tracking-widest whitespace-nowrap">피그로맨스</button>
+            <button onClick={() => document.getElementById('pigromance-trailer')?.scrollIntoView({ behavior: 'smooth', block: 'start' })} className="text-white text-xs md:text-sm font-bold hover:text-gray-300 transition-colors tracking-widest whitespace-nowrap">예고편</button>
+            <button onClick={() => document.getElementById('pigromance-intro')?.scrollIntoView({ behavior: 'smooth', block: 'start' })} className="text-white text-xs md:text-sm font-bold hover:text-gray-300 transition-colors tracking-widest whitespace-nowrap">게임 소개</button>
+            <button onClick={() => document.getElementById('pigromance-art')?.scrollIntoView({ behavior: 'smooth', block: 'start' })} className="text-white text-xs md:text-sm font-bold hover:text-gray-300 transition-colors tracking-widest whitespace-nowrap">아트</button>
+            <button onClick={() => document.getElementById('pigromance-goods')?.scrollIntoView({ behavior: 'smooth', block: 'start' })} className="text-white text-xs md:text-sm font-bold hover:text-gray-300 transition-colors tracking-widest whitespace-nowrap">굿즈</button>
+            <button onClick={() => document.getElementById('pigromance-pitchdeck')?.scrollIntoView({ behavior: 'smooth', block: 'start' })} className="text-white text-xs md:text-sm font-bold hover:text-gray-300 transition-colors tracking-widest whitespace-nowrap">피치덱</button>
           </motion.nav>
         </div>
       </div>
