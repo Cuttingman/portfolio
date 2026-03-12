@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { GalleryLightbox, GalleryImageTrigger, GalleryImageDef } from "@/components/ui/GalleryLightbox";
+import { SmartIframe } from "@/components/ui/SmartIframe";
 
 export const alienAbductionGalleryImages: GalleryImageDef[] = [
   { src: "/image/pigplant_demo_1.jpg", alt: "피그플랜트 게임 시연 1" },
@@ -117,8 +118,8 @@ export function AlienAbductionModalContent() {
             </h4>
             <div className="flex flex-col gap-8 mb-16">
               <div className="aspect-[16/9] w-full bg-white/5 rounded-3xl overflow-hidden shadow-xl border border-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500">
-                <iframe
-                  src="https://www.youtube.com/embed/SphFhJLhOuE"
+                <SmartIframe
+                  src="https://www.youtube.com/embed/SphFhJLhOuE?rel=0"
                   title="피그로맨스 초기버전-모바일"
                   className="w-full h-full border-0"
                   allowFullScreen

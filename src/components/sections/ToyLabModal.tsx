@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { GalleryLightbox, GalleryImageTrigger, GalleryImageDef } from "@/components/ui/GalleryLightbox";
+import { SmartIframe } from "@/components/ui/SmartIframe";
 
 export const toyLabGalleryImages: GalleryImageDef[] = [
   // Storyboards
@@ -61,8 +62,8 @@ export function ToyLabModalContent() {
 
             {/* Cantata Teaser Video */}
             <div className="aspect-video w-full bg-white/5 rounded-3xl overflow-hidden shadow-2xl border border-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500">
-              <iframe
-                src="https://www.youtube.com/embed/qhIjIPw4r1I"
+              <SmartIframe
+                src="https://www.youtube.com/embed/qhIjIPw4r1I?rel=0"
                 title="칸타타 티저 영상"
                 className="w-full h-full border-0"
                 allowFullScreen

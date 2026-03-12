@@ -1,6 +1,7 @@
 "use client";
 
 import { GalleryLightbox, GalleryImageTrigger, GalleryImageDef } from "@/components/ui/GalleryLightbox";
+import { SmartIframe } from "@/components/ui/SmartIframe";
 import { useState } from "react";
 
 export const activitiesGalleryImages: GalleryImageDef[] = [
@@ -227,7 +228,7 @@ export function ExternalActivitiesModalContent() {
                 </div>
                 <p className="text-gray-400 text-base mb-6">게임레벨업쇼케이스 데모데이 참석자 대상 창업 전략 강연</p>
                 <div className="aspect-video w-full rounded-2xl overflow-hidden shadow-sm">
-                  <iframe src="https://www.youtube.com/embed/DKkAeGSI-To" title="창업 성공 사례 강연" className="w-full h-full border-0" allowFullScreen />
+                  <SmartIframe src="https://www.youtube.com/embed/DKkAeGSI-To?rel=0" title="창업 성공 사례 강연" className="w-full h-full border-0" allowFullScreen />
                 </div>
               </div>
             </div>
@@ -294,7 +295,7 @@ export function ExternalActivitiesModalContent() {
                 </div>
               </div>
               <div className="aspect-video w-full max-w-4xl rounded-3xl overflow-hidden shadow-sm">
-                <iframe src="https://www.youtube.com/embed/LFMcNVRDK8g" title="애니메이션 제작 강의" className="w-full h-full border-0" allowFullScreen />
+                <SmartIframe src="https://www.youtube.com/embed/LFMcNVRDK8g?rel=0" title="애니메이션 제작 강의" className="w-full h-full border-0" allowFullScreen />
               </div>
             </div>
 

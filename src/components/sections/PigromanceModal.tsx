@@ -4,6 +4,7 @@ import {
   GalleryImageTrigger,
   GalleryImageDef,
 } from "@/components/ui/GalleryLightbox";
+import { SmartIframe } from "@/components/ui/SmartIframe";
 
 export const pigromanceGalleryImages: GalleryImageDef[] = [
   {
@@ -76,8 +77,8 @@ export function PigromanceModalContent() {
             </h5>
           </div>
           <div className="aspect-video w-full bg-white/5 rounded-3xl overflow-hidden shadow-2xl border border-white/10">
-            <iframe
-              src="https://www.youtube.com/embed/1eAZUMlqRJA"
+            <SmartIframe
+              src="https://www.youtube.com/embed/1eAZUMlqRJA?rel=0"
               title="회사 브랜딩 영상"
               className="w-full h-full border-0"
               allowFullScreen
@@ -150,8 +151,8 @@ export function PigromanceModalContent() {
           </div>
           <div className="grid grid-cols-1 gap-6 w-full">
             <div className="relative pt-[56.25%] w-full bg-white/5 rounded-3xl overflow-hidden shadow-xl border border-white/10 min-w-0 min-h-0">
-              <iframe
-                src="https://www.youtube.com/embed/3i1fkY9Q6Ho"
+              <SmartIframe
+                src="https://www.youtube.com/embed/3i1fkY9Q6Ho?rel=0"
                 title="피그로맨스 정식 출시 론칭 트레일러"
                 className="absolute inset-0 w-full h-full border-0"
                 allowFullScreen
@@ -159,16 +160,16 @@ export function PigromanceModalContent() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
               <div className="relative pt-[56.25%] w-full bg-white/5 rounded-3xl overflow-hidden border border-white/10 min-w-0 min-h-0">
-                <iframe
-                  src="https://www.youtube.com/embed/xvjyCQMuIho"
+                <SmartIframe
+                  src="https://www.youtube.com/embed/xvjyCQMuIho?rel=0"
                   title="피그로맨스 얼리엑세스 트레일러"
                   className="absolute inset-0 w-full h-full border-0"
                   allowFullScreen
                 />
               </div>
               <div className="relative pt-[56.25%] w-full bg-white/5 rounded-3xl overflow-hidden border border-white/10 min-w-0 min-h-0">
-                <iframe
-                  src="https://www.youtube.com/embed/_SSh_yJSRcE"
+                <SmartIframe
+                  src="https://www.youtube.com/embed/_SSh_yJSRcE?rel=0"
                   title="피그로맨스 첫 데모 트레일러"
                   className="absolute inset-0 w-full h-full border-0"
                   allowFullScreen
@@ -536,8 +537,8 @@ export function PigromanceModalContent() {
           <div className="flex flex-col gap-6">
             <h5 className="text-2xl font-bold text-white border-l-4 border-white/40 pl-4 uppercase tracking-wider">캐릭터 턴어라운드</h5>
             <div className="aspect-video w-full rounded-3xl overflow-hidden bg-black border border-white/10 shadow-2xl">
-              <iframe
-                src="https://www.youtube.com/embed/8WJwtm6Sc8o?autoplay=1&mute=1&loop=1&playlist=8WJwtm6Sc8o"
+              <SmartIframe
+                src="https://www.youtube.com/embed/8WJwtm6Sc8o?rel=0&autoplay=1&mute=1&loop=1&playlist=8WJwtm6Sc8o"
                 title="캐릭터 턴어라운드"
                 className="w-full h-full border-0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -573,8 +574,8 @@ export function PigromanceModalContent() {
                   시제품 촬영 영상
                 </h5>
                 <div className="aspect-video w-full rounded-3xl overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500">
-                  <iframe
-                    src="https://www.youtube.com/embed/7XuCjqpz6E4"
+                  <SmartIframe
+                    src="https://www.youtube.com/embed/7XuCjqpz6E4?rel=0"
                     title="시제품 촬영 영상"
                     className="w-full h-full border-0"
                     allowFullScreen
@@ -586,8 +587,8 @@ export function PigromanceModalContent() {
                   조립식 피규어 제작 영상
                 </h5>
                 <div className="aspect-video w-full rounded-3xl overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500">
-                  <iframe
-                    src="https://www.youtube.com/embed/5T3cmSpnyso"
+                  <SmartIframe
+                    src="https://www.youtube.com/embed/5T3cmSpnyso?rel=0"
                     title="조립식 피규어 제작 영상"
                     className="w-full h-full border-0"
                     allowFullScreen

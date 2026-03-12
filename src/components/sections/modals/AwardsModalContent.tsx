@@ -2,6 +2,7 @@
 
 import { LookbookGrid } from "@/components/ui/LookbookGrid";
 import { GalleryLightbox, GalleryImageTrigger, GalleryImageDef } from "@/components/ui/GalleryLightbox";
+import { SmartIframe } from "@/components/ui/SmartIframe";
 import { useState } from "react";
 
 export const awardsGalleryImages: GalleryImageDef[] = [
@@ -51,7 +52,7 @@ export function AwardsModalContent() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="aspect-video bg-black/50 rounded-3xl overflow-hidden border border-white/5 relative">
-              <iframe src="https://www.youtube.com/embed/8m9HhiQIeaU" title="게임레벨업쇼케이스 1위" className="w-full h-full border-0 absolute inset-0" allowFullScreen />
+              <SmartIframe src="https://www.youtube.com/embed/8m9HhiQIeaU?rel=0" title="게임레벨업쇼케이스 1위" className="w-full h-full border-0 absolute inset-0" allowFullScreen />
             </div>
             <GalleryImageTrigger src={awardsGalleryImages[0].src} alt={awardsGalleryImages[0].alt} index={0} onClick={setGalleryIndex} className="aspect-video block w-full" imgClassName="w-full h-full object-cover object-center rounded-3xl" />
           </div>
@@ -66,7 +67,7 @@ export function AwardsModalContent() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="aspect-video bg-black/50 rounded-3xl overflow-hidden border border-white/5 relative">
-              <iframe src="https://www.youtube.com/embed/VJPukrX2Exg" title="MWU 유니티 수상" className="w-full h-full border-0 absolute inset-0" allowFullScreen />
+              <SmartIframe src="https://www.youtube.com/embed/VJPukrX2Exg?rel=0" title="MWU 유니티 수상" className="w-full h-full border-0 absolute inset-0" allowFullScreen />
             </div>
             <div className="grid grid-cols-2 gap-4">
               <GalleryImageTrigger src={awardsGalleryImages[1].src} alt={awardsGalleryImages[1].alt} index={1} onClick={setGalleryIndex} className="h-full block" imgClassName="w-full h-full object-cover rounded-3xl" />
@@ -84,7 +85,7 @@ export function AwardsModalContent() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="aspect-video bg-black/50 rounded-3xl overflow-hidden border border-white/5 relative">
-              <iframe src="https://www.youtube.com/embed/T4ONqKbLZqM" title="지스타 인디어워즈 2위" className="w-full h-full border-0 absolute inset-0" allowFullScreen />
+              <SmartIframe src="https://www.youtube.com/embed/T4ONqKbLZqM?rel=0" title="지스타 인디어워즈 2위" className="w-full h-full border-0 absolute inset-0" allowFullScreen />
             </div>
             <GalleryImageTrigger src={awardsGalleryImages[3].src} alt={awardsGalleryImages[3].alt} index={3} onClick={setGalleryIndex} className="aspect-video block w-full" imgClassName="w-full h-full object-cover rounded-3xl" />
           </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { GalleryLightbox, GalleryImageTrigger, GalleryImageDef } from "@/components/ui/GalleryLightbox";
+import { SmartIframe } from "@/components/ui/SmartIframe";
 import { useState } from "react";
 
 // Using real images from the public/image directory according to the .md source of truth
@@ -132,7 +133,7 @@ export function OtherAchievementsModalContent() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
                         <div className="aspect-video w-full rounded-3xl overflow-hidden shadow-sm bg-[#111] border border-white/10">
-                            <iframe src="https://www.youtube.com/embed/ND8ijWsFz28" title="비트서밋 일본 스트리머 실황" className="w-full h-full border-0" allowFullScreen />
+                            <SmartIframe src="https://www.youtube.com/embed/ND8ijWsFz28?rel=0" title="비트서밋 일본 스트리머 실황" className="w-full h-full border-0" allowFullScreen />
                         </div>
                         <div className="h-full">
                             <GalleryImageTrigger
@@ -183,7 +184,7 @@ export function OtherAchievementsModalContent() {
                     </div>
 
                     <div className="aspect-video w-full rounded-3xl overflow-hidden shadow-sm bg-[#111] border border-white/10 max-w-4xl">
-                        <iframe src="https://www.youtube.com/embed/YmOnfyZkSb0" title="플레이x4 부스 방문 영상" className="w-full h-full border-0" allowFullScreen />
+                        <SmartIframe src="https://www.youtube.com/embed/YmOnfyZkSb0?rel=0" title="플레이x4 부스 방문 영상" className="w-full h-full border-0" allowFullScreen />
                     </div>
                 </div>
 

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { GalleryLightbox, GalleryImageTrigger, GalleryImageDef } from "@/components/ui/GalleryLightbox";
+import { SmartIframe } from "@/components/ui/SmartIframe";
 
 export const twoXP70GalleryImages: GalleryImageDef[] = [
   // Section C: SBS 드라마 세트 작업
@@ -59,8 +60,8 @@ export function TwoXP70ModalContent() {
                 m.net 슈퍼바이브파티 방송 로고 타이틀 영상 제작 및 그래피티 아트 디렉팅
               </p>
               <div className="aspect-video w-full bg-white/5 rounded-3xl overflow-hidden shadow-2xl border border-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 mt-4">
-                <iframe
-                  src="https://www.youtube.com/embed/zN2_CHdLBIw"
+                <SmartIframe
+                  src="https://www.youtube.com/embed/zN2_CHdLBIw?rel=0"
                   title="슈퍼바이브파티"
                   className="w-full h-full border-0"
                   allowFullScreen
@@ -77,8 +78,8 @@ export function TwoXP70ModalContent() {
                 SBS 드라마 루루공주의 현장 세트장 그래피티
               </p>
               <div className="aspect-video w-full bg-white/5 rounded-3xl overflow-hidden shadow-2xl border border-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 mt-4 mb-6">
-                <iframe
-                  src="https://www.youtube.com/embed/G-CL43OYOOE"
+                <SmartIframe
+                  src="https://www.youtube.com/embed/G-CL43OYOOE?rel=0"
                   title="루루공주 현장"
                   className="w-full h-full border-0"
                   allowFullScreen
