@@ -64,14 +64,10 @@ export function Modal({ isOpen, onClose, children, theme = "dark", className = "
             {/* Close Button */}
             <button
               onClick={onClose}
-              className={`absolute top-6 right-6 z-10 p-2 backdrop-blur-md rounded-full transition-colors ${
-                theme === "dark"
-                  ? "bg-black/50 text-white/60 hover:text-white"
-                  : "bg-white/50 text-black/60 hover:text-black"
-              }`}
+              className="absolute top-6 right-6 z-10 p-2 backdrop-blur-md rounded-full transition-colors bg-[#ffdc9d] hover:bg-[#ffba61] shadow-lg"
               aria-label="Close modal"
             >
-              <X size={24} />
+              <X size={24} strokeWidth={3} className="text-black" />
             </button>
 
             {/* Scrollable Area */}
