@@ -62,8 +62,8 @@ export default function RootLayout({
           <div className="flex min-h-screen flex-col">
             <Nav />
             <main className="flex-1">{children}</main>
-            <footer className="w-full py-12 text-center">
-              <p className="text-sm font-medium tracking-normal text-foreground/30 font-sans uppercase group cursor-default relative inline-block">
+            <footer className="w-full py-12 text-center bg-[#2B2B2B]">
+              <p className="text-sm font-medium tracking-normal text-white/30 font-sans uppercase group cursor-default relative inline-block">
                 <span className="block group-hover:opacity-0 transition-opacity duration-300">© Copyright is a fallacy.</span>
                 <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">WASD</span>
               </p>

@@ -36,7 +36,7 @@ export function AboutSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="group lg:col-span-4 aspect-[4/5] bg-foreground/5 relative overflow-hidden flex items-center justify-center text-foreground/20 font-medium rounded-2xl shadow-lg hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(255,255,255,0.1)] transition-all duration-500 w-full mt-2"
+            className="group lg:col-span-4 aspect-[4/5] bg-white/5 relative overflow-hidden flex items-center justify-center text-white/20 font-medium rounded-2xl shadow-lg hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(255,255,255,0.1)] transition-all duration-500 w-full mt-2"
           >
             <img src="/image/profile_picture.jpeg" alt="Profile" className="w-full h-full object-cover object-top transition-opacity duration-700 group-hover:opacity-0" />
             <img src="/image/gls2022_2_03_076_.png" alt="Profile Hover" className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 opacity-0 group-hover:opacity-100" />
@@ -69,7 +69,7 @@ export function AboutSection() {
               ))}
             </div>
 
-            <div className="prose prose-lg dark:prose-invert prose-headings:font-bold prose-p:font-light prose-p:leading-relaxed max-w-none text-foreground/80">
+            <div className="prose prose-lg dark:prose-invert prose-headings:font-bold prose-p:font-light prose-p:leading-relaxed max-w-none text-white/80">
 
               <AnimatePresence mode="wait">
                 {activeTab === "profile" && (
@@ -130,7 +130,7 @@ export function AboutSection() {
 
                       {/* Links */}
                       <div className="relative z-20 flex flex-col sm:flex-row flex-wrap gap-4 pt-2">
-                        <a href="https://gemini.google.com/share/62f619990e7f" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-foreground/5 hover:bg-foreground/10 text-foreground rounded-sm transition-colors text-base font-bold w-full sm:w-fit cursor-pointer">
+                        <a href="https://gemini.google.com/share/62f619990e7f" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-white/10 hover:bg-white/20 text-white rounded-sm transition-colors text-base font-bold w-full sm:w-fit cursor-pointer">
                           Gemini 인재 분석 보고서
                           <ExternalLink size={16} className="opacity-50" />
                         </a>
@@ -161,7 +161,7 @@ export function AboutSection() {
                       시나리오부터 아트 디렉션, 애니메이션, 사운드 디렉팅까지 제작 전 과정을 이끌었으며, 스팀 98% 긍정 평가, 국내 주요 게임 어워즈 다수 수상, 메이저 게임사 글로벌 퍼블리싱 계약 체결 및 닌텐도 스위치 포팅을 완수했습니다. 게임스컴, TGS 등 해외 전시와 IR, 정부 지원사업 자문까지 사업 운영 전반을 직접 수행했습니다.
                     </p>
 
-                    <div className="bg-foreground/5 p-6 rounded-sm mt-8 border-l-4 border-foreground/20">
+                    <div className="bg-white/5 p-6 rounded-sm mt-8 border-l-4 border-white/20">
                       <h4 className="text-lg font-bold mb-4">❝ 저는 게임 산업에서 이런 경험을 해봤습니다.❞</h4>
                       <ul className="list-disc pl-5 space-y-2 text-base">
                         <li>게임 제작 실무 경험 : 8년 / 시각콘텐츠 관련 분야 실무 경험 : 20년</li>
@@ -208,7 +208,7 @@ export function AboutSection() {
                         href={item.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group relative aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden flex items-center justify-center text-center p-6 border border-foreground/5 shadow-md hover:border-foreground/20 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(255,255,255,0.1)]"
+                        className="group relative aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden flex items-center justify-center text-center p-6 border border-white/10 shadow-md hover:border-white/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(255,255,255,0.1)]"
                         transition={{ duration: 0.4, ease: "easeOut" }}
                       >
                         {/* Dynamic Color Background Loop */}

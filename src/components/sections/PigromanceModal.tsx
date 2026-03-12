@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import {
   GalleryLightbox,
   GalleryImageTrigger,
@@ -49,8 +50,13 @@ export const pigromanceGalleryImages: GalleryImageDef[] = [
   { src: "/image/PIGROMANCE_Character_2.png", alt: "캐릭터 2" },
   { src: "/image/PIGROMANCE_Character_3.png", alt: "캐릭터 3" },
   { src: "/image/PIGROMANCE_Character_4.png", alt: "캐릭터 4" },
-  // Concept (33)
+  // Concept (31)
   { src: "/image/Stomuch.png", alt: "스토머치 콘셉트" },
+  // Pitch Deck (32-45)
+  ...['1', '2', '4', '5', '6', '7', '8', '8-1', '9', '10', '11', '13', '14', '15'].map((num, i) => ({
+    src: `/image/pitchdeck_${num}.png`,
+    alt: `피치덱 슬라이드 ${num}`
+  }))
 ];
 
 export function PigromanceModalContent() {
@@ -58,7 +64,7 @@ export function PigromanceModalContent() {
 
   return (
     <>
-      <div className="prose prose-lg dark:prose-invert max-w-7xl mx-auto w-full">
+      <div id="pigromance-top" className="prose prose-lg dark:prose-invert max-w-7xl mx-auto w-full relative pb-24">
         {/* HEADER SECTION */}
         <div className="flex flex-col items-center justify-center text-center w-full mb-16">
           <h2 className="text-4xl md:text-5xl font-black mb-4 font-sans text-white uppercase tracking-tighter">
@@ -146,8 +152,8 @@ export function PigromanceModalContent() {
           </div>
 
           {/* TRAILERS GRID (Below Header) */}
-          <div className="mt-12 mb-6 w-full">
-            <h5 className="text-2xl font-bold text-white border-l-4 border-white/40 pl-4 uppercase tracking-wider">예고편</h5>
+          <div className="mt-12 mb-6 w-full shrink-0">
+            <h5 id="pigromance-trailer" className="text-2xl font-bold text-white border-l-4 border-white/40 pl-4 uppercase tracking-wider scroll-mt-24">예고편</h5>
           </div>
           <div className="grid grid-cols-1 gap-6 w-full">
             <div className="relative pt-[56.25%] w-full bg-white/5 rounded-3xl overflow-hidden shadow-xl border border-white/10 min-w-0 min-h-0">
@@ -251,10 +257,11 @@ export function PigromanceModalContent() {
         {/* NARRATIVE SECTIONS */}
         <div className="mb-24 flex flex-col gap-6">
           
-          {/* Section Header (styled like "로고") */}
-          <div>
-            <h5 className="text-2xl font-bold text-white border-l-4 border-white/40 pl-4 uppercase tracking-wider">게임 소개</h5>
-          </div>
+          {/* Main Category Header: 게임 소개 */}
+          <h4 id="pigromance-intro" className="text-3xl font-black mb-12 font-sans text-white text-center tracking-tighter uppercase relative scroll-mt-24">
+            <span className="relative z-10 bg-black px-6">게임 소개</span>
+            <div className="absolute top-1/2 left-0 w-full h-px bg-white/10 -z-10"></div>
+          </h4>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
             <div className="flex flex-col gap-4 p-8 bg-white/5 rounded-3xl border border-white/10 h-full justify-center">
@@ -342,11 +349,8 @@ export function PigromanceModalContent() {
         </div>
 
         {/* CHARACTER GALLERY */}
-        <div className="mb-24">
-          <h4 className="text-3xl font-black mb-12 font-sans text-white text-center tracking-tighter uppercase relative w-full">
-            <span className="relative z-10 bg-black px-6">등장 인물</span>
-            <div className="absolute top-1/2 left-0 w-full h-px bg-white/10 -z-10"></div>
-          </h4>
+        <div className="mb-24 flex flex-col gap-6">
+          <h5 className="text-2xl font-bold text-white border-l-4 border-white/40 pl-4 uppercase tracking-wider">등장 인물</h5>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="flex flex-col items-center text-center p-6 bg-white/5 rounded-3xl border border-white/10">
               <div className="aspect-square w-full rounded-2xl overflow-hidden mb-6 bg-zinc-100">
@@ -467,10 +471,10 @@ export function PigromanceModalContent() {
           </div>
         </div>
 
-        {/* COMPREHENSIVE NEW SECTION: ILLUSTRATION */}
+        {/* COMPREHENSIVE NEW SECTION: ART */}
         <div className="mb-24 space-y-24">
-          <h4 className="text-3xl font-black mb-12 font-sans text-white text-center tracking-tighter uppercase relative">
-            <span className="relative z-10 bg-black px-6">일러스트</span>
+          <h4 id="pigromance-art" className="text-3xl font-black mb-12 font-sans text-white text-center tracking-tighter uppercase relative scroll-mt-24">
+            <span className="relative z-10 bg-black px-6">아트</span>
             <div className="absolute top-1/2 left-0 w-full h-px bg-white/10 -z-10"></div>
           </h4>
 
@@ -550,8 +554,8 @@ export function PigromanceModalContent() {
 
         {/* MERCHANDISE & PROTOTYPES */}
         <div className="mt-24 mb-12">
-          <h4 className="text-3xl font-black mb-12 font-sans text-white text-center tracking-tighter uppercase relative">
-            <span className="relative z-10 bg-black px-6">굿즈(MD) 시제품</span>
+          <h4 id="pigromance-goods" className="text-3xl font-black mb-12 font-sans text-white text-center tracking-tighter uppercase relative scroll-mt-24">
+            <span className="relative z-10 bg-black px-6">굿즈</span>
             <div className="absolute top-1/2 left-0 w-full h-px bg-white/10 -z-10"></div>
           </h4>
 
@@ -706,6 +710,44 @@ export function PigromanceModalContent() {
               <strong className="text-base font-bold text-white">에코백</strong>
             </div>
           </div>
+        </div>
+
+        {/* PITCH DECK */}
+        <div className="mt-24 mb-12">
+          <h4 id="pigromance-pitchdeck" className="text-3xl font-black mb-12 font-sans text-white text-center tracking-tighter uppercase relative scroll-mt-24">
+            <span className="relative z-10 bg-black px-6">피치덱</span>
+            <div className="absolute top-1/2 left-0 w-full h-px bg-white/10 -z-10"></div>
+          </h4>
+          <div className="flex flex-col gap-6 w-full">
+            {['1', '2', '4', '5', '6', '7', '8', '8-1', '9', '10', '11', '13', '14', '15'].map((num, i) => (
+              <div key={num} className="w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 max-w-5xl mx-auto">
+                <GalleryImageTrigger
+                  src={`/image/pitchdeck_${num}.png`}
+                  alt={`피치덱 슬라이드 ${num}`}
+                  index={32 + i}
+                  imgClassName="w-full h-auto object-contain m-0"
+                  className="block w-full h-full"
+                  onClick={setGalleryIndex}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* FLOATING NAVIGATION */}
+        <div className="sticky bottom-0 left-0 right-0 z-[100] flex justify-center pointer-events-none w-full mt-12">
+          <motion.nav 
+            drag
+            dragMomentum={false}
+            className="pointer-events-auto flex items-center justify-center gap-4 md:gap-8 px-6 md:px-10 py-3 md:py-4 bg-black rounded-full border border-white/20 shadow-[0_10px_40px_rgba(0,0,0,0.8)] backdrop-blur-md bg-opacity-90 max-w-[95%] cursor-grab active:cursor-grabbing"
+          >
+            <button onClick={() => document.getElementById('pigromance-top')?.scrollIntoView({ behavior: 'smooth' })} className="text-white text-xs md:text-sm font-bold hover:text-gray-300 transition-colors tracking-widest whitespace-nowrap">피그로맨스</button>
+            <button onClick={() => document.getElementById('pigromance-trailer')?.scrollIntoView({ behavior: 'smooth' })} className="text-white text-xs md:text-sm font-bold hover:text-gray-300 transition-colors tracking-widest whitespace-nowrap">예고편</button>
+            <button onClick={() => document.getElementById('pigromance-intro')?.scrollIntoView({ behavior: 'smooth' })} className="text-white text-xs md:text-sm font-bold hover:text-gray-300 transition-colors tracking-widest whitespace-nowrap">게임 소개</button>
+            <button onClick={() => document.getElementById('pigromance-art')?.scrollIntoView({ behavior: 'smooth' })} className="text-white text-xs md:text-sm font-bold hover:text-gray-300 transition-colors tracking-widest whitespace-nowrap">아트</button>
+            <button onClick={() => document.getElementById('pigromance-goods')?.scrollIntoView({ behavior: 'smooth' })} className="text-white text-xs md:text-sm font-bold hover:text-gray-300 transition-colors tracking-widest whitespace-nowrap">굿즈</button>
+            <button onClick={() => document.getElementById('pigromance-pitchdeck')?.scrollIntoView({ behavior: 'smooth' })} className="text-white text-xs md:text-sm font-bold hover:text-gray-300 transition-colors tracking-widest whitespace-nowrap">피치덱</button>
+          </motion.nav>
         </div>
       </div>
       <GalleryLightbox
