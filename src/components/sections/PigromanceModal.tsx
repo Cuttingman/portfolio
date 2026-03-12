@@ -96,32 +96,51 @@ export function PigromanceModalContent() {
             </div>
             
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md mx-auto justify-center mt-4">
+            <div className="flex flex-col sm:flex-row gap-4 w-full max-w-2xl mx-auto justify-center mt-4">
               <a
                 href="https://store.steampowered.com/app/1362120/PIGROMANCE/"
                 target="_blank"
                 rel="noreferrer"
-                className="flex-1 flex items-center justify-center text-center font-bold text-sm tracking-widest text-black bg-white px-6 py-4 rounded-full hover:bg-gray-200 transition-colors"
+                className="flex-1 flex items-center justify-center gap-2 text-center font-bold text-sm tracking-widest text-black bg-white px-6 py-4 rounded-full hover:bg-gray-200 transition-colors"
               >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="shrink-0"
+                >
+                  <path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z" />
+                </svg>
                 STEAM 스토어 방문
               </a>
               <a
                 href="https://drive.google.com/drive/folders/17OaEjVESlN7DfhuleC7V2HHfZPtUL55V?usp=sharing"
                 target="_blank"
                 rel="noreferrer"
-                className="flex-1 flex items-center justify-center text-center font-bold text-sm tracking-widest text-black bg-[#ffdc9d] px-6 py-4 rounded-full hover:bg-[#ffdc9d]/80 transition-colors"
+                className="flex-1 flex items-center justify-center gap-2 text-center font-bold text-sm tracking-widest text-black bg-[#ffdc9d] px-6 py-4 rounded-full hover:bg-[#ffdc9d]/80 transition-colors"
               >
-                다운로드
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="shrink-0"
+                >
+                  <path d="M12.01 1.485c-2.082 0-3.754.02-3.743.047.01.02 1.708 3.001 3.774 6.62l3.76 6.574h3.76c2.081 0 3.753-.02 3.742-.047-.005-.02-1.708-3.001-3.775-6.62l-3.76-6.574zm-4.76 1.73a789.828 789.861 0 0 0-3.63 6.319L0 15.868l1.89 3.298 1.885 3.297 3.62-6.335 3.618-6.33-1.88-3.287C8.1 4.704 7.255 3.22 7.25 3.214zm2.259 12.653-.203.348c-.114.198-.96 1.672-1.88 3.287a423.93 423.948 0 0 1-1.698 2.97c-.01.026 3.24.042 7.222.042h7.244l1.796-3.157c.992-1.734 1.85-3.23 1.906-3.323l.104-.167h-7.249z" />
+                </svg>
+                피그로맨스 게임 다운로드
               </a>
             </div>
 
           </div>
 
           {/* TRAILERS GRID (Below Header) */}
-          <h4 className="text-3xl font-black mb-12 font-sans text-white text-center tracking-tighter uppercase relative w-full">
-            <span className="relative z-10 bg-black px-6">예고편</span>
-            <div className="absolute top-1/2 left-0 w-full h-px bg-white/10 -z-10"></div>
-          </h4>
+          <div className="mt-12 mb-6 w-full max-w-4xl mx-auto">
+            <h5 className="text-2xl font-bold text-white border-l-4 border-white/40 pl-4 uppercase tracking-wider">예고편</h5>
+          </div>
           <div className="grid grid-cols-1 gap-6 w-full">
             <div className="aspect-video w-full bg-white/5 rounded-3xl overflow-hidden shadow-xl border border-white/10">
               <iframe
@@ -160,22 +179,16 @@ export function PigromanceModalContent() {
               주요 성과
             </h4>
             <ul className="list-disc pl-6 space-y-3 m-0 font-medium text-gray-300">
-              <li>
-                <strong>Steam 출시 완료 :</strong> 2024년 7월 25일
-              </li>
-              <li>
-                <strong>Nintendo Switch 출시 예정 :</strong> 2025년 4분기
-              </li>
-              <li>
-                <strong>퍼블리싱 계약 :</strong> PC 글로벌 유통 (주)그라비티 /
-                Switch 동아시아 유통 neos
-              </li>
-              <li>다수 수상 이력 보유</li>
-              <li className="pt-2">
-                <strong>자체 기술 개발 :</strong>
-                <br />- 유니티 기반 2D/3D 하이브리드 그래픽 기술 개발
-                <br />- Cinema4D 자동 웨이트 플러그인 개발
-              </li>
+              <li>장르: 퍼즐 플랫포머 (싱글)</li>
+              <li>컨트롤러 지원</li>
+              <li>플랫폼: STEAM, STOVE</li>
+              <li>출시일: 2024년 7월 25일</li>
+              <li className="list-none border-b border-white/10 my-4 -ml-6 w-[calc(100%+1.5rem)]"></li>
+              <li>퍼블리셔 : 그라비티</li>
+              <li>6회 수상 이력 보유</li>
+              <li className="list-none border-b border-white/10 my-4 -ml-6 w-[calc(100%+1.5rem)]"></li>
+              <li>자체 제작 IP</li>
+              <li>기타: Nintendo Switch 포팅 완료(출시 미정)</li>
             </ul>
           </div>
 
@@ -213,14 +226,15 @@ export function PigromanceModalContent() {
               </li>
             </ul>
             {/* Soundcloud Embed */}
-            <div className="w-full h-32 mt-auto rounded-xl overflow-hidden">
+            {/* Soundcloud Embed */}
+            <div className="w-full mt-auto rounded-xl overflow-hidden bg-white/5">
               <iframe
                 width="100%"
-                height="150"
+                height="350"
                 scrolling="no"
                 frameBorder="no"
                 allow="autoplay"
-                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1550478796&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"
+                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-673859753-51053972/sets/pigromance&color=%23ea580c&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"
               ></iframe>
             </div>
           </div>
