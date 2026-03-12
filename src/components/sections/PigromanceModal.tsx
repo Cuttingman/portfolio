@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   GalleryLightbox,
   GalleryImageTrigger,
@@ -57,15 +57,14 @@ export const pigromanceGalleryImages: GalleryImageDef[] = [
 export function PigromanceModalContent() {
   const [galleryIndex, setGalleryIndex] = useState<number | null>(null);
   const [activeSection, setActiveSection] = useState<string>('pigromance-top');
-  const [slideIndex, setSlideIndex] = useState<number>(0);
-  const pitchdeckImages = ['1', '2', '4', '5', '6', '7', '8', '8-1', '9', '10', '11', '13', '14', '15'];
-  const totalSlides = pitchdeckImages.length;
+  const pitchDeckRef = useRef<HTMLDivElement>(null);
+  const [iframeKey, setIframeKey] = useState(0);
 
-  const navigateSlide = (direction: 'next' | 'prev') => {
-    if (direction === 'next') {
-      setSlideIndex(prev => prev >= totalSlides - 1 ? 0 : prev + 1);
-    } else {
-      setSlideIndex(prev => prev <= 0 ? totalSlides - 1 : prev - 1);
+  const handleFullscreen = () => {
+    if (pitchDeckRef.current) {
+      if (pitchDeckRef.current.requestFullscreen) {
+        pitchDeckRef.current.requestFullscreen();
+      }
     }
   };
 
@@ -768,83 +767,56 @@ export function PigromanceModalContent() {
             <div className="absolute top-1/2 left-0 w-full h-px bg-white/10 -z-10"></div>
           </h4>
           <div 
-            id="pitchdeck-container" 
-            className="w-full xl:w-[960px] aspect-video rounded-3xl overflow-hidden bg-black border border-white/10 shadow-2xl relative max-w-[100vw] mx-auto group outline-none focus:outline-none"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === 'ArrowRight') {
-                navigateSlide('next');
-              } else if (e.key === 'ArrowLeft') {
-                navigateSlide('prev');
-              }
-            }}
+            ref={pitchDeckRef}
+            className="w-full aspect-[16/9] overflow-hidden bg-black shadow-[0_10px_40px_rgba(0,0,0,1)] relative mx-auto group"
           >
-            {/* Native Image Slider for absolute 0-latency navigation */}
-            <AnimatePresence initial={false}>
-              <motion.img
-                key={slideIndex}
-                src={`/image/pitchdeck_${pitchdeckImages[slideIndex]}.png`}
-                alt={`피치덱 슬라이드 ${slideIndex + 1}`}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className="absolute inset-0 w-full h-full object-contain pointer-events-none"
-              />
-            </AnimatePresence>
-
-            {/* Custom Left Navigation Button */}
-            <button
-              className="absolute top-1/2 -translate-y-1/2 left-4 md:left-8 z-20 bg-black/50 text-white rounded-full p-4 backdrop-blur-md transform transition-all duration-300 hover:scale-110 hover:bg-black/70 opacity-0 group-hover:opacity-100 cursor-pointer border border-white/20 shadow-xl"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                navigateSlide('prev');
-              }}
-              title="이전 슬라이드"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-            </button>
-
-            {/* Custom Right Navigation Button */}
-            <button
-              className="absolute top-1/2 -translate-y-1/2 right-4 md:right-8 z-20 bg-black/50 text-white rounded-full p-4 backdrop-blur-md transform transition-all duration-300 hover:scale-110 hover:bg-black/70 opacity-0 group-hover:opacity-100 cursor-pointer border border-white/20 shadow-xl"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                navigateSlide('next');
-              }}
-              title="다음 슬라이드"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-            </button>
-
-            {/* Overlay Fullscreen button */}
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                const container = document.getElementById('pitchdeck-container');
-                if (container) {
-                  if (document.fullscreenElement) {
-                    document.exitFullscreen();
-                  } else {
-                    container.requestFullscreen().then(() => container.focus());
-                  }
-                }
-              }}
-              className="absolute bottom-4 right-4 h-[40px] px-4 rounded-full bg-black/50 backdrop-blur-md text-white hover:bg-black/80 transition-all duration-300 flex items-center justify-center gap-2 z-20 cursor-pointer border border-white/20 shadow-lg hover:scale-105"
-              title="전체화면"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
-              </svg>
-              <span className="text-[13px] font-bold tracking-tight">전체화면보기</span>
-            </button>
+            <SmartIframe
+              key={iframeKey}
+              src="https://1drv.ms/p/c/96621e9bdaa63b55/IQSVKt-Wix2wSoBveU3HEAsHAUXmOU40PU1JxZ1dHaz_KMM?em=2&wdAr=1.7777777777777777&wdEaaCheck=1"
+              title="피그로맨스 피치덱"
+              className="absolute left-[-4px] top-[-4px] w-[calc(100%+8px)] h-[calc(100%+40px)] border-0 pointer-events-auto"
+              allowFullScreen
+              scrolling="no"
+            />
             
-            {/* Slide Counter Overlay */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 h-[40px] px-5 rounded-full bg-black/50 backdrop-blur-md text-white flex items-center justify-center z-20 pointer-events-none border border-white/20 shadow-lg">
-              <span id="pitchdeck-counter" className="text-[14px] font-bold tracking-widest">{slideIndex + 1} / {totalSlides}</span>
+            {/* Custom Overlay UI */}
+            <div className="absolute inset-0 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              {/* SLIDE NAVIGATION INSTRUCTION (Overlay) */}
+              <div className="absolute top-6 left-1/2 -translate-x-1/2 flex items-center justify-center pointer-events-none">
+                <div className="px-4 py-2 bg-black/70 text-white/90 text-[12px] md:text-[13px] font-medium rounded-full backdrop-blur-md shadow-lg flex items-center gap-2 whitespace-nowrap">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+                  </svg>
+                  키보드 방향키(◀ ▶)나 화면 클릭으로 슬라이드를 넘겨주세요
+                </div>
+              </div>
+
+              {/* BUTTONS */}
+              <div className="absolute bottom-4 md:bottom-5 right-4 md:right-6 flex justify-end gap-2">
+                {/* RESTART BUTTON */}
+                <button 
+                  onClick={() => setIframeKey(k => k + 1)}
+                  className="px-4 py-1.5 flex items-center gap-2 bg-black/60 hover:bg-black/80 transition-colors text-white/90 text-[13px] font-bold rounded-full backdrop-blur-md pointer-events-auto"
+                  title="슬라이드 처음부터 다시 보기"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                    <path d="M3 3v5h5"/>
+                  </svg>
+                  처음부터 보기
+                </button>
+
+                {/* FULLSCREEN BUTTON */}
+                <button 
+                  onClick={handleFullscreen}
+                  className="px-4 py-1.5 flex items-center gap-2 bg-black/60 hover:bg-black/80 transition-colors text-white/90 text-[13px] font-bold rounded-full backdrop-blur-md pointer-events-auto"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                  </svg>
+                  전체화면보기
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -852,7 +824,7 @@ export function PigromanceModalContent() {
         {/* FLOATING NAVIGATION */}
         <div className="sticky -bottom-6 md:-bottom-12 left-0 right-0 z-[100] flex justify-center pointer-events-none w-full mt-12 pb-6 md:pb-12">
           <motion.nav 
-            className="pointer-events-auto flex items-center justify-center gap-4 md:gap-8 px-6 md:px-10 py-3 md:py-4 bg-[#2B2B2B] rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.8)] backdrop-blur-md bg-opacity-95 max-w-[95%] overflow-x-auto no-scrollbar"
+            className="pointer-events-auto flex items-center justify-center gap-4 md:gap-6 px-5 md:px-8 py-2 md:py-2.5 bg-[#2B2B2B] rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.8)] backdrop-blur-md bg-opacity-95 max-w-[95%] overflow-x-auto no-scrollbar"
           >
             {[
               { id: 'pigromance-top', label: '외계인납치작전' },
