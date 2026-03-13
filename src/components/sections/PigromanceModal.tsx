@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { motion } from "framer-motion";
 import {
   GalleryLightbox,
@@ -57,37 +57,17 @@ export const pigromanceGalleryImages: GalleryImageDef[] = [
 export function PigromanceModalContent() {
   const [galleryIndex, setGalleryIndex] = useState<number | null>(null);
   const [activeSection, setActiveSection] = useState<string>('pigromance-top');
+  const [pitchdeckIndex, setPitchdeckIndex] = useState(0);
   const pitchDeckRef = useRef<HTMLDivElement>(null);
-  const [iframeKey, setIframeKey] = useState(0);
 
-  const focusIframe = () => {
-    if (pitchDeckRef.current) {
-      const iframe = pitchDeckRef.current.querySelector('iframe');
-      if (iframe) {
-        iframe.focus({ preventScroll: true });
-        try { iframe.contentWindow?.focus(); } catch(e) {}
-      }
-    }
-  };
+  const pitchdeckSlides = useMemo(() => [
+    "pitchdeck_1.png", "pitchdeck_2.png", "pitchdeck_4.png",  "pitchdeck_5.png",
+    "pitchdeck_6.png", "pitchdeck_7.png", "pitchdeck_8.png",  "pitchdeck_8-1.png",
+    "pitchdeck_9.png", "pitchdeck_10.png", "pitchdeck_11.png", "pitchdeck_13.png",
+    "pitchdeck_14.png", "pitchdeck_15.png"
+  ], []);
 
-  useEffect(() => {
-    const handleGlobalKeyDown = (e: KeyboardEvent) => {
-      const pitchDeckElement = pitchDeckRef.current;
-      if (!pitchDeckElement) return;
-      
-      const isHovering = pitchDeckElement.matches(':hover');
-      
-      if (isHovering && ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
-        // If this event fired on our parent window, the cross-origin iframe didn't catch it.
-        // We prevent default so the screen doesn't shake/scroll.
-        e.preventDefault();
-        focusIframe();
-      }
-    };
-    
-    window.addEventListener('keydown', handleGlobalKeyDown, { capture: false });
-    return () => window.removeEventListener('keydown', handleGlobalKeyDown, { capture: false });
-  }, []);
+  // Removing old iframe focus handlers
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -794,45 +774,67 @@ export function PigromanceModalContent() {
           </h4>
           <div 
             ref={pitchDeckRef}
-            onMouseEnter={focusIframe}
-            tabIndex={-1}
+            tabIndex={0}
             className="w-full aspect-[16/9] overflow-hidden bg-black shadow-[0_10px_40px_rgba(0,0,0,1)] relative mx-auto group outline-none"
+            onKeyDown={(e) => {
+              if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                e.preventDefault();
+                setPitchdeckIndex(prev => Math.min(prev + 1, pitchdeckSlides.length - 1));
+              } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                e.preventDefault();
+                setPitchdeckIndex(prev => Math.max(prev - 1, 0));
+              }
+            }}
           >
-            <SmartIframe
-              key={iframeKey}
-              src="https://1drv.ms/p/c/96621e9bdaa63b55/IQSVKt-Wix2wSoBveU3HEAsHAUXmOU40PU1JxZ1dHaz_KMM?em=2&wdAr=1.7777777777777777&wdEaaCheck=1"
-              title="피그로맨스 피치덱"
-              className="absolute left-[-4px] top-[-4px] w-[calc(100%+8px)] h-[calc(100%+40px)] border-0 pointer-events-auto"
-              allowFullScreen
-              scrolling="no"
-              loading="eager"
-            />
+            {/* Prerender all images for instant transition without lag */}
+            {pitchdeckSlides.map((slide: string, idx: number) => (
+              <img 
+                key={slide}
+                src={`/image/${slide}`}
+                alt={`피치덱 슬라이드 ${idx + 1}`}
+                className={`absolute inset-0 w-full h-full object-contain pointer-events-none transition-opacity duration-300 ${idx === pitchdeckIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+              />
+            ))}
             
+            {/* Left/Right Click Zones */}
+            <div 
+              className="absolute inset-y-0 left-0 w-1/4 md:w-1/3 cursor-pointer z-20 hover:bg-white/5 transition-colors"
+              onClick={() => setPitchdeckIndex(p => Math.max(p - 1, 0))}
+            />
+            <div 
+              className="absolute inset-y-0 right-0 w-1/4 md:w-1/3 cursor-pointer z-20 hover:bg-white/5 transition-colors"
+              onClick={() => setPitchdeckIndex(p => Math.min(p + 1, pitchdeckSlides.length - 1))}
+            />
+
             {/* Custom Overlay UI */}
-            <div className="absolute inset-0 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="absolute inset-0 pointer-events-none z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               {/* SLIDE NAVIGATION INSTRUCTION (Overlay) */}
               <div className="absolute top-6 left-1/2 -translate-x-1/2 flex items-center justify-center pointer-events-none">
                 <div className="px-4 py-2 bg-black/70 text-white/90 text-[12px] md:text-[13px] font-medium rounded-full backdrop-blur-md shadow-lg flex items-center gap-2 whitespace-nowrap">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
                   </svg>
-                  키보드 방향키(◀ ▶)나 화면 클릭으로 슬라이드를 넘겨주세요
+                  키보드 방향키(◀ ▶)나 화면 좌우측을 클릭해 슬라이드를 넘겨주세요
+                </div>
+              </div>
+
+              {/* SLIDE INDICATOR */}
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center justify-center pointer-events-none">
+                <div className="px-4 py-1.5 bg-black/70 text-white/90 text-[13px] font-bold rounded-full backdrop-blur-md shadow-lg">
+                  {pitchdeckIndex + 1} / {pitchdeckSlides.length}
                 </div>
               </div>
 
               {/* BUTTONS */}
-              <div className="absolute bottom-4 md:bottom-5 right-4 md:right-6 flex justify-end gap-2">
+              <div className="absolute bottom-4 md:bottom-5 right-4 md:right-6 flex justify-end gap-2 pointer-events-auto">
                 {/* RESTART BUTTON */}
                 <button 
                   onMouseDown={(e) => e.preventDefault()}
                   onClick={(e) => {
                     e.preventDefault();
-                    setIframeKey(k => k + 1);
-                    focusIframe();
-                    setTimeout(focusIframe, 100);
-                    setTimeout(focusIframe, 500);
+                    setPitchdeckIndex(0);
                   }}
-                  className="px-4 py-1.5 flex items-center gap-2 bg-black/60 hover:bg-black/80 transition-colors text-white/90 text-[13px] font-bold rounded-full backdrop-blur-md pointer-events-auto focus:outline-none"
+                  className="px-4 py-1.5 flex items-center gap-2 bg-black/60 hover:bg-black/80 transition-colors text-white/90 text-[13px] font-bold rounded-full backdrop-blur-md focus:outline-none"
                   title="슬라이드 처음부터 다시 보기"
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -840,6 +842,27 @@ export function PigromanceModalContent() {
                     <path d="M3 3v5h5"/>
                   </svg>
                   처음부터 보기
+                </button>
+
+                {/* FULLSCREEN BUTTON */}
+                <button 
+                  onMouseDown={(e) => e.preventDefault()}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (pitchDeckRef.current) {
+                      if (!document.fullscreenElement) {
+                        pitchDeckRef.current.requestFullscreen().catch(() => {});
+                      } else {
+                        document.exitFullscreen().catch(() => {});
+                      }
+                    }
+                  }}
+                  className="px-4 py-1.5 flex items-center gap-2 bg-black/60 hover:bg-black/80 transition-colors text-white/90 text-[13px] font-bold rounded-full backdrop-blur-md focus:outline-none"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                  </svg>
+                  전체화면보기
                 </button>
               </div>
             </div>
