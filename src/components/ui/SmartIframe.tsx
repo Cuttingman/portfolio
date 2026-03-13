@@ -59,6 +59,7 @@ export function SmartIframe({ src, ...props }: IframeHTMLAttributes<HTMLIFrameEl
     >
       <iframe 
         ref={iframeRef} 
+        loading="lazy"
         {...props} 
         src={finalSrc} 
         className="w-full h-full block border-0" 

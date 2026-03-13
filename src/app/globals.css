@@ -27,6 +27,18 @@
     color: var(--foreground);
   }
 
+  * {
+    caret-color: transparent !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+  }
+
+  input, textarea, [contenteditable] {
+    caret-color: auto !important;
+    user-select: auto !important;
+    -webkit-user-select: auto !important;
+  }
+
   ::selection {
     background-color: var(--accent);
     color: var(--background);

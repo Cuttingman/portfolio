@@ -60,13 +60,34 @@ export function PigromanceModalContent() {
   const pitchDeckRef = useRef<HTMLDivElement>(null);
   const [iframeKey, setIframeKey] = useState(0);
 
-  const handleFullscreen = () => {
+  const focusIframe = () => {
     if (pitchDeckRef.current) {
-      if (pitchDeckRef.current.requestFullscreen) {
-        pitchDeckRef.current.requestFullscreen();
+      const iframe = pitchDeckRef.current.querySelector('iframe');
+      if (iframe) {
+        iframe.focus({ preventScroll: true });
+        try { iframe.contentWindow?.focus(); } catch(e) {}
       }
     }
   };
+
+  useEffect(() => {
+    const handleGlobalKeyDown = (e: KeyboardEvent) => {
+      const pitchDeckElement = pitchDeckRef.current;
+      if (!pitchDeckElement) return;
+      
+      const isHovering = pitchDeckElement.matches(':hover');
+      
+      if (isHovering && ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
+        // If this event fired on our parent window, the cross-origin iframe didn't catch it.
+        // We prevent default so the screen doesn't shake/scroll.
+        e.preventDefault();
+        focusIframe();
+      }
+    };
+    
+    window.addEventListener('keydown', handleGlobalKeyDown, { capture: false });
+    return () => window.removeEventListener('keydown', handleGlobalKeyDown, { capture: false });
+  }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -300,6 +321,7 @@ export function PigromanceModalContent() {
             {/* Soundcloud Embed */}
             <div className="w-full mt-auto rounded-xl overflow-hidden bg-white/5">
               <iframe
+                loading="lazy"
                 width="100%"
                 height="350"
                 scrolling="no"
@@ -772,7 +794,9 @@ export function PigromanceModalContent() {
           </h4>
           <div 
             ref={pitchDeckRef}
-            className="w-full aspect-[16/9] overflow-hidden bg-black shadow-[0_10px_40px_rgba(0,0,0,1)] relative mx-auto group"
+            onMouseEnter={focusIframe}
+            tabIndex={-1}
+            className="w-full aspect-[16/9] overflow-hidden bg-black shadow-[0_10px_40px_rgba(0,0,0,1)] relative mx-auto group outline-none"
           >
             <SmartIframe
               key={iframeKey}
@@ -781,6 +805,7 @@ export function PigromanceModalContent() {
               className="absolute left-[-4px] top-[-4px] w-[calc(100%+8px)] h-[calc(100%+40px)] border-0 pointer-events-auto"
               allowFullScreen
               scrolling="no"
+              loading="eager"
             />
             
             {/* Custom Overlay UI */}
@@ -799,8 +824,15 @@ export function PigromanceModalContent() {
               <div className="absolute bottom-4 md:bottom-5 right-4 md:right-6 flex justify-end gap-2">
                 {/* RESTART BUTTON */}
                 <button 
-                  onClick={() => setIframeKey(k => k + 1)}
-                  className="px-4 py-1.5 flex items-center gap-2 bg-black/60 hover:bg-black/80 transition-colors text-white/90 text-[13px] font-bold rounded-full backdrop-blur-md pointer-events-auto"
+                  onMouseDown={(e) => e.preventDefault()}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIframeKey(k => k + 1);
+                    focusIframe();
+                    setTimeout(focusIframe, 100);
+                    setTimeout(focusIframe, 500);
+                  }}
+                  className="px-4 py-1.5 flex items-center gap-2 bg-black/60 hover:bg-black/80 transition-colors text-white/90 text-[13px] font-bold rounded-full backdrop-blur-md pointer-events-auto focus:outline-none"
                   title="슬라이드 처음부터 다시 보기"
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -808,17 +840,6 @@ export function PigromanceModalContent() {
                     <path d="M3 3v5h5"/>
                   </svg>
                   처음부터 보기
-                </button>
-
-                {/* FULLSCREEN BUTTON */}
-                <button 
-                  onClick={handleFullscreen}
-                  className="px-4 py-1.5 flex items-center gap-2 bg-black/60 hover:bg-black/80 transition-colors text-white/90 text-[13px] font-bold rounded-full backdrop-blur-md pointer-events-auto"
-                >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
-                  </svg>
-                  전체화면보기
                 </button>
               </div>
             </div>
