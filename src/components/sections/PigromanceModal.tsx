@@ -59,6 +59,7 @@ export function PigromanceModalContent() {
   const [activeSection, setActiveSection] = useState<string>('pigromance-top');
   const [pitchdeckIndex, setPitchdeckIndex] = useState(0);
   const pitchDeckRef = useRef<HTMLDivElement>(null);
+  const scrollIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const pitchdeckSlides = useMemo(() => [
     "pitchdeck_1.png", "pitchdeck_2.png", "pitchdeck_4.png",  "pitchdeck_5.png",
@@ -71,14 +72,44 @@ export function PigromanceModalContent() {
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      // When scrolling past many images that load lazily, the destination Y-coordinate constantly gets pushed further down.
-      // We repeatedly call scrollIntoView to continuously update the target destination as the layout expands.
-      setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
-      setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 600);
-      setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 900);
+    if (!element) return;
+
+    // Clear any previous active scroll tracking
+    if (scrollIntervalRef.current) {
+      clearInterval(scrollIntervalRef.current);
     }
+
+    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    let attempts = 0;
+    // Auto-correcting scroll that chases the target for 3.5 seconds (17 * 200ms)
+    // Because images load asynchronously during the massive scroll and push the target down!
+    scrollIntervalRef.current = setInterval(() => {
+      const el = document.getElementById(id);
+      if (!el || attempts > 17) {
+        if (scrollIntervalRef.current) clearInterval(scrollIntervalRef.current);
+        return;
+      }
+
+      const scrollContainer = el.closest('.overflow-y-auto');
+      if (scrollContainer) {
+        const rect = el.getBoundingClientRect();
+        const containerRect = scrollContainer.getBoundingClientRect();
+        
+        // Target distance from the top of the container
+        const distance = rect.top - containerRect.top;
+        
+        // Check if we hit the physical bottom limit of the container
+        const isAtBottom = Math.abs(scrollContainer.scrollHeight - scrollContainer.clientHeight - scrollContainer.scrollTop) <= 10;
+
+        // If the target "ran away" (shifted > 100px) AND we haven't hit the physical bottom wall yet
+        if (Math.abs(distance) > 100 && !isAtBottom) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+      
+      attempts++;
+    }, 200);
   };
 
   useEffect(() => {
@@ -809,7 +840,7 @@ export function PigromanceModalContent() {
             {/* Custom Overlay UI */}
             <div className="absolute inset-0 pointer-events-none z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               {/* SLIDE NAVIGATION INSTRUCTION (Overlay) */}
-              <div className="absolute top-6 left-1/2 -translate-x-1/2 flex items-center justify-center pointer-events-none">
+              <div className="hidden md:flex absolute top-6 left-1/2 -translate-x-1/2 items-center justify-center pointer-events-none">
                 <div className="px-4 py-2 bg-black/70 text-white/90 text-[12px] md:text-[13px] font-medium rounded-full backdrop-blur-md shadow-lg flex items-center gap-2 whitespace-nowrap">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
@@ -834,14 +865,14 @@ export function PigromanceModalContent() {
                     e.preventDefault();
                     setPitchdeckIndex(0);
                   }}
-                  className="px-4 py-1.5 flex items-center gap-2 bg-black/60 hover:bg-black/80 transition-colors text-white/90 text-[13px] font-bold rounded-full backdrop-blur-md focus:outline-none"
+                  className="px-3 md:px-4 py-1.5 flex items-center gap-1.5 md:gap-2 bg-black/60 hover:bg-black/80 transition-colors text-white/90 text-[13px] font-bold rounded-full backdrop-blur-md focus:outline-none"
                   title="슬라이드 처음부터 다시 보기"
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
                     <path d="M3 3v5h5"/>
                   </svg>
-                  처음부터 보기
+                  <span className="hidden sm:inline">처음부터 보기</span>
                 </button>
 
                 {/* FULLSCREEN BUTTON */}
@@ -857,12 +888,13 @@ export function PigromanceModalContent() {
                       }
                     }
                   }}
-                  className="px-4 py-1.5 flex items-center gap-2 bg-black/60 hover:bg-black/80 transition-colors text-white/90 text-[13px] font-bold rounded-full backdrop-blur-md focus:outline-none"
+                  className="px-3 md:px-4 py-1.5 flex items-center gap-1.5 md:gap-2 bg-black/60 hover:bg-black/80 transition-colors text-white/90 text-[13px] font-bold rounded-full backdrop-blur-md focus:outline-none"
+                  title="전체화면보기"
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
                   </svg>
-                  전체화면보기
+                  <span className="hidden sm:inline">전체화면보기</span>
                 </button>
               </div>
             </div>
@@ -870,9 +902,9 @@ export function PigromanceModalContent() {
         </div>
 
         {/* FLOATING NAVIGATION */}
-        <div className="sticky -bottom-6 md:-bottom-12 left-0 right-0 z-[100] flex justify-center pointer-events-none w-full mt-12 pb-6 md:pb-12">
+        <div className="sticky -bottom-2 md:-bottom-12 left-0 right-0 z-[100] flex justify-center pointer-events-none w-full mt-12 pb-6 md:pb-12">
           <motion.nav 
-            className="pointer-events-auto flex items-center justify-center gap-4 md:gap-6 px-5 md:px-8 py-2 md:py-2.5 bg-[#2B2B2B] rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.8)] backdrop-blur-md bg-opacity-95 max-w-[95%] overflow-x-auto no-scrollbar"
+            className="pointer-events-auto flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 md:gap-6 px-3 sm:px-4 md:px-8 py-2 md:py-2.5 bg-[#2B2B2B] rounded-2xl md:rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.8)] backdrop-blur-md bg-opacity-95 w-[92%] sm:w-[85%] md:w-auto md:max-w-[95%]"
           >
             {[
               { id: 'pigromance-top', label: '외계인납치작전' },
@@ -889,13 +921,19 @@ export function PigromanceModalContent() {
                   e.preventDefault();
                   scrollToSection(item.id);
                 }}
-                className={`text-xs md:text-sm transition-all tracking-widest whitespace-nowrap pb-1 border-b-2 ${
+                className={`group px-2.5 sm:px-3 md:px-4 py-1.5 md:py-2 text-[11px] sm:text-[13px] md:text-[15px] transition-all tracking-widest ${
                   activeSection === item.id
-                    ? 'text-white font-black border-white scale-105'
-                    : 'text-white/40 font-bold border-transparent hover:text-white/80'
+                    ? 'scale-105 pointer-events-none'
+                    : ''
                 }`}
               >
-                {item.label}
+                <span className={`pb-1 border-b-2 ${
+                  activeSection === item.id
+                    ? 'text-white font-black border-white'
+                    : 'text-white/40 font-bold border-transparent group-hover:text-white/80'
+                }`}>
+                  {item.label}
+                </span>
               </button>
             ))}
           </motion.nav>
