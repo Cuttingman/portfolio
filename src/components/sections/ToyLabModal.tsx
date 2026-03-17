@@ -53,7 +53,7 @@ export function ToyLabModalContent() {
           <div className="flex flex-col items-center text-center p-8 bg-white/5 rounded-3xl border border-white/10 shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
             <h3 className="text-2xl font-bold font-sans text-white mb-6">담당 업무 & 주요 프로젝트</h3>
             <p className="font-medium text-gray-300 text-base leading-relaxed break-keep max-w-3xl">
-              외주 그래픽디자인 실무 및 스튜디오 경영을 일임했습니다. 주요 실적 파일로는 동대문 DDP 개관전시 작업, 칸타타 티저 영상 제작, 그리고 김밥왕 프랜차이즈 브랜드 디자인 등이 있습니다.
+              외주 그래픽디자인 실무 및 스튜디오 경영을 일임했습니다. 주요 실적으로는 동대문 DDP 개관전시 작업, 칸타타 티저 영상 제작, 그리고 김밥왕 프랜차이즈 브랜드 디자인 등이 있습니다.
             </p>
           </div>
 
