@@ -126,7 +126,7 @@ export function AboutSection() {
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
-                  onClick={() => setActiveTab(tab.id as any)}
+                  onClick={() => setActiveTab(tab.id as "profile" | "bio" | "history" | "interview")}
                   className={`text-sm md:text-base font-normal tracking-wide transition-colors duration-300 ${activeTab === tab.id ? "text-white" : "text-white/40"
                     } relative pb-2`}
                 >

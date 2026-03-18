@@ -1,0 +1,66 @@
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/fix-images.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/fix_alien.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/fix_css.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/fix_modal.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/sections/About.tsx
+    5:10  warning  'Mail' is defined but never used                                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+    5:16  warning  'Instagram' is defined but never used                                                                                                                                                                                                                                                    @typescript-eslint/no-unused-vars
+  113:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  114:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  273:29  warning  'currentMonth' is assigned a value but never used                                                                                                                                                                                                                                        @typescript-eslint/no-unused-vars
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/sections/AlienAbductionModal.tsx
+  20:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/sections/Archive.tsx
+  3:20  warning  'useEffect' is defined but never used        @typescript-eslint/no-unused-vars
+  4:10  warning  'AnimatePresence' is defined but never used  @typescript-eslint/no-unused-vars
+  5:10  warning  'X' is defined but never used                @typescript-eslint/no-unused-vars
+  7:10  warning  'LookbookGrid' is defined but never used     @typescript-eslint/no-unused-vars
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/sections/PigromanceModal.tsx
+  158:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  824:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/sections/ToyLabModal.tsx
+  44:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/sections/Work.tsx
+  11:10  warning  'LookbookGrid' is defined but never used   @typescript-eslint/no-unused-vars
+  12:10  warning  'LightboxImage' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/sections/modals/AwardsModalContent.tsx
+   3:10  warning  'LookbookGrid' is defined but never used                                                                                                                                                                                                                                                 @typescript-eslint/no-unused-vars
+  36:61  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  37:61  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  38:61  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  39:61  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  40:61  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  41:61  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/sections/modals/OtherAchievementsModalContent.tsx
+  27:11  warning  'getIndex' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/ui/GalleryLightbox.tsx
+  116:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  154:7   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/ui/Lightbox.tsx
+  66:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  89:7   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/ui/ThumbnailSlider.tsx
+  41:6  warning  React Hook useEffect has a missing dependency: 'randomize'. Either include it or remove the dependency array. If 'setCurrentIndex' needs the current value of 'randomize', you can also switch to useReducer instead of useState and read 'randomize' in the reducer  react-hooks/exhaustive-deps
+
+✖ 33 problems (5 errors, 28 warnings)
+

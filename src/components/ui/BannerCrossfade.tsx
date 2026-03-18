@@ -21,6 +21,7 @@ export function BannerCrossfade({
     // Randomize initial image on client-side mount to keep UI fresh
     useEffect(() => {
         if (images.length > 0) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setCurrentIndex(Math.floor(Math.random() * images.length));
         }
     }, [images]);

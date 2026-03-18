@@ -1,0 +1,188 @@
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/fix-images.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/fix_alien.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/fix_css.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/fix_modal.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/sections/About.tsx
+    5:10  warning  'Mail' is defined but never used                                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+    5:16  warning  'Instagram' is defined but never used                                                                                                                                                                                                                                                    @typescript-eslint/no-unused-vars
+  113:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  114:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  129:57  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  273:29  warning  'currentMonth' is assigned a value but never used                                                                                                                                                                                                                                        @typescript-eslint/no-unused-vars
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/sections/AlienAbductionModal.tsx
+  20:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/sections/Archive.tsx
+  3:20  warning  'useEffect' is defined but never used        @typescript-eslint/no-unused-vars
+  4:10  warning  'AnimatePresence' is defined but never used  @typescript-eslint/no-unused-vars
+  5:10  warning  'X' is defined but never used                @typescript-eslint/no-unused-vars
+  7:10  warning  'LookbookGrid' is defined but never used     @typescript-eslint/no-unused-vars
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/sections/PigromanceModal.tsx
+  156:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  359:17  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  359:40  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  388:17  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  388:34  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  399:17  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  399:35  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  426:17  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  426:36  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  822:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/sections/ToyLabModal.tsx
+  44:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/sections/Work.tsx
+  11:10  warning  'LookbookGrid' is defined but never used   @typescript-eslint/no-unused-vars
+  12:10  warning  'LightboxImage' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/sections/modals/AwardsModalContent.tsx
+   3:10  warning  'LookbookGrid' is defined but never used                                                                                                                                                                                                                                                 @typescript-eslint/no-unused-vars
+  36:61  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  37:61  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  38:61  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  39:61  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  40:61  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  41:61  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/sections/modals/ExternalActivitiesModalContent.tsx
+  143:74  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  143:85  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  382:87  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/sections/modals/OtherAchievementsModalContent.tsx
+  27:11  warning  'getIndex' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/sections/modals/PressModalContent.tsx
+  18:261  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  37:247  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  37:253  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  38:210  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  38:229  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  49:217  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  49:223  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  52:197  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  52:203  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  53:200  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  53:223  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  63:217  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  63:223  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  67:232  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  67:235  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  68:207  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  68:213  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  69:215  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  69:221  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/ui/BannerCrossfade.tsx
+  24:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/ui/BannerCrossfade.tsx:24:13
+  22 |     useEffect(() => {
+  23 |         if (images.length > 0) {
+> 24 |             setCurrentIndex(Math.floor(Math.random() * images.length));
+     |             ^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  25 |         }
+  26 |     }, [images]);
+  27 |  react-hooks/set-state-in-effect
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/ui/CustomCursor.tsx
+  35:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/ui/CustomCursor.tsx:35:7
+  33 |     // Only render the custom cursor for devices using a mouse/touchpad
+  34 |     if (typeof window !== "undefined" && window.matchMedia("(pointer: fine)").matches) {
+> 35 |       setIsVisible(true);
+     |       ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  36 |     }
+  37 |
+  38 |     const handleIframeHoverEvent = (e: Event) => {  react-hooks/set-state-in-effect
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/ui/GalleryLightbox.tsx
+   31:34  error    Error: Cannot access variable before it is declared
+
+`handlePrev` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/ui/GalleryLightbox.tsx:31:34
+  29 |       if (!isOpen) return;
+  30 |       if (e.key === "Escape") onClose();
+> 31 |       if (e.key === "ArrowLeft") handlePrev();
+     |                                  ^^^^^^^^^^ `handlePrev` accessed before it is declared
+  32 |       if (e.key === "ArrowRight") handleNext();
+  33 |     };
+  34 |     window.addEventListener("keydown", handleKeyDown);
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/ui/GalleryLightbox.tsx:42:3
+  40 |   const currentImage = images[currentIndex];
+  41 |
+> 42 |   const handlePrev = () => {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 43 |     onChangeIndex(currentIndex === 0 ? images.length - 1 : currentIndex - 1);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 44 |   };
+     | ^^^^^ `handlePrev` is declared here
+  45 |
+  46 |   const handleNext = () => {
+  47 |     onChangeIndex(currentIndex === images.length - 1 ? 0 : currentIndex + 1);  react-hooks/immutability
+   32:35  error    Error: Cannot access variable before it is declared
+
+`handleNext` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/ui/GalleryLightbox.tsx:32:35
+  30 |       if (e.key === "Escape") onClose();
+  31 |       if (e.key === "ArrowLeft") handlePrev();
+> 32 |       if (e.key === "ArrowRight") handleNext();
+     |                                   ^^^^^^^^^^ `handleNext` accessed before it is declared
+  33 |     };
+  34 |     window.addEventListener("keydown", handleKeyDown);
+  35 |     return () => window.removeEventListener("keydown", handleKeyDown);
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/ui/GalleryLightbox.tsx:46:3
+  44 |   };
+  45 |
+> 46 |   const handleNext = () => {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 47 |     onChangeIndex(currentIndex === images.length - 1 ? 0 : currentIndex + 1);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 48 |   };
+     | ^^^^^ `handleNext` is declared here
+  49 |
+  50 |   return (
+  51 |     <AnimatePresence>                                                                       react-hooks/immutability
+   36:6   warning  React Hook useEffect has missing dependencies: 'handleNext', 'handlePrev', and 'onClose'. Either include them or remove the dependency array. If 'onClose' changes too often, find the parent component that defines it and wrap that definition in useCallback                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             react-hooks/exhaustive-deps
+  116:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @next/next/no-img-element
+  154:7   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @next/next/no-img-element
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/ui/Lightbox.tsx
+  66:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  89:7   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/pigromance/Downloads/MyPortfolio2/my-portfolio/src/components/ui/ThumbnailSlider.tsx
+  41:6  warning  React Hook useEffect has a missing dependency: 'randomize'. Either include it or remove the dependency array. If 'setCurrentIndex' needs the current value of 'randomize', you can also switch to useReducer instead of useState and read 'randomize' in the reducer  react-hooks/exhaustive-deps
+
+✖ 69 problems (40 errors, 29 warnings)
+

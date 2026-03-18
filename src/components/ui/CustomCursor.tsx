@@ -32,6 +32,7 @@ export const CustomCursor = () => {
   useEffect(() => {
     // Only render the custom cursor for devices using a mouse/touchpad
     if (typeof window !== "undefined" && window.matchMedia("(pointer: fine)").matches) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsVisible(true);
     }
 

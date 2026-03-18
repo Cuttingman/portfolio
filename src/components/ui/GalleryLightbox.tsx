@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 
@@ -24,6 +24,14 @@ export function GalleryLightbox({
   onClose,
   onChangeIndex,
 }: GalleryLightboxProps) {
+  const handlePrev = useCallback(() => {
+    onChangeIndex(currentIndex === 0 ? images.length - 1 : currentIndex - 1);
+  }, [currentIndex, images.length, onChangeIndex]);
+
+  const handleNext = useCallback(() => {
+    onChangeIndex(currentIndex === images.length - 1 ? 0 : currentIndex + 1);
+  }, [currentIndex, images.length, onChangeIndex]);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!isOpen) return;
@@ -33,19 +41,11 @@ export function GalleryLightbox({
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, currentIndex, images.length]);
+  }, [isOpen, onClose, handlePrev, handleNext]);
 
   if (!isOpen || images.length === 0) return null;
 
   const currentImage = images[currentIndex];
-
-  const handlePrev = () => {
-    onChangeIndex(currentIndex === 0 ? images.length - 1 : currentIndex - 1);
-  };
-
-  const handleNext = () => {
-    onChangeIndex(currentIndex === images.length - 1 ? 0 : currentIndex + 1);
-  };
 
   return (
     <AnimatePresence>

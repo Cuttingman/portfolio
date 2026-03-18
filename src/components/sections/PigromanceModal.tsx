@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+"use client";
 import { useState, useEffect, useRef, useMemo } from "react";
 import { motion } from "framer-motion";
 import {

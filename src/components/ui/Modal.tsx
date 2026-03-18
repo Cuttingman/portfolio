@@ -36,12 +36,10 @@ export function Modal({ isOpen, onClose, children, theme = "dark", className = "
 
     const [buttonOffset, setButtonOffset] = useState({ x: 0, y: 0 });
 
-    // Reset button position when modal opens
-    useEffect(() => {
-      if (isOpen) {
-        setButtonOffset({ x: 0, y: 0 });
-      }
-    }, [isOpen]);
+    const handleClose = () => {
+      setButtonOffset({ x: 0, y: 0 });
+      onClose();
+    };
 
     const handleHover = () => {
       // Move button by a random distance between 20px and 60px away in any direction
@@ -82,7 +80,7 @@ export function Modal({ isOpen, onClose, children, theme = "dark", className = "
             >
               {/* Close Button */}
               <motion.button
-                onClick={onClose}
+                onClick={handleClose}
                 onMouseEnter={handleHover}
                 animate={{ 
                   scale: [1, 1.15, 1],
