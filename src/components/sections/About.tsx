@@ -79,7 +79,7 @@ const historyData = [
   { date: "2005", title: "르노삼성 SM3 신차 홍보 그래피티 퍼포먼스 [2XP70 Crew]", category: "" },
   { date: "2005", title: "리바이스 페스티벌 그래피티 [2XP70 Crew]", category: "" },
   { date: "2004", title: "고려대학교 축제 무대 그래피티 [2XP70 Crew]", category: "" },
-  { date: "2001", title: "애니메이션 제작 [공주영상정보대]", category: "" },
+  { date: "2003", title: "애니메이션 제작-셀 애니메이션 동화 담당 [공주영상정보대]", category: "" },
 ];
 
 export function AboutSection() {
