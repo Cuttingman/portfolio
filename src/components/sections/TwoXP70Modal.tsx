@@ -22,6 +22,7 @@ export const twoXP70GalleryImages: GalleryImageDef[] = [
   { src: "/image/graffiti_archive/graffiti_10.jpg", alt: "그래피티 추가 10" },
   { src: "/image/graffiti_archive/graffiti_11.jpg", alt: "그래피티 추가 11" },
   { src: "/image/graffiti_archive/graffiti_12.jpg", alt: "그래피티 추가 12" },
+  { src: "/image/graffiti_archive/graffiti_13.png", alt: "그래피티 추가 13" },
 ];
 
 export function TwoXP70ModalContent() {
@@ -122,9 +123,9 @@ export function TwoXP70ModalContent() {
                 그외 그래피티 아카이브
               </h4>
 
-              {/* 상단 파노라마 이미지 시리즈 (7: 배트맨, 6: 할머니/BRIT) */}
+              {/* 상단 파노라마 이미지 시리즈 */}
               <div className="flex flex-col gap-6">
-                {[7, 6].map((idx) => (
+                {[17, 7, 6].map((idx) => (
                   <div key={idx} className="w-full rounded-2xl overflow-hidden bg-black/20 border border-white/10 hover:shadow-xl hover:-translate-y-1 transition-all">
                     <GalleryImageTrigger
                       src={twoXP70GalleryImages[idx].src}
