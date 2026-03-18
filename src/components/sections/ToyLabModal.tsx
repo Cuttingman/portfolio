@@ -32,9 +32,9 @@ export const toyLabGalleryImages: GalleryImageDef[] = [
   { src: "/image/asset_81ec92eb.png", alt: "김밥왕 브로슈어 5" },
   { src: "/image/asset_f68c6c52.png", alt: "김밥왕 브로슈어 6" },
   // Noise
-  { src: "/image/noise_2.jpg", alt: "Noise 이미지 1" },
+  { src: "/image/noise_2.jpg?v=2", alt: "Noise 이미지 1" },
   { src: "/image/noise_3_left.jpg", alt: "Noise 이미지 왼쪽" },
-  { src: "/image/noise_3_right.jpg", alt: "Noise 이미지 오른쪽" },
+  { src: "/image/noise_3_right.jpg?v=2", alt: "Noise 이미지 오른쪽" },
   // 그외 디자인 아카이브
   { src: "/image/toylab_archive/ci_1.png", alt: "CI 1" },
   { src: "/image/toylab_archive/ci_2.png", alt: "CI 2" },
