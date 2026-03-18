@@ -31,6 +31,10 @@ export const toyLabGalleryImages: GalleryImageDef[] = [
   { src: "/image/asset_7344d1f8.png", alt: "김밥왕 브로슈어 4" },
   { src: "/image/asset_81ec92eb.png", alt: "김밥왕 브로슈어 5" },
   { src: "/image/asset_f68c6c52.png", alt: "김밥왕 브로슈어 6" },
+  // Noise
+  { src: "/image/noise_2.jpg", alt: "Noise 이미지 1" },
+  { src: "/image/noise_3_left.jpg", alt: "Noise 이미지 왼쪽" },
+  { src: "/image/noise_3_right.jpg", alt: "Noise 이미지 오른쪽" },
 ];
 
 export function ToyLabModalContent() {
@@ -119,6 +123,58 @@ export function ToyLabModalContent() {
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
                 {[8, 9, 10, 11, 12, 13].map((idx) => (
                   <div key={idx} className="aspect-square rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <GalleryImageTrigger
+                      src={toyLabGalleryImages[idx].src}
+                      alt={toyLabGalleryImages[idx].alt}
+                      index={idx}
+                      imgClassName="w-full h-full object-cover m-0"
+                      className="block w-full h-full"
+                      onClick={setGalleryIndex}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Section: Noise 영상 제작 */}
+          <div className="flex flex-col gap-12 mt-12">
+            <h4 className="text-3xl font-black mt-0 mb-4 font-sans text-white underline decoration-white/20 underline-offset-8">
+              Noise
+            </h4>
+
+            {/* 1열: 영상 */}
+            <div className="aspect-video w-full bg-white/5 rounded-3xl overflow-hidden shadow-2xl border border-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500">
+              <video
+                src="/image/noise_1.mp4"
+                className="w-full h-full object-cover"
+                controls
+                playsInline
+                muted
+                loop
+                title="Noise 영상"
+              />
+            </div>
+
+            {/* 2열: 이미지 1장 */}
+            <div className="flex flex-col gap-6 mt-8">
+              <div className="w-full aspect-video rounded-2xl overflow-hidden bg-black/50 border border-white/10 hover:shadow-xl hover:-translate-y-1 transition-all">
+                <GalleryImageTrigger
+                  src={toyLabGalleryImages[23].src}
+                  alt={toyLabGalleryImages[23].alt}
+                  index={23}
+                  imgClassName="w-full h-full object-cover m-0"
+                  className="block w-full h-full"
+                  onClick={setGalleryIndex}
+                />
+              </div>
+            </div>
+
+            {/* 3열: 이미지 2장 */}
+            <div className="flex flex-col gap-6 mt-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {[24, 25].map((idx) => (
+                  <div key={idx} className="aspect-[4/3] rounded-2xl overflow-hidden bg-black/50 border border-white/10 hover:shadow-xl hover:-translate-y-1 transition-all">
                     <GalleryImageTrigger
                       src={toyLabGalleryImages[idx].src}
                       alt={toyLabGalleryImages[idx].alt}
