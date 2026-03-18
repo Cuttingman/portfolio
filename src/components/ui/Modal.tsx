@@ -25,21 +25,21 @@ export function Modal({ isOpen, onClose, children, theme = "dark", className = "
     };
   }, [isOpen]);
 
-  // Handle escape key
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [onClose]);
-
     const [buttonOffset, setButtonOffset] = useState({ x: 0, y: 0 });
 
     const handleClose = () => {
       setButtonOffset({ x: 0, y: 0 });
       onClose();
     };
+
+    // Handle escape key
+    useEffect(() => {
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === "Escape") handleClose();
+      };
+      window.addEventListener("keydown", handleKeyDown);
+      return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [onClose]);
 
     const handleHover = () => {
       // Disable runaway effect on mobile or touch devices (no hover support or small screen)
@@ -69,7 +69,7 @@ export function Modal({ isOpen, onClose, children, theme = "dark", className = "
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              onClick={onClose}
+              onClick={handleClose}
               className={`absolute inset-0 backdrop-blur-sm ${
                 theme === "dark" ? "bg-black/80" : "bg-white/80"
               }`}
