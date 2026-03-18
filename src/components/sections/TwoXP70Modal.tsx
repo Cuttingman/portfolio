@@ -13,6 +13,15 @@ export const twoXP70GalleryImages: GalleryImageDef[] = [
   { src: "/image/_MG_2851.jpg", alt: "그래피티 아카이브 4" },
   { src: "/image/IMG_7845.jpg", alt: "그래피티 아카이브 5" },
   { src: "/image/graffiti_yoons.jpg", alt: "그래피티 아카이브 6" },
+  { src: "/image/graffiti_archive/graffiti_0.png", alt: "그래피티 추가 0" },
+  { src: "/image/graffiti_archive/graffiti_5.png", alt: "그래피티 추가 5" },
+  { src: "/image/graffiti_archive/graffiti_6.png", alt: "그래피티 추가 6" },
+  { src: "/image/graffiti_archive/graffiti_7.png", alt: "그래피티 추가 7" },
+  { src: "/image/graffiti_archive/graffiti_8.JPG", alt: "그래피티 추가 8" },
+  { src: "/image/graffiti_archive/graffiti_9.png", alt: "그래피티 추가 9" },
+  { src: "/image/graffiti_archive/graffiti_10.jpg", alt: "그래피티 추가 10" },
+  { src: "/image/graffiti_archive/graffiti_11.jpg", alt: "그래피티 추가 11" },
+  { src: "/image/graffiti_archive/graffiti_12.jpg", alt: "그래피티 추가 12" },
 ];
 
 export function TwoXP70ModalContent() {
@@ -22,13 +31,19 @@ export function TwoXP70ModalContent() {
     <>
       <div className="prose prose-lg dark:prose-invert max-w-none mx-auto w-full">
         {/* Section A: 2XP70 Crew 소개 */}
-        <div className="flex flex-col items-center justify-center text-center w-full mb-16">
-          <h2 className="text-4xl md:text-5xl font-black mb-4 font-sans text-white uppercase tracking-tighter">
-            2XP70 Crew
-          </h2>
-          <p className="text-gray-400 font-medium text-lg tracking-widest">
-            2003.12 ~ 2005.12 (2년 1개월)
-          </p>
+        <div 
+          className="relative flex flex-col items-center justify-center text-center w-full py-28 mb-16 overflow-hidden"
+          style={{ backgroundImage: `url('/image/graffiti_spray_1.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+        >
+          <div className="absolute inset-0 bg-black/60" />
+          <div className="relative z-10 w-full px-6 flex flex-col items-center">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4 font-sans text-white uppercase tracking-tighter drop-shadow-xl w-full">
+              2XP70 Crew
+            </h2>
+            <p className="text-gray-200 font-medium text-lg lg:text-xl tracking-widest drop-shadow-md">
+              2003.12 ~ 2005.12 (2년 1개월)
+            </p>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-24 items-start">
@@ -57,7 +72,7 @@ export function TwoXP70ModalContent() {
                 슈퍼바이브파티 - m.net 방송
               </h4>
               <p className="font-medium text-gray-300 m-0">
-                m.net 슈퍼바이브파티 방송 로고 타이틀 영상 제작 및 그래피티 아트 디렉팅
+                <span className="font-bold text-white">m.net 슈퍼바이브파티</span> 방송 파티피플 게스트 초대
               </p>
               <div className="aspect-video w-full bg-white/5 rounded-3xl overflow-hidden shadow-2xl border border-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 mt-4">
                 <SmartIframe
@@ -75,7 +90,7 @@ export function TwoXP70ModalContent() {
                 루루공주 - SBS 드라마 세트 작업
               </h4>
               <p className="font-medium text-gray-300 m-0">
-                SBS 드라마 루루공주의 현장 세트장 그래피티
+                SBS 드라마 <span className="font-bold text-white">루루공주</span> - 제주도 세트장 그래피티
               </p>
               <div className="aspect-video w-full bg-white/5 rounded-3xl overflow-hidden shadow-2xl border border-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 mt-4 mb-6">
                 <SmartIframe
@@ -106,15 +121,33 @@ export function TwoXP70ModalContent() {
               <h4 className="text-3xl font-black m-0 font-sans text-white underline decoration-white/20 underline-offset-8">
                 그외 그래피티 아카이브
               </h4>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {[2, 3, 4, 5, 6, 7].map((idx) => (
-                  <div key={idx} className="aspect-square rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:shadow-xl hover:-translate-y-1 transition-all">
+
+              {/* 상단 파노라마 이미지 시리즈 (7: 배트맨, 6: 할머니/BRIT) */}
+              <div className="flex flex-col gap-6">
+                {[7, 6].map((idx) => (
+                  <div key={idx} className="w-full rounded-2xl overflow-hidden bg-black/20 border border-white/10 hover:shadow-xl hover:-translate-y-1 transition-all">
                     <GalleryImageTrigger
                       src={twoXP70GalleryImages[idx].src}
                       alt={twoXP70GalleryImages[idx].alt}
                       index={idx}
-                      imgClassName="w-full h-full object-cover m-0 transition-all duration-500"
-                      className="block w-full h-full"
+                      imgClassName="w-full h-auto object-cover m-0 block"
+                      className="block w-full h-auto"
+                      onClick={setGalleryIndex}
+                    />
+                  </div>
+                ))}
+              </div>
+
+              {/* 일반 비율 이미지 핀터레스트 그리드 */}
+              <div className="columns-2 lg:columns-3 gap-6 space-y-6">
+                {[2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 14, 15, 16].map((idx) => (
+                  <div key={idx} className="break-inside-avoid w-full rounded-2xl overflow-hidden bg-black/20 border border-white/10 hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <GalleryImageTrigger
+                      src={twoXP70GalleryImages[idx].src}
+                      alt={twoXP70GalleryImages[idx].alt}
+                      index={idx}
+                      imgClassName="w-full h-auto object-cover m-0 block"
+                      className="block w-full h-auto"
                       onClick={setGalleryIndex}
                     />
                   </div>
