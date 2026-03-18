@@ -42,6 +42,14 @@ export function Modal({ isOpen, onClose, children, theme = "dark", className = "
     };
 
     const handleHover = () => {
+      // Disable runaway effect on mobile or touch devices (no hover support or small screen)
+      if (
+        typeof window !== "undefined" && 
+        (window.innerWidth < 768 || window.matchMedia("(hover: none)").matches)
+      ) {
+        return;
+      }
+
       // Move button by a random distance between 20px and 60px away in any direction
       const randomX = (Math.random() > 0.5 ? 1 : -1) * (Math.random() * 40 + 20);
       const randomY = (Math.random() > 0.5 ? 1 : -1) * (Math.random() * 40 + 20);
