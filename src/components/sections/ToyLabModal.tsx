@@ -35,6 +35,16 @@ export const toyLabGalleryImages: GalleryImageDef[] = [
   { src: "/image/noise_2.jpg", alt: "Noise 이미지 1" },
   { src: "/image/noise_3_left.jpg", alt: "Noise 이미지 왼쪽" },
   { src: "/image/noise_3_right.jpg", alt: "Noise 이미지 오른쪽" },
+  // 그외 디자인 아카이브
+  { src: "/image/toylab_archive/ci_1.png", alt: "CI 1" },
+  { src: "/image/toylab_archive/ci_2.png", alt: "CI 2" },
+  { src: "/image/toylab_archive/ci_3.png", alt: "CI 3" },
+  { src: "/image/toylab_archive/toylab_1.jpg", alt: "토이랩 아카이브 1" },
+  { src: "/image/toylab_archive/toylab_2.jpg", alt: "토이랩 아카이브 2" },
+  { src: "/image/toylab_archive/toylab_8.jpg", alt: "토이랩 아카이브 8" },
+  { src: "/image/toylab_archive/toylab_9.jpg", alt: "토이랩 아카이브 9" },
+  { src: "/image/toylab_archive/toylab_10.jpg", alt: "토이랩 아카이브 10" },
+  { src: "/image/toylab_archive/toylab_11.jpg", alt: "토이랩 아카이브 11" },
 ];
 
 export function ToyLabModalContent() {
@@ -65,9 +75,9 @@ export function ToyLabModalContent() {
           </div>
 
           {/* Section B: 칸타타(Cantata) & 시각화 작업 */}
-          <div className="flex flex-col gap-12">
+          <div className="flex flex-col gap-6 mt-12">
             <h4 className="text-3xl font-black mt-0 mb-4 font-sans text-white underline decoration-white/20 underline-offset-8">
-              CANTATA - Teaser
+              CANTATA <span className="font-light text-2xl ml-1 text-white/90">Teaser</span>
             </h4>
 
             {/* Cantata Teaser Video */}
@@ -138,7 +148,7 @@ export function ToyLabModalContent() {
           </div>
 
           {/* Section: Noise 영상 제작 */}
-          <div className="flex flex-col gap-12 mt-12">
+          <div className="flex flex-col gap-6 mt-12">
             <h4 className="text-3xl font-black mt-0 mb-4 font-sans text-white underline decoration-white/20 underline-offset-8">
               Noise
             </h4>
@@ -189,8 +199,25 @@ export function ToyLabModalContent() {
             </div>
           </div>
 
+          {/* Section: 울름조형대학 동대문 DDP 개관 전시 */}
+          <div className="flex flex-col gap-6 mt-12">
+            <h4 className="text-3xl font-black mt-0 mb-4 font-sans text-white underline decoration-white/20 underline-offset-8">
+              울름조형대학 <span className="font-light text-2xl ml-1 text-white/90">동대문 DDP 개관 전시</span>
+            </h4>
+
+            {/* 1열: 영상 */}
+            <div className="aspect-video w-full bg-white/5 rounded-3xl overflow-hidden shadow-2xl border border-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500">
+              <SmartIframe
+                src="https://www.youtube.com/embed/cy9WVvhWUhM?rel=0"
+                title="울름조형대학 소개 영상"
+                className="w-full h-full border-0"
+                allowFullScreen
+              />
+            </div>
+          </div>
+
           {/* Section C: 프랜차이즈 브랜드 디자인 (김밥왕) */}
-          <div className="flex flex-col gap-12 mt-12">
+          <div className="flex flex-col gap-6 mt-12">
             <h4 className="text-3xl font-black mt-0 mb-4 font-sans text-white underline decoration-white/20 underline-offset-8">
               프랜차이즈 브랜드 디자인 (김밥왕)
             </h4>
@@ -231,6 +258,28 @@ export function ToyLabModalContent() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+
+          {/* Section: 그외 디자인 아카이브 */}
+          <div className="flex flex-col gap-6 mt-16">
+            <h4 className="text-3xl font-black mt-0 mb-4 font-sans text-white underline decoration-white/20 underline-offset-8">
+              그외 디자인 아카이브
+            </h4>
+            
+            <div className="columns-2 lg:columns-3 gap-6 space-y-6">
+              {[26, 27, 28, 29, 30, 31, 32, 33, 34].map((idx) => (
+                <div key={idx} className="break-inside-avoid w-full rounded-2xl overflow-hidden bg-black/20 border border-white/10 hover:shadow-xl hover:-translate-y-1 transition-all">
+                  <GalleryImageTrigger
+                    src={toyLabGalleryImages[idx].src}
+                    alt={toyLabGalleryImages[idx].alt}
+                    index={idx}
+                    imgClassName="w-full h-auto object-cover m-0 block"
+                    className="block w-full h-auto"
+                    onClick={setGalleryIndex}
+                  />
+                </div>
+              ))}
             </div>
           </div>
 
