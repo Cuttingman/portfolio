@@ -3,6 +3,9 @@ import { GalleryLightbox, GalleryImageTrigger, GalleryImageDef } from "@/compone
 import { SmartIframe } from "@/components/ui/SmartIframe";
 
 export const toyLabGalleryImages: GalleryImageDef[] = [
+  // Cantata Images
+  { src: "/image/cantata_1.JPG", alt: "CANTATA Image 1" },
+  { src: "/image/cantata_2.JPG", alt: "CANTATA Image 2" },
   // Storyboards
   { src: "/image/01-04.png", alt: "칸타타 스토리보드 01-04" },
   { src: "/image/05-08.png", alt: "칸타타 스토리보드 05-08" },
@@ -60,7 +63,7 @@ export function ToyLabModalContent() {
           {/* Section B: 칸타타(Cantata) & 시각화 작업 */}
           <div className="flex flex-col gap-12">
             <h4 className="text-3xl font-black mt-0 mb-4 font-sans text-white underline decoration-white/20 underline-offset-8">
-              칸타타 (KANTATA)
+              CANTATA - Teaser
             </h4>
 
             {/* Cantata Teaser Video */}
@@ -73,11 +76,29 @@ export function ToyLabModalContent() {
               />
             </div>
 
+            {/* Cantata Images */}
+            <div className="flex flex-col gap-6 mt-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {[0, 1].map((idx) => (
+                  <div key={idx} className="aspect-video rounded-2xl overflow-hidden bg-black/50 border border-white/10 hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <GalleryImageTrigger
+                      src={toyLabGalleryImages[idx].src}
+                      alt={toyLabGalleryImages[idx].alt}
+                      index={idx}
+                      imgClassName="w-full h-full object-cover m-0"
+                      className="block w-full h-full"
+                      onClick={setGalleryIndex}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
             {/* Cantata Storyboards */}
             <div className="flex flex-col gap-6 mt-8">
               <h5 className="text-xl font-bold text-white border-l-4 border-white pl-4">스토리보드</h5>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-                {[0, 1, 2, 3, 4, 5].map((idx) => (
+                {[2, 3, 4, 5, 6, 7].map((idx) => (
                   <div key={idx} className="aspect-video rounded-2xl overflow-hidden bg-black/50 border border-white/10 hover:shadow-xl hover:-translate-y-1 transition-all">
                     <GalleryImageTrigger
                       src={toyLabGalleryImages[idx].src}
@@ -96,7 +117,7 @@ export function ToyLabModalContent() {
             <div className="flex flex-col gap-6 mt-8">
               <h5 className="text-xl font-bold text-white border-l-4 border-white pl-4">원화 (수채화 일러스트)</h5>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                {[6, 7, 8, 9, 10, 11].map((idx) => (
+                {[8, 9, 10, 11, 12, 13].map((idx) => (
                   <div key={idx} className="aspect-square rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:shadow-xl hover:-translate-y-1 transition-all">
                     <GalleryImageTrigger
                       src={toyLabGalleryImages[idx].src}
@@ -122,7 +143,7 @@ export function ToyLabModalContent() {
             <div className="flex flex-col gap-6">
               <h5 className="text-xl font-bold text-white border-l-4 border-white pl-4">포스터 디자인</h5>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {[12, 13, 14].map((idx) => (
+                {[14, 15, 16].map((idx) => (
                   <div key={idx} className="aspect-[3/4] rounded-2xl overflow-hidden bg-black/50 border border-white/10 hover:shadow-xl hover:-translate-y-1 transition-all">
                     <GalleryImageTrigger
                       src={toyLabGalleryImages[idx].src}
@@ -141,7 +162,7 @@ export function ToyLabModalContent() {
             <div className="flex flex-col gap-6 mt-8">
               <h5 className="text-xl font-bold text-white border-l-4 border-white pl-4">브로슈어 내지 편집</h5>
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
-                {[15, 16, 17, 18, 19, 20].map((idx) => (
+                {[17, 18, 19, 20, 21, 22].map((idx) => (
                   <div key={idx} className="aspect-square rounded-2xl overflow-hidden bg-black/50 border border-white/10 hover:shadow-xl hover:-translate-y-1 transition-all">
                     <GalleryImageTrigger
                       src={toyLabGalleryImages[idx].src}
