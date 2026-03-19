@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { Nav } from "@/components/Layout/Nav";
 import { LightboxProvider } from "@/components/ui/Lightbox";
@@ -63,6 +64,24 @@ export default function RootLayout({
   return (
     <html lang="ko" className="scroll-smooth">
       <body className={`${inter.className} scroll-smooth antialiased selection:bg-foreground selection:text-background`}>
+        {/* Google Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-Q8JFZ36VHT"
+        />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-Q8JFZ36VHT');
+            `,
+          }}
+        />
+
         <CustomCursor />
         <LightboxProvider>
           <div className="flex min-h-screen flex-col">
