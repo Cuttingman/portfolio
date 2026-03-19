@@ -119,22 +119,32 @@ export function ExternalActivitiesModalContent() {
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <GalleryImageTrigger
-              src={activitiesGalleryImages[4].src}
-              alt={activitiesGalleryImages[4].alt}
-              index={4}
-              onClick={setGalleryIndex}
-              className="aspect-square md:aspect-[4/3] block w-full"
-              imgClassName="w-full h-full object-cover object-top rounded-3xl"
-            />
-            <GalleryImageTrigger
-              src={activitiesGalleryImages[5].src}
-              alt={activitiesGalleryImages[5].alt}
-              index={5}
-              onClick={setGalleryIndex}
-              className="aspect-square md:aspect-[4/3] block w-full"
-              imgClassName="w-full h-full object-cover object-center rounded-3xl"
-            />
+            <div className="flex flex-col gap-4">
+              <GalleryImageTrigger
+                src={activitiesGalleryImages[4].src}
+                alt={activitiesGalleryImages[4].alt}
+                index={4}
+                onClick={setGalleryIndex}
+                className="aspect-square md:aspect-[4/3] block w-full"
+                imgClassName="w-full h-full object-cover object-top rounded-3xl"
+              />
+              <a href="https://www.dcoe.or.kr/article/NOTICE/detail/2118" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 mt-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/30 hover:text-white transition-all text-gray-300 text-sm font-medium w-fit group">
+                세미나 공지사항 확인하기 <span className="text-gray-500 group-hover:text-white transition-colors">↗</span>
+              </a>
+            </div>
+            <div className="flex flex-col gap-4">
+              <GalleryImageTrigger
+                src={activitiesGalleryImages[5].src}
+                alt={activitiesGalleryImages[5].alt}
+                index={5}
+                onClick={setGalleryIndex}
+                className="aspect-square md:aspect-[4/3] block w-full"
+                imgClassName="w-full h-full object-cover object-center rounded-3xl"
+              />
+              <a href="https://www.webplusnews.kr/news/articleView.html?idxno=35102" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 mt-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/30 hover:text-white transition-all text-gray-300 text-sm font-medium w-fit group">
+                관련 보도 기사 확인하기 <span className="text-gray-500 group-hover:text-white transition-colors">↗</span>
+              </a>
+            </div>
           </div>
         </div>
 
