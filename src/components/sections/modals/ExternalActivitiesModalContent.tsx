@@ -157,14 +157,14 @@ export function ExternalActivitiesModalContent() {
               <span className="px-3 py-1 bg-white/10 text-gray-300 rounded-full text-sm">2024.06</span>
             </div>
           </div>
-          <div className="w-full max-w-xl mx-auto">
+          <div className="w-full max-w-3xl mx-auto">
             <GalleryImageTrigger
               src={activitiesGalleryImages[6].src}
               alt={activitiesGalleryImages[6].alt}
               index={6}
               onClick={setGalleryIndex}
-              className="aspect-[21/9] md:aspect-[3/1] block w-full max-h-60"
-              imgClassName="w-full h-full object-cover object-[center_30%] rounded-3xl"
+              className="aspect-video block w-full bg-black/30 rounded-3xl"
+              imgClassName="w-full h-full object-contain object-center rounded-3xl"
             />
           </div>
         </div>
@@ -223,8 +223,8 @@ export function ExternalActivitiesModalContent() {
                   alt={activitiesGalleryImages[9].alt}
                   index={9}
                   onClick={setGalleryIndex}
-                  className="aspect-[21/9] md:aspect-[3/1] w-full block max-w-xl mx-auto max-h-60"
-                  imgClassName="w-full h-full object-cover object-center rounded-2xl"
+                  className="aspect-video w-full block max-w-3xl mx-auto bg-black/30 rounded-2xl"
+                  imgClassName="w-full h-full object-contain object-center rounded-2xl"
                 />
               </div>
             </div>
