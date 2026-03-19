@@ -8,8 +8,8 @@ import { CustomCursor } from "@/components/ui/CustomCursor";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "최용찬 (Choi Yongchan) | 게임 프로듀서 & 디렉터 포트폴리오",
-  description: "게임 PD 최용찬 대표의 포트폴리오입니다. (주)외계인납치작전 게임 제작, 잔혹동화 피그로맨스, 모바일 게임 및 자체 IP 기획, AR 그림책 제작 등 20년 경력의 크리에이티브 디렉터 작업물 아카이브.",
+  title: "최용찬 | 시각 콘텐츠, 게임, 프로젝트 운영, 실무 기록",
+  description: "피그로맨스 게임, 그래픽 디자인, 그래피티 등 20년 경력의 크리에이티브 디렉터 작업물 아카이브",
   keywords: [
     "최용찬",
     "최용찬 대표",
@@ -27,14 +27,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ko_KR",
     url: "https://choiyongchan.com", // Adjust as necessary
-    title: "최용찬 (Choi Yongchan) | 게임 프로듀서 & 디렉터 포트폴리오",
-    description: "게임 PD 최용찬 대표의 포트폴리오입니다. 20년 경력의 크리에이티브 디렉터 작업물 아카이브.",
+    title: "최용찬 | 시각 콘텐츠, 게임, 프로젝트 운영, 실무 기록",
+    description: "피그로맨스 게임, 그래픽 디자인, 그래피티 등 20년 경력의 크리에이티브 디렉터 작업물 아카이브",
     siteName: "Choi Yongchan Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "최용찬 (Choi Yongchan) | 게임 프로듀서 & 디렉터 포트폴리오",
-    description: "게임 PD 최용찬 대표의 포트폴리오입니다. 20년 경력의 크리에이티브 디렉터 작업물 아카이브.",
+    title: "최용찬 | 시각 콘텐츠, 게임, 프로젝트 운영, 실무 기록",
+    description: "피그로맨스 게임, 그래픽 디자인, 그래피티 등 20년 경력의 크리에이티브 디렉터 작업물 아카이브",
   },
   robots: {
     index: true,
